@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women's Beauty & Style - Curated Finds</title>
+    <title>Women's Beauty Categories</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,91 +12,141 @@
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --button-bg: #FBBF24;
+            --button-text: #0F172A;
             --border-radius: 16px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; padding: 24px 16px 40px; min-height: 100vh; }
-        .container { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
-
-        .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 13px; font-weight: 700; padding: 8px 14px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
-        .back-btn:hover { transform: translateX(-2px); border-color: var(--button-bg); }
-
-        .page-header { text-align: center; margin-bottom: 32px; }
-        .page-title { font-size: 26px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-        .page-subtitle { font-size: 15px; color: var(--text-secondary); max-width: 450px; margin: 0 auto; }
-
-        .categories-grid { width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 16px; }
-        .category-card { background-color: #FFFFFF; border: 1px solid #DCE6F1; border-radius: var(--border-radius); padding: 20px 24px; text-decoration: none; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
-        .category-card:hover { transform: translateY(-3px); border-color: var(--button-bg); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
-        .category-info { display: flex; align-items: center; gap: 16px; }
-        .category-icon { font-size: 28px; }
-        .category-text h2 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
-        .category-text p { font-size: 13px; color: var(--text-secondary); }
-        .category-arrow { font-size: 20px; color: #1E3A8A; font-weight: 700; }
-
-        @media (min-width: 1024px) {
-            .container { max-width: 1100px; }
-            .categories-grid { max-width: 700px; }
-            .category-card { padding: 24px 30px; }
-            .category-text h2 { font-size: 20px; }
-            .category-text p { font-size: 14px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .footer { margin-top: auto; padding-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            padding: 24px 16px 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #1E3A8A;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .categories-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="nav-header">
-            <!-- Lumabas sa women/ folder para pumunta sa main homepage -->
-            <a href="../index.html" class="back-btn">← Home</a>
-        </div>
-
-        <div class="page-header">
-            <h1 class="page-title">💄 Women's Beauty & Style</h1>
-            <p class="page-subtitle">Choose a category below to explore curated skincare, makeup, and lip favorites.</p>
+        <!-- LINK PABALIK SA MAIN INDEX.HTML (Gamit ang ../) -->
+        <div class="header">
+            <a href="../index.html" class="back-btn">← Back to Home</a>
+            <h1>💄 Women's Beauty</h1>
+            <p>Select a category to explore</p>
         </div>
 
         <div class="categories-grid">
-            <a href="face/face.html" class="category-card">
-                <div class="category-info">
-                    <span class="category-icon">✨</span>
-                    <div class="category-text">
-                        <h2>Face & Skincare</h2>
-                        <p>Sunscreens, glow filters, base makeup & daily essentials.</p>
-                    </div>
-                </div>
-                <span class="category-arrow">→</span>
-            </a>
 
-            <a href="eyes/eyes.html" class="category-card">
-                <div class="category-info">
-                    <span class="category-icon">👁️</span>
-                    <div class="category-text">
-                        <h2>Eyes & Brows</h2>
-                        <p>Volumizing mascaras, eyeliners & defining brow tools.</p>
-                    </div>
-                </div>
-                <span class="category-arrow">→</span>
-            </a>
+            <!-- FACE CATEGORY LINK -->
+            <div class="category-card">
+                <h3>✨ Face</h3>
+                <p>Foundations, sunscreens & skincare picks.</p>
+                <!-- DITO NAKA-LINK ANG FACE -->
+                <a href="face/face.html" class="buy-btn">Explore Face</a>
+            </div>
 
-            <a href="lips/lips.html" class="category-card">
-                <div class="category-info">
-                    <span class="category-icon">💋</span>
-                    <div class="category-text">
-                        <h2>Lips & Tint</h2>
-                        <p>Hydrating lip oils, glossy balms & long-lasting tints.</p>
-                    </div>
-                </div>
-                <span class="category-arrow">→</span>
-            </a>
-        </div>
+            <!-- EYES CATEGORY LINK -->
+            <div class="category-card">
+                <h3>👁️ Eyes</h3>
+                <p>Mascaras, eyeliners & eyeshadows.</p>
+                <!-- DITO NAKA-LINK ANG EYES -->
+                <a href="eyes/eyes.html" class="buy-btn">Explore Eyes</a>
+            </div>
 
-        <div class="footer">
-            <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
+            <!-- LIPS CATEGORY LINK -->
+            <div class="category-card">
+                <h3>💋 Lips</h3>
+                <p>Lipsticks, lip oils & tints.</p>
+                <!-- DITO NAKA-LINK ANG LIPS -->
+                <a href="lips/lips.html" class="buy-btn">Explore Lips</a>
+            </div>
+
         </div>
     </div>
 
