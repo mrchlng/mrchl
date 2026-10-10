@@ -50,7 +50,23 @@
         .buy-btn:hover { background-color: var(--accent-yellow); }
         .no-results { width: 100%; text-align: center; grid-column: 1 / -1; padding: 30px 0; color: var(--text-secondary); font-size: 14px; display: none; }
 
-        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+        /* Tablet Layout */
+        @media (min-width: 640px) {
+            .container { max-width: 95%; }
+            .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        }
+
+        /* PC / Large Desktop Layout (6 items per row) */
+        @media (min-width: 1024px) {
+            .container { max-width: 1200px; }
+            .products-grid { grid-template-columns: repeat(6, 1fr); gap: 12px; }
+            .product-card { padding: 10px; }
+            .product-img { height: 110px; }
+            .product-title { font-size: 11px; min-height: 32px; }
+            .product-desc { font-size: 10px; min-height: 28px; margin-bottom: 8px; }
+            .buy-btn { padding: 7px 0; font-size: 11px; }
+        }
+
         .footer { margin-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
     </style>
 </head>
@@ -121,14 +137,14 @@
             const grid = document.getElementById('productsGrid');
             const cards = Array.from(grid.querySelectorAll('.product-card'));
             
-            if (!sessionStorage.getItem('fragrance_shuffled')) {
-                for (let i = cards.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    grid.appendChild(cards[j]);
-                    cards.splice(j, 1);
-                }
-                sessionStorage.setItem('fragrance_shuffled', 'true');
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
             }
+
+            cards.forEach(card => {
+                grid.appendChild(card);
+            });
         });
 
         const searchInput = document.getElementById('searchInput');
