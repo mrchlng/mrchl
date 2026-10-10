@@ -35,7 +35,7 @@
 
         .container {
             width: 100%;
-            max-width: 1100px; /* Nilakihan nang kaunti para sa 5 items per row sa PC */
+            max-width: 1100px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -112,18 +112,17 @@
             box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
         }
 
-        /* PRODUCTS GRID: MOBILE DEFAULTS TO 2 ITEMS PER ROW */
+        /* PRODUCTS GRID: MOBILE 2 PER ROW, DESKTOP 5 PER ROW */
         .products-grid {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Mobile: 2 per row */
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
-        /* DESKTOP / PC VIEW: 5 ITEMS PER ROW */
         @media (min-width: 992px) {
             .products-grid {
-                grid-template-columns: repeat(5, 1fr); /* PC: 5 per row */
+                grid-template-columns: repeat(5, 1fr);
                 gap: 16px;
             }
         }
@@ -299,8 +298,24 @@
         </div>
     </div>
 
-    <!-- SEARCH BAR JAVASCRIPT -->
+    <!-- JAVASCRIPT FOR SHUFFLE AND SEARCH -->
     <script>
+        // FUNCTION PARA MAG-SHUFFLE NG MGA PRODUCTS SA PAGE LOAD/REFRESH
+        function shuffleProducts() {
+            const grid = document.getElementById('productsList');
+            const cards = Array.from(grid.getElementsByClassName('product-card'));
+            
+            // Fisher-Yates Shuffle Algorithm
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                grid.appendChild(cards[j]);
+            }
+        }
+
+        // KUSANG PIPINDOTIN KAPAG BINUKSAN O INI-REFRESH ANG PAGE
+        window.addEventListener('DOMContentLoaded', shuffleProducts);
+
+        // SEARCH FILTER FUNCTION
         function filterProducts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
