@@ -135,9 +135,10 @@
             border-radius: 12px;
             font-size: 13px;
             font-weight: 700;
-            text-decoration: none;
+            cursor: pointer;
             box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
             transition: all 0.2s ease;
+            user-select: none;
         }
 
         .choice-btn:hover, .choice-btn.active {
@@ -161,7 +162,7 @@
         .products-grid {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+            grid-template-columns: repeat(2, 1fr);
             gap: 14px;
         }
 
@@ -247,6 +248,16 @@
             background-color: var(--accent-yellow);
         }
 
+        .no-results {
+            width: 100%;
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 30px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: none;
+        }
+
         .footer {
             margin-top: 40px;
             font-size: 12px;
@@ -271,23 +282,23 @@
 
         <!-- SEARCH BAR -->
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search beauty recommendations...">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search beauty recommendations...">
         </div>
 
         <!-- SUB-CATEGORY CHOICES IN 1 ROW -->
         <div class="choices-row">
-            <a href="#face" class="choice-btn">✨ Face</a>
-            <a href="#eyes" class="choice-btn">👁️ Eyes</a>
-            <a href="#lips" class="choice-btn">💋 Lips</a>
+            <div class="choice-btn" data-category="face">✨ Face</div>
+            <div class="choice-btn" data-category="eyes">👁️ Eyes</div>
+            <div class="choice-btn" data-category="lips">💋 Lips</div>
         </div>
 
         <!-- RECOMMENDED PICKS SECTION (2 BOXES PER ROW) -->
         <div class="section-title">Recommended Picks ✨</div>
 
-        <div class="products-grid">
+        <div class="products-grid" id="productsGrid">
             
-            <!-- PRODUCT 1 -->
-            <div class="product-card">
+            <!-- PRODUCT 1: FACE -->
+            <div class="product-card" data-category="face">
                 <img src="https://images.unsplash.com/photo-1567928269937-23f2fef043a5?w=500&auto=format&fit=crop&q=80" alt="Daily Face Sunscreen" class="product-img">
                 <div class="product-info">
                     <div class="product-title">Everyday Face Sunscreen SPF 50</div>
@@ -296,8 +307,8 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 2 -->
-            <div class="product-card">
+            <!-- PRODUCT 2: FACE -->
+            <div class="product-card" data-category="face">
                 <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80" alt="Liquid Glow Filter" class="product-img">
                 <div class="product-info">
                     <div class="product-title">e.l.f. Halo Glow Liquid Filter</div>
@@ -306,8 +317,8 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 3 -->
-            <div class="product-card">
+            <!-- PRODUCT 3: LIPS -->
+            <div class="product-card" data-category="lips">
                 <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop&q=80" alt="Hydrating Lip Oil" class="product-img">
                 <div class="product-info">
                     <div class="product-title">NYX Fat Oil Lip Drip</div>
@@ -316,15 +327,17 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 4 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&auto=format&fit=crop&q=80" alt="Hydrating Facial Serum" class="product-img">
+            <!-- PRODUCT 4: EYES -->
+            <div class="product-card" data-category="eyes">
+                <img src="https://images.unsplash.com/photo-1591360236480-4ed861025fa1?w=500&auto=format&fit=crop&q=80" alt="Volumizing Mascara" class="product-img">
                 <div class="product-info">
-                    <div class="product-title">Hyaluronic Acid Serum</div>
-                    <div class="product-desc">Plumps skin and retains moisture for smooth skin texture.</div>
+                    <div class="product-title">Volumizing Lash Mascara</div>
+                    <div class="product-desc">Lifts and lengthens lashes without smudging or clumping.</div>
                 </div>
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
+
+            <div class="no-results" id="noResults">No products found matching your search.</div>
 
         </div>
 
@@ -333,5 +346,60 @@
         </div>
     </div>
 
+    <!-- JAVASCRIPT FOR ITEM SEARCH & FILTERING -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
+        const choiceBtns = document.querySelectorAll('.choice-btn');
+        const noResults = document.getElementById('noResults');
+
+        let activeCategory = null;
+
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const desc = card.querySelector('.product-desc').textContent.toLowerCase();
+                const cardCategory = card.getAttribute('data-category');
+
+                const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm) || cardCategory.includes(searchTerm);
+                const matchesCategory = !activeCategory || cardCategory === activeCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+
+        choiceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+
+                if (btn.classList.contains('active')) {
+                    btn.classList.remove('active');
+                    activeCategory = null;
+                } else {
+                    choiceBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeCategory = category;
+                }
+
+                filterProducts();
+            });
+        });
+    </script>
 </body>
 </html>
