@@ -7,331 +7,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Blue, White, Yellow Color Theme */
-            --bg-color: #EBF3FA;        /* Soft Pastel Blue Background */
-            --card-bg: #FFFFFF;        /* Pure White Card Background */
-            --text-primary: #0F172A;   /* Deep Navy Blue Text */
-            --text-secondary: #475569; /* Slate Gray Text */
-            --accent-yellow: #F59E0B;  /* Warm Amber Yellow */
-            --button-bg: #FBBF24;      /* Bright Golden Yellow */
-            --button-text: #0F172A;    /* Dark Text on Yellow Button */
+            --bg-color: #EBF3FA;
+            --card-bg: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --accent-yellow: #F59E0B;
+            --button-bg: #FBBF24;
+            --button-text: #0F172A;
             --border-radius: 16px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; padding: 24px 16px 40px; min-height: 100vh; }
+        .container { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            display: flex;
-            justify-content: center;
-            padding: 24px 16px 40px;
-            min-height: 100vh;
-        }
+        .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 13px; font-weight: 700; padding: 8px 14px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
+        .back-btn:hover { transform: translateX(-2px); border-color: var(--button-bg); }
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .page-header { text-align: center; margin-bottom: 20px; }
+        .page-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .page-subtitle { font-size: 14px; color: var(--text-secondary); max-width: 400px; margin: 0 auto; }
 
-        /* Navigation Header */
-        .nav-header {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
+        .search-container { width: 100%; max-width: 600px; margin-bottom: 20px; }
+        .search-input { width: 100%; padding: 12px 18px; font-size: 14px; border-radius: 24px; border: 1px solid #DCE6F1; background-color: #FFFFFF; color: var(--text-primary); outline: none; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+        .search-input:focus { border-color: var(--button-bg); box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2); }
 
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            color: #1E3A8A;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 8px 14px;
-            background-color: #FFFFFF;
-            border-radius: 20px;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-            transition: all 0.2s ease;
-        }
+        .categories-label { width: 100%; text-align: center; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 10px; }
+        .choices-row { width: 100%; max-width: 500px; display: flex; justify-content: center; gap: 10px; margin-bottom: 28px; }
+        .choice-btn { flex: 1; text-align: center; padding: 10px 0; background-color: #FFFFFF; color: #1E3A8A; border: 1px solid #DCE6F1; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03); transition: all 0.2s ease; user-select: none; }
+        .choice-btn:hover, .choice-btn.active { background-color: var(--button-bg); color: var(--button-text); border-color: var(--button-bg); transform: translateY(-2px); }
 
-        .back-btn:hover {
-            transform: translateX(-2px);
-            border-color: var(--button-bg);
-        }
+        .products-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .product-card { background: var(--card-bg); border-radius: var(--border-radius); padding: 14px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; border: 1px solid #DCE6F1; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; height: 100%; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); border-color: var(--button-bg); }
+        .product-img { width: 100%; height: 140px; border-radius: 12px; object-fit: cover; background-color: #F1F5F9; margin-bottom: 10px; }
+        .product-info { width: 100%; display: flex; flex-direction: column; align-items: center; flex-grow: 1; }
+        .product-title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; line-height: 1.3; min-height: 36px; display: flex; align-items: center; justify-content: center; }
+        .product-desc { font-size: 11px; color: var(--text-secondary); line-height: 1.35; margin-bottom: 12px; min-height: 32px; display: flex; align-items: center; justify-content: center; }
 
-        /* Page Header Title */
-        .page-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        .buy-btn { display: block; width: 100%; padding: 9px 0; background-color: var(--button-bg); color: var(--button-text); text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 8px; text-align: center; box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3); transition: background-color 0.15s ease; margin-top: auto; }
+        .buy-btn:hover { background-color: var(--accent-yellow); }
+        .no-results { width: 100%; text-align: center; grid-column: 1 / -1; padding: 30px 0; color: var(--text-secondary); font-size: 14px; display: none; }
 
-        .page-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-
-        .page-subtitle {
-            font-size: 14px;
-            color: var(--text-secondary);
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        /* Search Bar */
-        .search-container {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 18px;
-            font-size: 14px;
-            border-radius: 24px;
-            border: 1px solid #DCE6F1;
-            background-color: #FFFFFF;
-            color: var(--text-primary);
-            outline: none;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .search-input:focus {
-            border-color: var(--button-bg);
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
-        }
-
-        /* Centered Categories Label Above Choices */
-        .categories-label {
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        /* Sub-category Choices Row (Face, Eyes, Lips in 1 Row) */
-        .choices-row {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 28px;
-        }
-
-        .choice-btn {
-            flex: 1;
-            text-align: center;
-            padding: 10px 0;
-            background-color: #FFFFFF;
-            color: #1E3A8A;
-            border: 1px solid #DCE6F1;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-
-        .choice-btn:hover, .choice-btn.active {
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            border-color: var(--button-bg);
-            transform: translateY(-2px);
-        }
-
-        /* Centered Section Title */
-        .section-title {
-            width: 100%;
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E3A8A;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        /* Product Grid: Mobile (2 columns), PC (3 columns) */
-        .products-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        /* Individual Product Card */
-        .product-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 100%;
-        }
-
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-            border-color: var(--button-bg);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 140px;
-            border-radius: 12px;
-            object-fit: cover;
-            background-color: #F1F5F9;
-            margin-bottom: 10px;
-        }
-
-        .product-info {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-        }
-
-        .product-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            line-height: 1.3;
-            min-height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-desc {
-            font-size: 11px;
-            color: var(--text-secondary);
-            line-height: 1.35;
-            margin-bottom: 12px;
-            min-height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 9px 0;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-            transition: background-color 0.15s ease;
-            margin-top: auto;
-        }
-
-        .buy-btn:hover {
-            background-color: var(--accent-yellow);
-        }
-
-        .no-results {
-            width: 100%;
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 30px 0;
-            color: var(--text-secondary);
-            font-size: 14px;
-            display: none;
-        }
-
-        /* PC / DESKTOP SCREEN ADJUSTMENT (3 columns) */
-        @media (min-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 12px;
-            color: #64748B;
-            text-align: center;
-        }
+        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+        .footer { margin-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION -->
         <div class="nav-header">
             <a href="index.html" class="back-btn">← Home</a>
         </div>
 
-        <!-- PAGE HEADER -->
         <div class="page-header">
             <h1 class="page-title">💄 Women's Beauty & Style</h1>
             <p class="page-subtitle">My daily top picks for makeup, skincare & viral beauty finds.</p>
         </div>
 
-        <!-- SEARCH BAR -->
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="Search beauty recommendations...">
         </div>
 
-        <!-- CENTERED CATEGORIES LABEL ABOVE CHOICES -->
         <div class="categories-label">Categories</div>
 
-        <!-- SUB-CATEGORY CHOICES IN 1 ROW -->
         <div class="choices-row">
             <div class="choice-btn" data-category="face">✨ Face</div>
             <div class="choice-btn" data-category="eyes">👁️ Eyes</div>
             <div class="choice-btn" data-category="lips">💋 Lips</div>
         </div>
 
-        <!-- CENTERED RECOMMENDED PICKS SECTION -->
-        <div class="section-title">Recommended Picks ✨</div>
-
         <div class="products-grid" id="productsGrid">
             
-            <!-- PRODUCT 1: FACE -->
             <div class="product-card" data-category="face">
                 <img src="https://images.unsplash.com/photo-1567928269937-23f2fef043a5?w=500&auto=format&fit=crop&q=80" alt="Daily Face Sunscreen" class="product-img">
                 <div class="product-info">
-                    <div class="product-title">Mighty Patch Original</div>
+                    <div class="product-title">Everyday Face Sunscreen SPF 50</div>
                     <div class="product-desc">Lightweight, non-greasy facial sunscreen with zero white cast.</div>
                 </div>
-                <a href="https://link.amazon/B05CfhEbU" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 2: FACE -->
             <div class="product-card" data-category="face">
                 <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80" alt="Liquid Glow Filter" class="product-img">
                 <div class="product-info">
@@ -341,7 +98,6 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 3: LIPS -->
             <div class="product-card" data-category="lips">
                 <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop&q=80" alt="Hydrating Lip Oil" class="product-img">
                 <div class="product-info">
@@ -351,7 +107,6 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 4: EYES -->
             <div class="product-card" data-category="eyes">
                 <img src="https://images.unsplash.com/photo-1591360236480-4ed861025fa1?w=500&auto=format&fit=crop&q=80" alt="Volumizing Mascara" class="product-img">
                 <div class="product-info">
@@ -370,14 +125,11 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR SMART SESSION SHUFFLE, SEARCH & FILTERING -->
     <script>
-        // SMART SHUFFLE (Shuffles only on fresh load or hard refresh, keeps order within the browsing session)
         document.addEventListener("DOMContentLoaded", () => {
             const grid = document.getElementById('productsGrid');
             const cards = Array.from(grid.querySelectorAll('.product-card'));
             
-            // Check if shuffle was already done for this session
             if (!sessionStorage.getItem('women_shuffled')) {
                 for (let i = cards.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
