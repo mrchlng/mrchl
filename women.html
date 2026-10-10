@@ -122,7 +122,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 28px;
+            margin-bottom: 12px;
         }
 
         .choice-btn {
@@ -148,14 +148,26 @@
             transform: translateY(-2px);
         }
 
-        /* Section Title */
+        /* Centered Categories Tagline Under Filter Buttons */
+        .categories-label {
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* Centered Section Title */
         .section-title {
             width: 100%;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E3A8A;
-            margin-bottom: 14px;
-            text-align: left;
+            margin-bottom: 16px;
+            text-align: center;
         }
 
         /* Product Grid: Exactly 2 boxes per row */
@@ -292,7 +304,10 @@
             <div class="choice-btn" data-category="lips">💋 Lips</div>
         </div>
 
-        <!-- RECOMMENDED PICKS SECTION (2 BOXES PER ROW) -->
+        <!-- CENTERED CATEGORIES LABEL BELOW CHOICES -->
+        <div class="categories-label">Categories</div>
+
+        <!-- CENTERED RECOMMENDED PICKS SECTION (2 BOXES PER ROW) -->
         <div class="section-title">Recommended Picks ✨</div>
 
         <div class="products-grid" id="productsGrid">
