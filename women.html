@@ -22,20 +22,20 @@
         .container { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
 
         .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 13px; font-weight: 700; padding: 8px 14px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.06); transition: all 0.2s ease; }
+        .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 14px; font-weight: 700; padding: 8px 16px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.06); transition: all 0.2s ease; }
         .back-btn:hover { transform: translateX(-2px); border-color: var(--button-bg); }
 
         .page-header { text-align: center; margin-bottom: 20px; }
-        .page-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-        .page-subtitle { font-size: 14px; color: var(--text-secondary); max-width: 400px; margin: 0 auto; }
+        .page-title { font-size: 26px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .page-subtitle { font-size: 15px; color: var(--text-secondary); max-width: 450px; margin: 0 auto; }
 
-        .search-container { width: 100%; max-width: 600px; margin-bottom: 20px; }
-        .search-input { width: 100%; padding: 12px 18px; font-size: 14px; border-radius: 24px; border: 1px solid #DCE6F1; background-color: #FFFFFF; color: var(--text-primary); outline: none; box-shadow: 0 2px 8px rgba(30, 58, 138, 0.05); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+        .search-container { width: 100%; max-width: 600px; margin-bottom: 24px; }
+        .search-input { width: 100%; padding: 14px 20px; font-size: 15px; border-radius: 24px; border: 1px solid #DCE6F1; background-color: #FFFFFF; color: var(--text-primary); outline: none; box-shadow: 0 2px 8px rgba(30, 58, 138, 0.05); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
         .search-input:focus { border-color: var(--button-bg); box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25); }
 
-        .categories-label { width: 100%; text-align: center; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 10px; }
-        .choices-row { width: 100%; max-width: 500px; display: flex; justify-content: center; gap: 10px; margin-bottom: 28px; }
-        .choice-btn { flex: 1; text-align: center; padding: 10px 0; background-color: #FFFFFF; color: #1E3A8A; border: 1px solid #DCE6F1; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.04); transition: all 0.2s ease; user-select: none; }
+        .categories-label { width: 100%; text-align: center; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); margin-bottom: 12px; }
+        .choices-row { width: 100%; max-width: 600px; display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; }
+        .choice-btn { flex: 1; text-align: center; padding: 12px 16px; background-color: #FFFFFF; color: #1E3A8A; border: 2px solid #DCE6F1; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(30, 58, 138, 0.04); transition: all 0.2s ease; user-select: none; }
         .choice-btn:hover, .choice-btn.active { background-color: var(--button-bg); color: var(--button-text); border-color: var(--button-bg); transform: translateY(-2px); }
 
         .products-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -65,6 +65,7 @@
             .product-title { font-size: 11px; min-height: 32px; }
             .product-desc { font-size: 10px; min-height: 28px; margin-bottom: 8px; }
             .buy-btn { padding: 7px 0; font-size: 11px; }
+            .choice-btn { font-size: 16px; padding: 12px 20px; }
         }
 
         .footer { margin-top: 40px; font-size: 12px; color: var(--text-secondary); text-align: center; }
