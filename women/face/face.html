@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Face & Skincare Finds</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -35,13 +35,13 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 1100px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
-        /* Back Button */
+        /* Back Button Style */
         .nav-wrapper {
             margin-bottom: 24px;
         }
@@ -66,99 +66,155 @@
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
         }
 
-        /* Detail Card Layout */
-        .product-detail-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 24px;
+        /* Header Style */
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
             width: 100%;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
         }
 
-        @media (min-width: 600px) {
-            .product-detail-card {
-                flex-direction: row;
-                align-items: flex-start;
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .header p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Search Bar Style */
+        .search-container {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid #DCE6F1;
+            background-color: var(--card-bg);
+            font-size: 14px;
+            color: var(--text-primary);
+            outline: none;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--button-bg);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+        }
+
+        /* PRODUCTS GRID: MOBILE 2 PER ROW, DESKTOP 5 PER ROW */
+        .products-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (min-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
             }
         }
 
-        .product-detail-img {
-            width: 100%;
-            max-width: 280px;
-            height: 280px;
-            border-radius: 12px;
-            object-fit: cover;
-            background-color: #F1F5F9;
-            align-self: center;
+        /* PRODUCT BOX CARD */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            height: 100%;
         }
 
-        .product-detail-info {
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+            border-color: var(--button-bg);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 130px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            background-color: #F1F5F9;
+        }
+
+        .product-info {
+            width: 100%;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .product-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        /* Section Box (Why We Like It & Best For) */
-        .section-box {
-            background-color: #F8FAFC;
-            border-left: 4px solid var(--button-bg);
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
             font-size: 13px;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 4px;
+            line-height: 1.3;
+            min-height: 34px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
         }
 
-        .section-text {
-            font-size: 13px;
+        .product-desc {
+            font-size: 11px;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            min-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 12px 0;
+            padding: 8px 0;
             background-color: var(--button-bg);
             color: var(--button-text);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
-            margin-top: 12px;
+            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+            margin-top: auto;
             transition: background-color 0.15s ease;
         }
 
         .buy-btn:hover {
             background-color: var(--accent-yellow);
+        }
+
+        /* No Results Message */
+        .no-results {
+            display: none;
+            width: 100%;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            padding: 20px 0;
         }
     </style>
 </head>
@@ -167,97 +223,122 @@
     <div class="container">
         <!-- BACK BUTTON -->
         <div class="nav-wrapper">
-            <a href="face.html" class="back-btn">← Back to Face Menu</a>
+            <a href="../women.html" class="back-btn">← Back</a>
         </div>
 
-        <!-- PRODUCT DETAIL CARD -->
-        <div class="product-detail-card">
-            <img id="itemImg" src="" alt="Product Image" class="product-detail-img">
-            
-            <div class="product-detail-info">
-                <h1 id="itemTitle" class="product-title">Loading...</h1>
-                <p id="itemDesc" class="product-desc"></p>
+        <!-- HEADER -->
+        <div class="header">
+            <h1>✨ Face & Skincare</h1>
+            <p>Curated skincare essentials, sunscreens, and base makeup picks.</p>
+        </div>
 
-                <!-- WHY WE LIKE IT -->
-                <div class="section-box">
-                    <div class="section-title">💖 Why We Like It</div>
-                    <p id="itemWhyLike" class="section-text"></p>
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search face products..." onkeyup="filterProducts()">
+        </div>
+
+        <!-- PRODUCTS BOX GRID -->
+        <div class="products-grid" id="productsList">
+
+            <!-- PRODUCT BOX 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Everyday Sunscreen SPF 50</div>
+                    <div class="product-desc">Lightweight, non-greasy UV shield.</div>
                 </div>
-
-                <!-- BEST FOR -->
-                <div class="section-box">
-                    <div class="section-title">✨ Best For</div>
-                    <p id="itemBestFor" class="section-text"></p>
-                </div>
-
-                <!-- BUY BUTTON -->
-                <a id="itemBuyLink" href="#" target="_blank" class="buy-btn">Buy Product Now →</a>
+                <a href="#" target="_blank" class="buy-btn">Shop Now →</a>
             </div>
+
+            <!-- PRODUCT BOX 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1608248597260-657d6540d993?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Hydrating Skin Tint</div>
+                    <div class="product-desc">Natural glow base with sheer finish.</div>
+                </div>
+                <a href="#" target="_blank" class="buy-btn">Shop Now →</a>
+            </div>
+
+            <!-- PRODUCT BOX 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Soothing Cleanser</div>
+                    <div class="product-desc">Gentle daily face wash for sensitive skin.</div>
+                </div>
+                <a href="#" target="_blank" class="buy-btn">Shop Now →</a>
+            </div>
+
+            <!-- PRODUCT BOX 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Glow Serum</div>
+                    <div class="product-desc">Brightening serum with Vitamin C.</div>
+                </div>
+                <a href="#" target="_blank" class="buy-btn">Shop Now →</a>
+            </div>
+
+            <!-- PRODUCT BOX 5 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="product-info">
+                    <div class="product-title">Barrier Moisturizer</div>
+                    <div class="product-desc">Deep hydration for soft skin.</div>
+                </div>
+                <a href="#" target="_blank" class="buy-btn">Shop Now →</a>
+            </div>
+
+        </div>
+
+        <!-- NO RESULTS MESSAGE -->
+        <div id="noResults" class="no-results">
+            No products found.
         </div>
     </div>
 
+    <!-- JAVASCRIPT FOR SHUFFLE AND SEARCH -->
     <script>
-        // DATOS NG MGA PRODUKTO (Dito mo papalitan ang mga detalye, larawan, at link ng affiliate)
-        const productsData = {
-            "sunscreen": {
-                title: "Everyday Sunscreen SPF 50",
-                img: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&auto=format&fit=crop&q=80",
-                desc: "A broad-spectrum daily SPF 50 sunscreen designed for ultimate protection without leaving any white cast or sticky feeling.",
-                whyLike: "It blends effortlessly like a lightweight moisturizer, absorbs fast, and works seamlessly under makeup.",
-                bestFor: "Daily sun protection, oily and combination skin types, and underneath makeup.",
-                link: "https://example.com/sunscreen-link"
-            },
-            "skintint": {
-                title: "Hydrating Skin Tint",
-                img: "https://images.unsplash.com/photo-1608248597260-657d6540d993?w=500&auto=format&fit=crop&q=80",
-                desc: "A sheer-to-medium coverage skin tint infused with hyaluronic acid for an instant dewy glow.",
-                whyLike: "Gives that effortlessly healthy 'no-makeup makeup' look while keeping skin moisturized all day.",
-                bestFor: "Dry or dull skin, quick daily routines, and a fresh natural glow.",
-                link: "https://example.com/skintint-link"
-            },
-            "cleanser": {
-                title: "Soothing Cleanser",
-                img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=80",
-                desc: "A gentle gel cleanser that lifts away dirt and oil without stripping away essential skin moisture.",
-                whyLike: "Leaves the skin feeling calm, clean, and balanced without any tightness or irritation.",
-                bestFor: "Sensitive skin, morning cleanses, and soothing breakouts.",
-                link: "https://example.com/cleanser-link"
-            },
-            "serum": {
-                title: "Glow Serum",
-                img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=80",
-                desc: "A powerful brightening serum loaded with Vitamin C and niacinamide to even out skin tone.",
-                whyLike: "Visibly fades dark spots and leaves a radiant, lit-from-within glow after just a few uses.",
-                bestFor: "Uneven skin tone, hyperpigmentation, and dullness.",
-                link: "https://example.com/serum-link"
-            },
-            "moisturizer": {
-                title: "Barrier Moisturizer",
-                img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&auto=format&fit=crop&q=80",
-                desc: "A rich moisturizer formulated with ceramides to strengthen and restore damaged skin barriers.",
-                whyLike: "Provides long-lasting moisture lock without clogging pores or feeling too heavy.",
-                bestFor: "Dry skin, compromised skin barriers, and night-time hydration.",
-                link: "https://example.com/moisturizer-link"
+        // FUNCTION PARA MAG-SHUFFLE NG MGA PRODUCTS SA PAGE LOAD/REFRESH
+        function shuffleProducts() {
+            const grid = document.getElementById('productsList');
+            const cards = Array.from(grid.getElementsByClassName('product-card'));
+            
+            // Fisher-Yates Shuffle Algorithm
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                grid.appendChild(cards[j]);
             }
-        };
+        }
 
-        // KINUKUHA ANG URL PARAMETER
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id');
+        // KUSANG PIPINDOTIN KAPAG BINUKSAN O INI-REFRESH ANG PAGE
+        window.addEventListener('DOMContentLoaded', shuffleProducts);
 
-        // IPINAPAKITA ANG TAMANG DETALYE SA PAGE
-        if (productId && productsData[productId]) {
-            const item = productsData[productId];
-            document.getElementById('itemTitle').innerText = item.title;
-            document.getElementById('itemImg').src = item.img;
-            document.getElementById('itemDesc').innerText = item.desc;
-            document.getElementById('itemWhyLike').innerText = item.whyLike;
-            document.getElementById('itemBestFor').innerText = item.bestFor;
-            document.getElementById('itemBuyLink').href = item.link;
-            document.title = item.title + " | Details";
-        } else {
-            document.getElementById('itemTitle').innerText = "Product Not Found";
-            document.getElementById('itemDesc').innerText = "Please go back to the face menu and select a product.";
+        // SEARCH FILTER FUNCTION
+        function filterProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.getElementsByClassName('product-card');
+            let hasVisibleCard = false;
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].querySelector('.product-title').innerText.toLowerCase();
+                const desc = cards[i].querySelector('.product-desc').innerText.toLowerCase();
+
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "flex";
+                    hasVisibleCard = true;
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            const noResults = document.getElementById('noResults');
+            if (hasVisibleCard) {
+                noResults.style.display = "none";
+            } else {
+                noResults.style.display = "block";
+            }
         }
     </script>
 
