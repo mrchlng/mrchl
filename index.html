@@ -30,7 +30,7 @@
             color: var(--text-primary);
             display: flex;
             justify-content: center;
-            padding: 20px 16px 40px;
+            padding: 24px 16px 40px;
             min-height: 100vh;
         }
 
@@ -45,7 +45,7 @@
         /* Profile Header */
         .profile-section {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .profile-img {
@@ -73,31 +73,19 @@
             margin: 0 auto;
         }
 
-        /* Section Titles */
-        .section-title {
-            width: 100%;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #1E3A8A;
-            margin: 28px 0 12px 4px;
-        }
-
-        /* Products Grid Layout - Mobile Default (2 columns) */
-        .products-container {
+        /* Categories Section Container */
+        .categories-grid {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 8px;
+            grid-template-columns: repeat(2, 1fr); /* Mobile: 2 choices per row */
+            gap: 14px;
         }
 
-        /* Product Cards Base Style */
-        .product-card {
+        /* Category Card Box */
+        .category-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: 12px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -106,51 +94,37 @@
             border: 1px solid #DCE6F1;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
         }
 
-        .product-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
             border-color: var(--button-bg);
         }
 
-        /* Single Top Choice Highlight Badge */
-        .top-choice-badge {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            background-color: var(--accent-yellow);
-            color: #0F172A;
-            font-size: 10px;
+        .category-tag {
+            font-size: 11px;
             font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #1E3A8A;
+            margin-bottom: 8px;
         }
 
         .product-img {
             width: 100%;
-            height: 110px;
+            height: 120px;
             border-radius: 12px;
             object-fit: cover;
             background-color: #F1F5F9;
             margin-bottom: 10px;
         }
 
-        .product-info {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            flex-grow: 1;
-        }
-
         .product-title {
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
+            margin-bottom: 4px;
             line-height: 1.3;
         }
 
@@ -158,13 +132,13 @@
             font-size: 11px;
             color: var(--text-secondary);
             line-height: 1.3;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 8px 0;
+            padding: 9px 0;
             background-color: var(--button-bg);
             color: var(--button-text);
             text-decoration: none;
@@ -173,7 +147,7 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-            transition: transform 0.15s ease, background-color 0.15s ease;
+            transition: background-color 0.15s ease;
             margin-top: auto;
         }
 
@@ -181,26 +155,15 @@
             background-color: var(--accent-yellow);
         }
 
-        /* DESKTOP VIEW SPECIFIC STYLES (1 Horizontal Row) */
+        /* DESKTOP VIEW: Exactly 1 horizontal row containing all 4 choices */
         @media (min-width: 768px) {
-            .products-container {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr); /* PC: 4 boxes in 1 horizontal row */
                 gap: 16px;
-                overflow-x: auto;
-                padding-bottom: 8px;
-            }
-
-            .product-card {
-                min-width: 200px;
-                max-width: 220px;
-                flex-shrink: 0;
             }
 
             .product-img {
-                height: 130px;
+                height: 140px;
             }
         }
 
@@ -219,103 +182,48 @@
         <div class="profile-section">
             <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-img">
             <h1 class="profile-name">Sarah's Curated Finds ✨</h1>
-            <p class="profile-bio">Your go-to bestie for women, men, fragrance & home recos! Shop my top picks below 👇</p>
+            <p class="profile-bio">Your go-to bestie for top picks in women, men, fragrance & home! Shop below 👇</p>
         </div>
 
-        <!-- CATEGORY 1: WOMEN -->
-        <div class="section-title">💄 Women</div>
-        <div class="products-container">
-            <!-- Top Choice Only (Single Highlighted Item) -->
-            <div class="product-card">
-                <span class="top-choice-badge">★ Top Pick</span>
+        <!-- 4 CATEGORY CHOICES IN HORIZONTAL ROW -->
+        <div class="categories-grid">
+            
+            <!-- CHOICE 1: WOMEN -->
+            <div class="category-card">
+                <div class="category-tag">💄 Women</div>
                 <img src="https://via.placeholder.com/150" alt="e.l.f. Halo Glow" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">e.l.f. Halo Glow Liquid Filter</div>
-                    <div class="product-desc">Effortless radiant glow</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
+                <div class="product-title">e.l.f. Halo Glow Liquid Filter</div>
+                <div class="product-desc">Effortless radiant glow</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="NYX Fat Oil" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">NYX Fat Oil Lip Drip</div>
-                    <div class="product-desc">Hydrating lip oil</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CATEGORY 2: MEN -->
-        <div class="section-title">👔 Men</div>
-        <div class="products-container">
-            <!-- Top Choice Only -->
-            <div class="product-card">
-                <span class="top-choice-badge">★ Top Pick</span>
-                <img src="https://via.placeholder.com/150" alt="Grooming Kit" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Men's Daily Grooming Kit</div>
-                    <div class="product-desc">Essential daily skincare</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
+            <!-- CHOICE 2: MEN -->
+            <div class="category-card">
+                <div class="category-tag">👔 Men</div>
+                <img src="https://via.placeholder.com/150" alt="Men's Grooming Kit" class="product-img">
+                <div class="product-title">Daily Grooming Kit</div>
+                <div class="product-desc">Essential daily skincare</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Facial Wash" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Men's Face Wash</div>
-                    <div class="product-desc">Deep cleaning cleanser</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CATEGORY 3: FRAGRANCE -->
-        <div class="section-title">✨ Fragrance</div>
-        <div class="products-container">
-            <!-- Top Choice Only -->
-            <div class="product-card">
-                <span class="top-choice-badge">★ Top Pick</span>
+            <!-- CHOICE 3: FRAGRANCE -->
+            <div class="category-card">
+                <div class="category-tag">✨ Fragrance</div>
                 <img src="https://via.placeholder.com/150" alt="Vanilla Body Mist" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Sweet Vanilla Body Mist</div>
-                    <div class="product-desc">Long-lasting cozy scent</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
+                <div class="product-title">Sweet Vanilla Mist</div>
+                <div class="product-desc">Long-lasting cozy scent</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Citrus Perfume" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Fresh Citrus EDP</div>
-                    <div class="product-desc">Refreshing daily perfume</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CATEGORY 4: HOME & LIVING -->
-        <div class="section-title">🏠 Home & Living</div>
-        <div class="products-container">
-            <!-- Top Choice Only -->
-            <div class="product-card">
-                <span class="top-choice-badge">★ Top Pick</span>
+            <!-- CHOICE 4: HOME & LIVING -->
+            <div class="category-card">
+                <div class="category-tag">🏠 Home & Living</div>
                 <img src="https://via.placeholder.com/150" alt="Ceramic Diffuser" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Ceramic Oil Diffuser</div>
-                    <div class="product-desc">Cozy room aromatherapy</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
+                <div class="product-title">Ceramic Oil Diffuser</div>
+                <div class="product-desc">Cozy room aromatherapy</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="Aesthetic Candle" class="product-img">
-                <div class="product-info">
-                    <div class="product-title">Aesthetic Soy Candle</div>
-                    <div class="product-desc">Scented soy wax candle</div>
-                    <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop Now 🛍️</a>
-                </div>
-            </div>
         </div>
 
         <div class="footer">
