@@ -50,7 +50,23 @@
         .buy-btn:hover { background-color: var(--accent-yellow); }
         .no-results { width: 100%; text-align: center; grid-column: 1 / -1; padding: 30px 0; color: var(--text-secondary); font-size: 14px; display: none; }
 
-        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+        /* Tablet Layout */
+        @media (min-width: 640px) {
+            .container { max-width: 95%; }
+            .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        }
+
+        /* PC / Large Desktop Layout (6 items per row) */
+        @media (min-width: 1024px) {
+            .container { max-width: 1200px; }
+            .products-grid { grid-template-columns: repeat(6, 1fr); gap: 12px; }
+            .product-card { padding: 10px; }
+            .product-img { height: 110px; }
+            .product-title { font-size: 11px; min-height: 32px; }
+            .product-desc { font-size: 10px; min-height: 28px; margin-bottom: 8px; }
+            .buy-btn { padding: 7px 0; font-size: 11px; }
+        }
+
         .footer { margin-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
     </style>
 </head>
@@ -63,7 +79,7 @@
 
         <div class="page-header">
             <h1 class="page-title">🏠 Home & Living</h1>
-            <p class="page-subtitle">Aesthetic kitchen finds, smart organizers & cozy room decor.</p>
+            <p class="page-subtitle">Aesthetic kitchen finds, smart organizers & living room decor.</p>
         </div>
 
         <div class="search-container">
@@ -75,12 +91,11 @@
         <div class="choices-row">
             <div class="choice-btn" data-category="kitchen">🍳 Kitchen</div>
             <div class="choice-btn" data-category="organizers">📦 Organizers</div>
-            <div class="choice-btn" data-category="decor">🕯️ Decor & Scents</div>
+            <div class="choice-btn" data-category="decor">🛋️ Decor & Living</div>
         </div>
 
         <div class="products-grid" id="productsGrid">
             
-            <!-- PRODUCT 1: KITCHEN -->
             <div class="product-card" data-category="kitchen">
                 <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=80" alt="Aesthetic Glass Tumbler" class="product-img">
                 <div class="product-info">
@@ -90,7 +105,6 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 2: ORGANIZERS -->
             <div class="product-card" data-category="organizers">
                 <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&auto=format&fit=crop&q=80" alt="Clear Desktop Organizer" class="product-img">
                 <div class="product-info">
@@ -100,12 +114,11 @@
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
 
-            <!-- PRODUCT 3: DECOR & SCENTS -->
             <div class="product-card" data-category="decor">
-                <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&auto=format&fit=crop&q=80" alt="Scented Soy Candle" class="product-img">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&auto=format&fit=crop&q=80" alt="Aesthetic Sofa Cover" class="product-img">
                 <div class="product-info">
-                    <div class="product-title">Minimalist Soy Wax Candle</div>
-                    <div class="product-desc">Clean-burning scented soy candle with a relaxing aroma.</div>
+                    <div class="product-title">Stretchable Sofa Slipcover</div>
+                    <div class="product-desc">Soft, washable sofa cover to give your living room a clean, modern look.</div>
                 </div>
                 <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
             </div>
@@ -124,14 +137,14 @@
             const grid = document.getElementById('productsGrid');
             const cards = Array.from(grid.querySelectorAll('.product-card'));
             
-            if (!sessionStorage.getItem('home_shuffled')) {
-                for (let i = cards.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    grid.appendChild(cards[j]);
-                    cards.splice(j, 1);
-                }
-                sessionStorage.setItem('home_shuffled', 'true');
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
             }
+
+            cards.forEach(card => {
+                grid.appendChild(card);
+            });
         });
 
         const searchInput = document.getElementById('searchInput');
