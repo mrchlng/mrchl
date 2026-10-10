@@ -1,1 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Beauty & Lifestyle Finds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF8F5;
+            --card-bg: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --accent-color: #E8A598;
+            --button-bg: #1A1A1A;
+            --button-text: #FFFFFF;
+            --border-radius: 16px;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            padding: 20px 16px 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Profile Header */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 12px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        /* Product Sections */
+        .section-title {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888888;
+            margin: 20px 0 12px 4px;
+        }
+
+        .product-card {
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            background-color: #F0F0F0;
+            flex-shrink: 0;
+        }
+
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 8px 14px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 8px;
+            text-align: center;
+            align-self: flex-start;
+            transition: opacity 0.2s;
+        }
+
+        .buy-btn:hover {
+            opacity: 0.88;
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #AAA;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- PROFILE HEADER -->
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-img">
+            <h1 class="profile-name">Sarah's Curated Finds ✨</h1>
+            <p class="profile-bio">Your go-to bestie for trusted beauty, home & lifestyle recos! Shop my daily favorites below 👇</p>
+        </div>
+
+        <!-- CATEGORY 1: BEAUTY -->
+        <div class="section-title">💄 Viral Beauty Essentials</div>
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="e.l.f. Halo Glow" class="product-img">
+            <div class="product-info">
+                <div class="product-title">e.l.f. Halo Glow Liquid Filter</div>
+                <div class="product-desc">Gives an effortless, radiant glow. Great alone or under foundation!</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop on Amazon 🛍️</a>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="NYX Fat Oil" class="product-img">
+            <div class="product-info">
+                <div class="product-title">NYX Fat Oil Lip Drip</div>
+                <div class="product-desc">High-shine, hydrating lip oil without any sticky feeling.</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop on Amazon 🛍️</a>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: HOME & LIFESTYLE -->
+        <div class="section-title">🏠 Cozy Home Favorites</div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Diffuser" class="product-img">
+            <div class="product-info">
+                <div class="product-title">Aesthetic Ceramic Diffuser</div>
+                <div class="product-desc">Minimalist oil diffuser to keep your room cozy and fresh.</div>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">Shop on Amazon 🛍️</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 • As an Amazon Associate, I earn from qualifying purchases.</p>
+        </div>
+    </div>
+
+</body>
+</html>
