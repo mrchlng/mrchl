@@ -11,6 +11,7 @@
             --card-bg: #FFFFFF;
             --text-primary: #0F172A;
             --text-secondary: #475569;
+            --accent-yellow: #F59E0B;
             --button-bg: #FBBF24;
             --button-text: #0F172A;
             --border-radius: 16px;
@@ -40,24 +41,50 @@
             align-items: center;
         }
 
+        /* Nav wrapper para ma-align sa kaliwa */
+        .nav-wrapper {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        /* Istilo ng Button (Gaya ng nasa screenshot mo) */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 50px; /* Ginagawa nitong pill/capsule shape */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+            border-color: var(--button-bg);
+        }
+
         .header {
             text-align: center;
             margin-bottom: 28px;
+            width: 100%;
         }
 
         .header h1 {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 16px;
-            color: #1E3A8A;
-            text-decoration: none;
-            font-weight: 600;
+        .header p {
             font-size: 14px;
+            color: var(--text-secondary);
         }
 
         .categories-grid {
@@ -83,17 +110,26 @@
             text-align: center;
             border: 1px solid #DCE6F1;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+            border-color: var(--button-bg);
         }
 
         .category-card h3 {
             font-size: 18px;
             margin-bottom: 8px;
+            color: var(--text-primary);
         }
 
         .category-card p {
             font-size: 12px;
             color: var(--text-secondary);
             margin-bottom: 16px;
+            line-height: 1.4;
         }
 
         .buy-btn {
@@ -108,43 +144,50 @@
             border-radius: 8px;
             text-align: center;
             margin-top: auto;
+            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+            transition: background-color 0.15s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-yellow);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- LINK PABALIK SA MAIN INDEX.HTML (Gamit ang ../) -->
+        <!-- BACK BUTTON NA MAY PILL DESIGN AT NAKASULAT AY HOME -->
+        <div class="nav-wrapper">
+            <a href="../index.html" class="back-btn">← Home</a>
+        </div>
+
+        <!-- HEADER TITLE -->
         <div class="header">
-            <a href="../index.html" class="back-btn">← Back to Home</a>
             <h1>💄 Women's Beauty</h1>
             <p>Select a category to explore</p>
         </div>
 
         <div class="categories-grid">
 
-            <!-- FACE CATEGORY LINK -->
+            <!-- FACE CATEGORY -->
             <div class="category-card">
                 <h3>✨ Face</h3>
                 <p>Foundations, sunscreens & skincare picks.</p>
-                <!-- DITO NAKA-LINK ANG FACE -->
-                <a href="face/face.html" class="buy-btn">Explore Face</a>
+                <a href="face/face.html" class="buy-btn">Explore Face →</a>
             </div>
 
-            <!-- EYES CATEGORY LINK -->
+            <!-- EYES CATEGORY -->
             <div class="category-card">
                 <h3>👁️ Eyes</h3>
                 <p>Mascaras, eyeliners & eyeshadows.</p>
-                <!-- DITO NAKA-LINK ANG EYES -->
-                <a href="eyes/eyes.html" class="buy-btn">Explore Eyes</a>
+                <a href="eyes/eyes.html" class="buy-btn">Explore Eyes →</a>
             </div>
 
-            <!-- LIPS CATEGORY LINK -->
+            <!-- LIPS CATEGORY -->
             <div class="category-card">
                 <h3>💋 Lips</h3>
                 <p>Lipsticks, lip oils & tints.</p>
-                <!-- DITO NAKA-LINK ANG LIPS -->
-                <a href="lips/lips.html" class="buy-btn">Explore Lips</a>
+                <a href="lips/lips.html" class="buy-btn">Explore Lips →</a>
             </div>
 
         </div>
