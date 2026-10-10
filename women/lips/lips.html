@@ -25,9 +25,15 @@
         .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 13px; font-weight: 700; padding: 8px 14px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
         .back-btn:hover { transform: translateX(-2px); border-color: var(--button-bg); }
 
-        .page-header { text-align: center; margin-bottom: 24px; }
+        .page-header { text-align: center; margin-bottom: 24px; width: 100%; }
         .page-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-        .page-subtitle { font-size: 14px; color: var(--text-secondary); max-width: 400px; margin: 0 auto; }
+        .page-subtitle { font-size: 14px; color: var(--text-secondary); max-width: 400px; margin: 0 auto 16px; }
+
+        /* SEARCH BAR STYLES */
+        .search-box { width: 100%; max-width: 480px; margin: 0 auto; position: relative; }
+        .search-input { width: 100%; padding: 12px 16px 12px 42px; font-size: 14px; border: 1px solid #CBD5E1; border-radius: 30px; outline: none; transition: all 0.2s ease; background-color: #FFFFFF; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); }
+        .search-input:focus { border-color: var(--accent-yellow); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2); }
+        .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #94A3B8; pointer-events: none; }
 
         .products-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .product-card { background: var(--card-bg); border-radius: var(--border-radius); padding: 14px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; border: 1px solid #DCE6F1; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; height: 100%; }
@@ -39,6 +45,8 @@
 
         .buy-btn { display: block; width: 100%; padding: 9px 0; background-color: var(--button-bg); color: var(--button-text); text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 8px; text-align: center; box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3); transition: background-color 0.15s ease; margin-top: auto; }
         .buy-btn:hover { background-color: var(--accent-yellow); }
+
+        .no-results { display: none; text-align: center; color: var(--text-secondary); font-size: 14px; margin-top: 20px; width: 100%; grid-column: 1 / -1; }
 
         @media (min-width: 640px) {
             .container { max-width: 95%; }
@@ -62,16 +70,21 @@
 
     <div class="container">
         <div class="nav-header">
-            <!-- Lumabas sa lips/ folder pabalik sa women.html -->
-            <a href="../women.html" class="back-btn">← Women's Menu</a>
+            <a href="../women.html" class="back-btn">← Back</a>
         </div>
 
         <div class="page-header">
             <h1 class="page-title">💋 Lips & Tint</h1>
             <p class="page-subtitle">Hydrating lip oils, glossy balms & long-lasting tints.</p>
+            
+            <!-- SEARCH BAR -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search lip products..." onkeyup="filterProducts()">
+            </div>
         </div>
 
-        <div class="products-grid">
+        <div class="products-grid" id="productsGrid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format&fit=crop&q=80" alt="Hydrating Lip Oil" class="product-img">
                 <div class="product-info">
@@ -80,12 +93,45 @@
                 </div>
                 <a href="ILAGAY_ANG_AFFILIATE_LINK_DITO" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon →</a>
             </div>
+
+            <!-- NO RESULTS MESSAGE -->
+            <div id="noResults" class="no-results">
+                Walang nahanap na product para sa iyong search. 🔍
+            </div>
         </div>
 
         <div class="footer">
             <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
         </div>
     </div>
+
+    <!-- SCRIPT PARA SA SEARCH BAR -->
+    <script>
+        function filterProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').innerText.toLowerCase();
+                const desc = card.querySelector('.product-desc').innerText.toLowerCase();
+
+                if (title.includes(input) || desc.includes(input)) {
+                    card.style.display = "flex";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
