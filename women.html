@@ -36,7 +36,7 @@
 
         .container {
             width: 100%;
-            max-width: 720px;
+            max-width: 900px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -95,6 +95,7 @@
         /* Search Bar */
         .search-container {
             width: 100%;
+            max-width: 600px;
             margin-bottom: 20px;
         }
 
@@ -131,6 +132,7 @@
         /* Sub-category Choices Row (Face, Eyes, Lips in 1 Row) */
         .choices-row {
             width: 100%;
+            max-width: 500px;
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -170,12 +172,12 @@
             text-align: center;
         }
 
-        /* Product Grid: Exactly 2 boxes per row */
+        /* Product Grid: Mobile (2 columns), PC (3 columns) */
         .products-grid {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 16px;
         }
 
         /* Individual Product Card */
@@ -202,7 +204,7 @@
 
         .product-img {
             width: 100%;
-            height: 130px;
+            height: 140px;
             border-radius: 12px;
             object-fit: cover;
             background-color: #F1F5F9;
@@ -270,6 +272,13 @@
             display: none;
         }
 
+        /* PC / DESKTOP SCREEN ADJUSTMENT (3 columns) */
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         .footer {
             margin-top: 40px;
             font-size: 12px;
@@ -307,7 +316,7 @@
             <div class="choice-btn" data-category="lips">💋 Lips</div>
         </div>
 
-        <!-- CENTERED RECOMMENDED PICKS SECTION (2 BOXES PER ROW) -->
+        <!-- CENTERED RECOMMENDED PICKS SECTION -->
         <div class="section-title">Recommended Picks ✨</div>
 
         <div class="products-grid" id="productsGrid">
@@ -361,10 +370,25 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR ITEM SEARCH & FILTERING -->
+    <!-- JAVASCRIPT FOR SMART SESSION SHUFFLE, SEARCH & FILTERING -->
     <script>
+        // SMART SHUFFLE (Shuffles only on fresh load or hard refresh, keeps order within the browsing session)
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById('productsGrid');
+            const cards = Array.from(grid.querySelectorAll('.product-card'));
+            
+            // Check if shuffle was already done for this session
+            if (!sessionStorage.getItem('women_shuffled')) {
+                for (let i = cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    grid.appendChild(cards[j]);
+                    cards.splice(j, 1);
+                }
+                sessionStorage.setItem('women_shuffled', 'true');
+            }
+        });
+
         const searchInput = document.getElementById('searchInput');
-        const productCards = document.querySelectorAll('.product-card');
         const choiceBtns = document.querySelectorAll('.choice-btn');
         const noResults = document.getElementById('noResults');
 
@@ -372,6 +396,7 @@
 
         function filterProducts() {
             const searchTerm = searchInput.value.toLowerCase().trim();
+            const productCards = document.querySelectorAll('.product-card');
             let visibleCount = 0;
 
             productCards.forEach(card => {
