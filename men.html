@@ -56,15 +56,15 @@
             .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
         }
 
-        /* PC / Large Desktop Layout (6 items per row) */
+        /* PC / Large Desktop Layout (6 items per row with wider, cleaner box sizes) */
         @media (min-width: 1024px) {
-            .container { max-width: 1200px; }
-            .products-grid { grid-template-columns: repeat(6, 1fr); gap: 12px; }
-            .product-card { padding: 10px; }
-            .product-img { height: 110px; }
-            .product-title { font-size: 11px; min-height: 32px; }
-            .product-desc { font-size: 10px; min-height: 28px; margin-bottom: 8px; }
-            .buy-btn { padding: 7px 0; font-size: 11px; }
+            .container { max-width: 1350px; }
+            .products-grid { grid-template-columns: repeat(6, 1fr); gap: 16px; }
+            .product-card { padding: 16px; border-radius: 18px; }
+            .product-img { height: 155px; border-radius: 12px; margin-bottom: 12px; }
+            .product-title { font-size: 13px; min-height: 38px; font-weight: 700; }
+            .product-desc { font-size: 11px; min-height: 34px; margin-bottom: 14px; }
+            .buy-btn { padding: 10px 0; font-size: 12px; border-radius: 10px; }
         }
 
         .footer { margin-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
@@ -102,7 +102,7 @@
                     <div class="product-title">Daily Hydrating Face Wash</div>
                     <div class="product-desc">Gentle foaming cleanser that removes dirt without stripping moisture.</div>
                 </div>
-                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon →</a>
             </div>
 
             <div class="product-card" data-category="grooming">
@@ -111,7 +111,7 @@
                     <div class="product-title">Conditioning Beard Oil</div>
                     <div class="product-desc">Softens coarse facial hair and nourishes the skin underneath.</div>
                 </div>
-                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon →</a>
             </div>
 
             <div class="product-card" data-category="hair">
@@ -120,7 +120,7 @@
                     <div class="product-title">Matte Finish Styling Clay</div>
                     <div class="product-desc">Strong, flexible hold with a natural matte texture all day.</div>
                 </div>
-                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon →</a>
             </div>
 
             <div class="product-card" data-category="skin">
@@ -129,7 +129,7 @@
                     <div class="product-title">Oil-Free Daily Moisturizer</div>
                     <div class="product-desc">Lightweight hydration with SPF protection for everyday wear.</div>
                 </div>
-                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon</a>
+                <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Amazon →</a>
             </div>
 
             <div class="no-results" id="noResults">No products found matching your search.</div>
