@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- PALITAN ANG TITLE NG PRODUCT MO -->
-    <title>Product Name - Curated Finds</title>
+    <title>Curated Finds - Affiliate Directory</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -19,20 +18,20 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; padding: 24px 16px 40px; min-height: 100vh; }
-        .container { width: 100%; max-width: 650px; display: flex; flex-direction: column; align-items: center; }
+        body { background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; padding: 32px 16px 40px; min-height: 100vh; }
+        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
 
-        .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #1E3A8A; font-size: 13px; font-weight: 700; padding: 8px 14px; background-color: #FFFFFF; border-radius: 20px; border: 1px solid #DCE6F1; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
-        .back-btn:hover { transform: translateX(-2px); border-color: var(--button-bg); }
+        .hero-section { text-align: center; margin-bottom: 28px; width: 100%; }
+        .site-title { font-size: 28px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+        .site-subtitle { font-size: 14px; color: var(--text-secondary); max-width: 420px; margin: 0 auto; line-height: 1.5; }
 
-        .product-detail-card { background: var(--card-bg); border-radius: var(--border-radius); padding: 24px; width: 100%; border: 1px solid #DCE6F1; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .product-img { width: 100%; max-height: 320px; border-radius: 12px; object-fit: cover; background-color: #F1F5F9; margin-bottom: 20px; }
-        .product-title { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
-        .product-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
-        
-        .buy-btn { display: block; width: 100%; padding: 14px 0; background-color: var(--button-bg); color: var(--button-text); text-decoration: none; font-size: 14px; font-weight: 700; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3); transition: background-color 0.15s ease; }
-        .buy-btn:hover { background-color: var(--accent-yellow); }
+        .category-list { width: 100%; display: flex; flex-direction: column; gap: 14px; }
+        .category-card { background: var(--card-bg); border-radius: var(--border-radius); padding: 18px 20px; text-decoration: none; color: var(--text-primary); display: flex; align-items: center; justify-content: space-between; border: 1px solid #DCE6F1; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); transition: transform 0.2s ease, border-color 0.2s ease; }
+        .category-card:hover { transform: translateY(-2px); border-color: var(--button-bg); }
+        .category-info { display: flex; align-items: center; gap: 14px; }
+        .category-icon { font-size: 24px; }
+        .category-name { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+        .category-arrow { font-size: 14px; font-weight: 700; color: #1E3A8A; }
 
         .footer { margin-top: 40px; font-size: 12px; color: #64748B; text-align: center; }
     </style>
@@ -40,26 +39,19 @@
 <body>
 
     <div class="container">
-        <div class="nav-header">
-            <!-- 
-                PALITAN ANG HREF DEPENDE SA CATEGORY:
-                • Para sa Face: href="../face.html"
-                • Para sa Eyes: href="../eyes.html"
-                • Para sa Lips: href="../lips.html"
-            -->
-            <a href="../face.html" class="back-btn">← Back to Category</a>
+        <div class="hero-section">
+            <h1 class="site-title">✨ Curated Finds</h1>
+            <p class="site-subtitle">Discover top-rated beauty, skincare, and everyday essentials.</p>
         </div>
 
-        <div class="product-detail-card">
-            <!-- PALITAN ANG IMAGE URL, TITLE, AT DESCRIPTION -->
-            <img src="https://images.unsplash.com/photo-1567928269937-23f2fef043a5?w=500&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
-            <h1 class="product-title">Product Title Dito</h1>
-            <p class="product-desc">
-                Ilagay dito ang kumpletong detalye, benepisyo, at review ng produkto para sa iyong mga buyers.
-            </p>
-
-            <!-- PALITAN ANG AFFILIATE LINK -->
-            <a href="ILAGAY_ANG_AFFILIATE_LINK_DITO" target="_blank" rel="noopener noreferrer" class="buy-btn">View On Store →</a>
+        <div class="category-list">
+            <a href="women/women.html" class="category-card">
+                <div class="category-info">
+                    <span class="category-icon">💄</span>
+                    <span class="category-name">Women's Beauty & Skincare</span>
+                </div>
+                <span class="category-arrow">Explore →</span>
+            </a>
         </div>
 
         <div class="footer">
