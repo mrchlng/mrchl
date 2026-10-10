@@ -79,14 +79,7 @@
             gap: 20px;
         }
 
-        @media (min-width: 600px) {
-            .product-detail-card {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-        }
-
-        /* Gallery Layout (Main View + 4 Thumbnails) */
+        /* Gallery Layout */
         .gallery-container {
             display: flex;
             flex-direction: column;
@@ -103,6 +96,7 @@
             border-radius: 12px;
             background-color: #F1F5F9;
             border: 1px solid #DCE6F1;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .thumbnails-row {
@@ -119,11 +113,13 @@
             cursor: pointer;
             background-color: #F1F5F9;
             border: 2px solid transparent;
-            transition: border-color 0.2s ease, transform 0.15s ease;
+            transition: border-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+            opacity: 0.7;
         }
 
-        .thumb-img:hover {
+        .thumb-img:hover, .thumb-img.active {
             border-color: var(--button-bg);
+            opacity: 1;
             transform: scale(1.03);
         }
 
@@ -139,6 +135,34 @@
             color: var(--text-primary);
             margin-bottom: 12px;
             line-height: 1.3;
+        }
+
+        /* Title para sa PC version (default: nakatago muna) */
+        .pc-title {
+            display: none;
+        }
+
+        /* PC / Desktop Responsive Rules */
+        @media (min-width: 600px) {
+            .product-detail-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            /* Ipakita ang title sa ibabaw ng picture pag PC */
+            .pc-title {
+                display: block;
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 4px;
+                text-align: center;
+            }
+
+            /* Itago ang title sa kanang bahagi pag PC view na */
+            .mobile-title {
+                display: none;
+            }
         }
 
         /* Styled Section Box */
@@ -194,21 +218,25 @@
 
         <div class="product-detail-card">
             
-            <!-- 4 IMAGES GALLERY SECTION -->
+            <!-- GALLERY SECTION -->
             <div class="gallery-container">
+                <!-- TITLE SA IBABAW NG PICTURE (Lalabas lang pag PC View) -->
+                <h1 class="product-title pc-title">Maybelline Fit Me Matte</h1>
+
                 <img id="mainImage" src="maybeline1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
                 
                 <div class="thumbnails-row">
-                    <img src="maybeline1.jpg" alt="Thumbnail 1" class="thumb-img" onclick="changeImage(this.src)">
-                    <img src="maybeline2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="changeImage(this.src)">
-                    <img src="maybeline3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="changeImage(this.src)">
-                    <img src="maybeline4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="changeImage(this.src)">
+                    <img src="maybeline1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
+                    <img src="maybeline2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="manualSelectImage(1)">
+                    <img src="maybeline3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="manualSelectImage(2)">
+                    <img src="maybeline4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="manualSelectImage(3)">
                 </div>
             </div>
             
             <!-- DETAILS SECTION -->
             <div class="product-detail-info">
-                <h1 class="product-title">Maybelline Fit Me Matte</h1>
+                <!-- TITLE SA KANANG BAHAGI (Lalabas lang pag Mobile View) -->
+                <h1 class="product-title mobile-title">Maybelline Fit Me Matte</h1>
 
                 <!-- DESCRIPTION BOX -->
                 <div class="section-box">
@@ -229,17 +257,54 @@
                 </div>
 
                 <!-- AFFILIATE LINK -->
-                <a href="https://link.amazon/B0blq4SGX" target="_blank" class="buy-btn">View On Amazon →</a>
+                <a href="ILAGAY_ANG_AFFILIATE_LINK_DITO" target="_blank" class="buy-btn">Buy Product Now →</a>
             </div>
 
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR CHANGING IMAGES -->
+    <!-- JAVASCRIPT FOR AUTO-SLIDING IMAGES -->
     <script>
-        function changeImage(newSrc) {
-            document.getElementById('mainImage').src = newSrc;
+        const images = ["maybeline1.jpg", "maybeline2.jpg", "maybeline3.jpg", "maybeline4.jpg"];
+        let currentIndex = 0;
+        let slideTimer = null;
+
+        function updateGallery(index) {
+            currentIndex = index;
+            const mainImg = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumb-img');
+
+            mainImg.style.opacity = '0.4';
+            setTimeout(() => {
+                mainImg.src = images[currentIndex];
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            thumbnails.forEach((thumb, i) => {
+                if (i === currentIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
         }
+
+        function nextSlide() {
+            let nextIndex = (currentIndex + 1) % images.length;
+            updateGallery(nextIndex);
+        }
+
+        function startAutoSlide() {
+            slideTimer = setInterval(nextSlide, 3000);
+        }
+
+        function manualSelectImage(index) {
+            clearInterval(slideTimer);
+            updateGallery(index);
+            startAutoSlide();
+        }
+
+        window.addEventListener('DOMContentLoaded', startAutoSlide);
     </script>
 
 </body>
