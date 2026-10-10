@@ -1,1 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maybelline Fit Me Matte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #EBF3FA;
+            --card-bg: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --accent-yellow: #F59E0B;
+            --button-bg: #FBBF24;
+            --button-text: #0F172A;
+            --border-radius: 16px;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            padding: 32px 16px 48px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Back Button Style */
+        .nav-wrapper {
+            margin-bottom: 24px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Detail Card Layout */
+        .product-detail-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            width: 100%;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .product-detail-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        /* 4 Images Gallery Layout */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 280px;
+            align-self: center;
+        }
+
+        .main-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: #F1F5F9;
+            border: 1px solid #DCE6F1;
+        }
+
+        .thumbnails-row {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .thumb-img {
+            width: calc(33.33% - 5.33px);
+            height: 65px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #F1F5F9;
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .thumb-img:hover {
+            border-color: var(--button-bg);
+            transform: scale(1.03);
+        }
+
+        .product-detail-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        /* Section Box (Why We Like It & Best For) */
+        .section-box {
+            background-color: #F8FAFC;
+            border-left: 4px solid var(--button-bg);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .section-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+            margin-top: 12px;
+            transition: background-color 0.15s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-yellow);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- BACK BUTTON -->
+        <div class="nav-wrapper">
+            <a href="../face.html" class="back-btn">← Back to Face Menu</a>
+        </div>
+
+        <div class="product-detail-card">
+            
+            <!-- 4 IMAGES GALLERY SECTION -->
+            <div class="gallery-container">
+                <img id="mainImage" src="image1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
+                
+                <div class="thumbnails-row">
+                    <img src="image2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="changeImage(this.src)">
+                    <img src="image3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="changeImage(this.src)">
+                    <img src="image4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="changeImage(this.src)">
+                </div>
+            </div>
+            
+            <!-- DETAILS SECTION -->
+            <div class="product-detail-info">
+                <h1 class="product-title">Maybelline Fit Me Matte</h1>
+                <p class="product-desc">A lightweight liquid foundation that mattifies shine, blurs pores, and leaves a seamless, natural finish for all-day confidence.</p>
+
+                <!-- WHY WE LIKE IT -->
+                <div class="section-box">
+                    <div class="section-title">💖 Why We Like It</div>
+                    <p class="section-text">It delivers buildable medium coverage without feeling heavy or cakey, while effectively controlling oil throughout the day.</p>
+                </div>
+
+                <!-- BEST FOR -->
+                <div class="section-box">
+                    <div class="section-title">✨ Best For</div>
+                    <p class="section-text">Normal to oily skin types looking for an everyday natural matte look and refined pore texture.</p>
+                </div>
+
+                <!-- AFFILIATE LINK -->
+                <a href="ILAGAY_ANG_AFFILIATE_LINK_DITO" target="_blank" class="buy-btn">Buy Product Now →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR CHANGING IMAGES -->
+    <script>
+        function changeImage(newSrc) {
+            document.getElementById('mainImage').src = newSrc;
+        }
+    </script>
+
+</body>
+</html>
