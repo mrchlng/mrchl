@@ -116,13 +116,25 @@
             box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
         }
 
+        /* Centered Categories Label Above Choices */
+        .categories-label {
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
         /* Sub-category Choices Row (Face, Eyes, Lips in 1 Row) */
         .choices-row {
             width: 100%;
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 12px;
+            margin-bottom: 28px;
         }
 
         .choice-btn {
@@ -146,18 +158,6 @@
             color: var(--button-text);
             border-color: var(--button-bg);
             transform: translateY(-2px);
-        }
-
-        /* Centered Categories Tagline Under Filter Buttons */
-        .categories-label {
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
         }
 
         /* Centered Section Title */
@@ -297,15 +297,15 @@
             <input type="text" id="searchInput" class="search-input" placeholder="Search beauty recommendations...">
         </div>
 
+        <!-- CENTERED CATEGORIES LABEL ABOVE CHOICES -->
+        <div class="categories-label">Categories</div>
+
         <!-- SUB-CATEGORY CHOICES IN 1 ROW -->
         <div class="choices-row">
             <div class="choice-btn" data-category="face">✨ Face</div>
             <div class="choice-btn" data-category="eyes">👁️ Eyes</div>
             <div class="choice-btn" data-category="lips">💋 Lips</div>
         </div>
-
-        <!-- CENTERED CATEGORIES LABEL BELOW CHOICES -->
-        <div class="categories-label">Categories</div>
 
         <!-- CENTERED RECOMMENDED PICKS SECTION (2 BOXES PER ROW) -->
         <div class="section-title">Recommended Picks ✨</div>
