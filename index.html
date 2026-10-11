@@ -91,7 +91,7 @@
             gap: 14px;
         }
 
-        /* Category Card Box */
+        /* Borderless Category Card Box */
         .category-card {
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
@@ -101,9 +101,9 @@
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            border: 1px solid #E2E8F0;
+            border: none; /* Borderless */
             box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             height: 100%;
             overflow: hidden;
         }
@@ -111,10 +111,9 @@
         .category-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(251, 191, 36, 0.2);
-            border-color: var(--button-bg);
         }
 
-        /* Subtle Pill Badge for Tag */
+        /* Clean Tag Without Border/Background */
         .category-tag {
             font-size: 11px;
             font-weight: 800;
@@ -122,9 +121,10 @@
             letter-spacing: 0.05em;
             color: #1E3A8A;
             margin-bottom: 10px;
-            background-color: #E2E8F0;
-            padding: 4px 10px;
-            border-radius: 20px;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            border: none;
         }
 
         .img-wrapper {
@@ -187,7 +187,7 @@
             text-decoration: none;
             font-size: 12px;
             font-weight: 800;
-            border-radius: 50px; /* Modern Pill Style Button */
+            border-radius: 50px;
             text-align: center;
             box-shadow: 0 3px 8px rgba(251, 191, 36, 0.35);
             transition: background-color 0.15s ease, transform 0.15s ease;
