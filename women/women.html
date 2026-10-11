@@ -1,561 +1,275 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Women's Beauty & Style</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-
         :root {
-
             --bg-color-start: #EBF3FA;
-
             --bg-color-end: #D4E2F0;
-
             --card-bg-start: #FFFFFF;
-
             --card-bg-end: #F8FAFC;
-
             --text-primary: #0F172A;
-
             --text-secondary: #475569;
-
             --accent-yellow: #F59E0B;
-
             --button-bg: #FBBF24;
-
             --button-text: #0F172A;
-
             --nav-pill-bg: #D1E1EF;
-
             --border-radius: 16px;
-
         }
-
-
 
         * {
-
             box-sizing: border-box;
-
             margin: 0;
-
             padding: 0;
-
             font-family: 'Plus Jakarta Sans', sans-serif;
-
             -webkit-font-smoothing: antialiased;
-
             -moz-osx-font-smoothing: grayscale;
-
         }
-
-
 
         body {
-
             background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
-
             color: var(--text-primary);
-
             display: flex;
-
             justify-content: center;
-
             padding: 24px 16px 40px;
-
             min-height: 100vh;
-
         }
-
-
 
         .container {
-
             width: 100%;
-
             max-width: 700px;
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
         }
 
-
-
-        /* Top Navigation Bar - Pinanatili naming horizontal kahit sa mobile */
-
+        /* Top Navigation Bar - Pinagkasyang mabuti para hindi gumagalaw o mag-scroll */
         .top-nav {
-
             width: 100%;
-
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            gap: 4px; /* Binawasan ang gap para magkasya */
-
+            justify-content: space-between; /* Pantay-pantay ang espasyo para magkasya */
+            gap: 2px;
             margin-bottom: 24px;
-
-            flex-wrap: nowrap; /* Bawal mag-break sa susunod na line */
-
-            overflow-x: auto;  /* Scrollable nang konti kung sakaling sobrang liit ng screen */
-
-            white-space: nowrap;
-
-            padding-bottom: 4px;
-
+            flex-wrap: nowrap;
         }
-
-
-
-        .top-nav::-webkit-scrollbar {
-
-            display: none; /* Tinanggal ang scrollbar para malinis tingnan */
-
-        }
-
-
 
         .top-nav a {
-
             color: var(--text-secondary);
-
             text-decoration: none;
-
-            padding: 5px 9px; /* Mas pinakinis para magkasya sa mobile */
-
-            border-radius: 16px;
-
+            padding: 4px 6px; /* Mas compact para saktong-sakto sa mobile */
+            border-radius: 12px;
             background-color: var(--nav-pill-bg);
-
-            font-size: 11px;   /* Medyo pinaliit para saktong-sakto sa mobile screen */
-
+            font-size: 10px;   /* Saktong laki para magkasya ang mahabang text */
             font-weight: 600;
-
+            text-align: center;
+            white-space: nowrap;
             transition: all 0.2s ease;
-
         }
-
-
 
         @media (min-width: 480px) {
-
-            .top-nav a {
-
-                font-size: 13px;
-
-                padding: 6px 12px;
-
-            }
-
             .top-nav {
-
+                justify-content: center;
                 gap: 8px;
-
             }
-
+            .top-nav a {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
         }
-
-
 
         .top-nav a:hover {
-
             background-color: #B9CDE2;
-
         }
-
-
 
         .top-nav a.active {
-
             color: var(--button-text);
-
             font-weight: 700;
-
-            text-decoration: none;
-
             background-color: var(--button-bg);
-
         }
-
-
 
         /* Subtle Bullet Dots Separator */
-
         .nav-separator {
-
             color: #64748B;
-
-            font-size: 10px;
-
-            display: inline-block;
-
+            font-size: 8px;
             user-select: none;
-
             opacity: 0.6;
-
         }
-
-
 
         @media (min-width: 480px) {
-
             .nav-separator {
-
                 font-size: 12px;
-
             }
-
         }
-
-
 
         /* Header Style */
-
         .header {
-
             text-align: center;
-
             margin-bottom: 32px;
-
             width: 100%;
-
             padding: 32px 24px;
-
             background-color: #FFFFFF;
-
             border-radius: var(--border-radius);
-
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
-
         }
-
-
 
         .header h1 {
-
             font-size: 24px;
-
             font-weight: 800;
-
             margin-bottom: 8px;
-
             color: var(--text-primary);
-
         }
-
-
 
         .header p {
-
             font-size: 14px;
-
             color: var(--text-secondary);
-
             max-width: 520px;
-
             margin: 0 auto;
-
             line-height: 1.5;
-
         }
-
-
 
         /* Vertical List Container */
-
         .categories-list {
-
             width: 100%;
-
             display: flex;
-
             flex-direction: column;
-
             gap: 16px;
-
         }
-
-
 
         /* Card Style */
-
         .category-card {
-
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
-
             border-radius: var(--border-radius);
-
             padding: 20px 24px;
-
             display: flex;
-
             align-items: center;
-
             text-decoration: none;
-
             border: none;
-
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-
             transition: transform 0.2s ease, box-shadow 0.3s ease;
-
             width: 100%;
-
         }
-
-
 
         .category-card:hover {
-
             transform: translateY(-4px);
-
             box-shadow: 0 12px 24px rgba(251, 191, 36, 0.08);
-
         }
-
-
 
         .card-icon {
-
             font-size: 26px;
-
             margin-right: 18px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             min-width: 36px;
-
         }
-
-
 
         .card-info {
-
             flex-grow: 1;
-
             display: flex;
-
             flex-direction: column;
-
         }
-
-
 
         .card-title {
-
             font-size: 16px;
-
             font-weight: 700;
-
             color: var(--text-primary);
-
             margin-bottom: 4px;
-
         }
-
-
 
         .card-desc {
-
             font-size: 13px;
-
             color: var(--text-secondary);
-
             line-height: 1.4;
-
         }
-
-
 
         .card-arrow {
-
             font-size: 18px;
-
             color: var(--text-primary);
-
             margin-left: 14px;
-
             font-weight: 700;
-
             transition: transform 0.2s ease;
-
         }
-
-
 
         .category-card:hover .card-arrow {
-
             transform: translateX(4px);
-
         }
-
-
 
         /* Footer */
-
         .footer {
-
             margin-top: 48px;
-
             font-size: 12px;
-
             color: #64748B;
-
             text-align: center;
-
             width: 100%;
-
         }
-
     </style>
-
 </head>
-
 <body>
 
-
-
     <div class="container">
-
         <!-- TOP NAVIGATION BAR WITH BULLET DOTS -->
-
         <div class="top-nav">
-
             <a href="../index.html">Home</a>
-
             <span class="nav-separator">•</span>
-
             <a href="women.html" class="active">Women</a>
-
             <span class="nav-separator">•</span>
-
             <a href="../men/men.html">Men</a>
-
             <span class="nav-separator">•</span>
-
             <a href="../fragrance/fragrance.html">Fragrance</a>
-
             <span class="nav-separator">•</span>
-
-            <a href="../home/home.html">Home & Living</a>
-
+            <a href="../home/home.html">Home</a>
         </div>
-
-
 
         <!-- HEADER -->
-
         <div class="header">
-
             <h1>💄 Women's Beauty & Style</h1>
-
             <p>Choose a category below to explore curated skincare, makeup, and lip favorites.</p>
-
         </div>
-
-
 
         <!-- CATEGORIES LIST -->
-
         <div class="categories-list">
 
-
-
             <!-- FACE & SKINCARE -->
-
             <a href="face/face.html" class="category-card">
-
                 <div class="card-icon">✨</div>
-
                 <div class="card-info">
-
                     <div class="card-title">Face & Skincare</div>
-
                     <div class="card-desc">Sunscreens, glow filters, base makeup & daily essentials.</div>
-
                 </div>
-
                 <div class="card-arrow">→</div>
-
             </a>
-
-
 
             <!-- EYES & BROWS -->
-
             <a href="eyes/eyes.html" class="category-card">
-
                 <div class="card-icon">👁️</div>
-
                 <div class="card-info">
-
                     <div class="card-title">Eyes & Brows</div>
-
                     <div class="card-desc">Volumizing mascaras, eyeliners & defining brow tools.</div>
-
                 </div>
-
                 <div class="card-arrow">→</div>
-
             </a>
-
-
 
             <!-- LIPS & TINT -->
-
             <a href="lips/lips.html" class="category-card">
-
                 <div class="card-icon">💋</div>
-
                 <div class="card-info">
-
                     <div class="card-title">Lips & Tint</div>
-
                     <div class="card-desc">Hydrating lip oils, glossy balms & long-lasting tints.</div>
-
                 </div>
-
                 <div class="card-arrow">→</div>
-
             </a>
 
-
-
         </div>
-
-
 
         <!-- FOOTER -->
-
         <div class="footer">
-
             <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
-
         </div>
-
     </div>
 
-
-
 </body>
-
-</html> 
+</html>
