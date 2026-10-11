@@ -46,7 +46,7 @@
             align-items: center;
         }
 
-        /* Top Navigation Bar - Naayos para mag-scroll nang maayos sa mobile */
+        /* Top Navigation Bar */
         .top-nav-wrapper {
             width: 100%;
             display: flex;
@@ -62,13 +62,21 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             white-space: nowrap;
-            padding: 4px 8px;
+            padding: 4px 12px;
             max-width: 100%;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
+            /* Sinigurong magsisimula sa gitna kung kasya, pero pwedeng i-scroll kung hindi */
+            justify-content: flex-start; 
+        }
+
+        @media (min-width: 600px) {
+            .top-nav {
+                justify-content: center; /* Naka-center nang husto sa desktop / malalaking screen */
+            }
         }
 
         .top-nav::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
         }
 
         /* Back Arrow Style */
@@ -94,10 +102,10 @@
         .top-nav a.nav-pill {
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 5px 8px;
+            padding: 5px 9px;
             border-radius: 16px;
             background-color: var(--nav-pill-bg);
-            font-size: 10.5px;
+            font-size: 11px;
             font-weight: 600;
             transition: all 0.2s ease;
             flex-shrink: 0;
