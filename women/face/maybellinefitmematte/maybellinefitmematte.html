@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maybelline Fit Me Matte</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Maybelline Fit Me Matte - Product Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #EBF3FA;
-            --card-bg: #FFFFFF;
+            --bg-color-start: #EBF3FA;
+            --bg-color-end: #D4E2F0;
+            --card-bg-start: #FFFFFF;
+            --card-bg-end: #F8FAFC;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --accent-yellow: #F59E0B;
             --button-bg: #FBBF24;
             --button-text: #0F172A;
+            --nav-pill-bg: #D1E1EF;
             --border-radius: 16px;
         }
 
@@ -22,40 +25,108 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
             color: var(--text-primary);
             display: flex;
             justify-content: center;
-            padding: 32px 16px 48px;
+            padding: 24px 16px 40px;
             min-height: 100vh;
         }
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
         }
 
-        /* Back Button Style */
+        /* Top Navigation Bar */
+        .top-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+        }
+
+        .top-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .top-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 16px;
+            background-color: var(--nav-pill-bg);
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 480px) {
+            .top-nav a {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+            .top-nav {
+                gap: 8px;
+            }
+        }
+
+        .top-nav a:hover {
+            background-color: #B9CDE2;
+        }
+
+        .top-nav a.active {
+            color: var(--button-text);
+            font-weight: 700;
+            background-color: var(--button-bg);
+        }
+
+        .nav-separator {
+            color: #64748B;
+            font-size: 10px;
+            display: inline-block;
+            user-select: none;
+            opacity: 0.6;
+        }
+
+        @media (min-width: 480px) {
+            .nav-separator {
+                font-size: 12px;
+            }
+        }
+
+        /* Back Button Wrapper */
         .nav-wrapper {
-            margin-bottom: 24px;
+            width: 100%;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: flex-start;
         }
 
         .back-btn {
             display: inline-flex;
             align-items: center;
-            background-color: var(--card-bg);
+            background-color: #FFFFFF;
             color: var(--text-primary);
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 12px;
             border: 1px solid #DCE6F1;
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -66,17 +137,17 @@
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
         }
 
-        /* Detail Card Layout */
+        /* Product Detail Card Layout */
         .product-detail-card {
-            background: var(--card-bg);
+            background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
             padding: 24px;
             width: 100%;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+            border: none;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         @media (min-width: 600px) {
@@ -90,16 +161,28 @@
         .gallery-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
-            max-width: 280px;
+            max-width: 300px;
             align-self: center;
         }
 
-        /* Title na palaging nasa itaas ng picture */
-        .product-title {
-            font-size: 20px;
+        /* Rating Tag */
+        .rating-badge {
+            display: inline-block;
+            font-size: 11px;
             font-weight: 700;
+            color: #1E3A8A;
+            background-color: #E2E8F0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto 6px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 800;
             color: var(--text-primary);
             line-height: 1.3;
             text-align: center;
@@ -108,56 +191,60 @@
 
         .main-img {
             width: 100%;
-            height: 250px;
+            height: 260px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 14px;
             background-color: #F1F5F9;
-            border: 1px solid #DCE6F1;
-            transition: opacity 0.3s ease-in-out;
+            border: 1px solid #E2E8F0;
+            transition: opacity 0.25s ease-in-out;
         }
 
         .thumbnails-row {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             width: 100%;
         }
 
         .thumb-img {
-            width: calc(25% - 4.5px);
-            height: 58px;
+            width: calc(25% - 6px);
+            height: 60px;
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
             background-color: #F1F5F9;
             border: 2px solid transparent;
             transition: border-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
-            opacity: 0.7;
+            opacity: 0.65;
         }
 
         .thumb-img:hover, .thumb-img.active {
             border-color: var(--button-bg);
             opacity: 1;
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
+        /* Info & Feature Boxes */
         .product-detail-info {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        /* Styled Section Box */
         .section-box {
-            background-color: #F8FAFC;
+            background-color: #FFFFFF;
             border-left: 4px solid var(--button-bg);
-            padding: 12px 16px;
-            border-radius: 8px;
+            padding: 14px 16px;
+            border-radius: 12px;
             margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+            border-top: 1px solid #F1F5F9;
+            border-right: 1px solid #F1F5F9;
+            border-bottom: 1px solid #F1F5F9;
         }
 
         .section-title {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 4px;
         }
@@ -165,7 +252,15 @@
         .section-text {
             font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.45;
+        }
+
+        /* CTA Buttons Group */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
         }
 
         .buy-btn {
@@ -175,32 +270,53 @@
             background-color: var(--button-bg);
             color: var(--button-text);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            border-radius: 50px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
-            margin-top: 12px;
-            transition: background-color 0.15s ease;
+            box-shadow: 0 3px 10px rgba(251, 191, 36, 0.35);
+            transition: background-color 0.15s ease, transform 0.15s ease;
         }
 
         .buy-btn:hover {
             background-color: var(--accent-yellow);
+            transform: translateY(-1px);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #64748B;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- TOP NAVIGATION BAR -->
+        <div class="top-nav">
+            <a href="../../index.html">Home</a>
+            <span class="nav-separator">•</span>
+            <a href="../women.html" class="active">Women</a>
+            <span class="nav-separator">•</span>
+            <a href="../../men/men.html">Men</a>
+            <span class="nav-separator">•</span>
+            <a href="../../fragrance/fragrance.html">Fragrance</a>
+            <span class="nav-separator">•</span>
+            <a href="../../home/home.html">Home & Living</a>
+        </div>
+
         <!-- BACK BUTTON -->
         <div class="nav-wrapper">
-            <a href="../face.html" class="back-btn">← Back</a>
+            <a href="../face.html" class="back-btn">← Back to Face & Skincare</a>
         </div>
 
         <div class="product-detail-card">
             
-            <!-- GALLERY SECTION (KASAMA ANG TITLE SA TAAS) -->
+            <!-- GALLERY SECTION -->
             <div class="gallery-container">
+                <div class="rating-badge">⭐ 4.8 / 5.0 Rating • Base Makeup</div>
                 <h1 class="product-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
 
                 <img id="mainImage" src="maybeline1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
@@ -208,13 +324,14 @@
                 <div class="thumbnails-row">
                     <img src="maybeline1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
                     <img src="maybeline2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="manualSelectImage(1)">
-                    <img src="maybeline3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="changeImageManually(2)">
+                    <img src="maybeline3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="manualSelectImage(2)">
                     <img src="maybeline4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="manualSelectImage(3)">
                 </div>
             </div>
             
             <!-- DETAILS SECTION -->
             <div class="product-detail-info">
+                
                 <!-- DESCRIPTION BOX -->
                 <div class="section-box">
                     <div class="section-title">📝 Description</div>
@@ -233,10 +350,17 @@
                     <p class="section-text">Normal to oily skin types looking for an everyday natural matte look and refined pore texture.</p>
                 </div>
 
-                <!-- AFFILIATE LINK -->
-                <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
+                <!-- AFFILIATE BUTTON -->
+                <div class="button-group">
+                    <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon / Shopee →</a>
+                </div>
+
             </div>
 
+        </div>
+
+        <div class="footer">
+            <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
         </div>
     </div>
 
@@ -251,11 +375,11 @@
             const mainImg = document.getElementById('mainImage');
             const thumbnails = document.querySelectorAll('.thumb-img');
 
-            mainImg.style.opacity = '0.4';
+            mainImg.style.opacity = '0.3';
             setTimeout(() => {
                 mainImg.src = images[currentIndex];
                 mainImg.style.opacity = '1';
-            }, 150);
+            }, 120);
 
             thumbnails.forEach((thumb, i) => {
                 if (i === currentIndex) {
@@ -272,7 +396,7 @@
         }
 
         function startAutoSlide() {
-            slideTimer = setInterval(nextSlide, 3000);
+            slideTimer = setInterval(nextSlide, 3500);
         }
 
         function manualSelectImage(index) {
