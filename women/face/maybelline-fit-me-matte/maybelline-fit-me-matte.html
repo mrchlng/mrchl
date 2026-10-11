@@ -170,7 +170,6 @@
 
         .section-box {
             background-color: #FFFFFF;
-            border-left: 4px solid var(--button-bg);
             padding: 12px 16px;
             border-radius: 12px;
             margin-bottom: 8px;
@@ -218,7 +217,7 @@
         @media (min-width: 600px) {
             .product-detail-card {
                 flex-direction: row;
-                align-items: stretch; /* Pantay ang taas ng kaliwa at kanan */
+                align-items: stretch;
             }
 
             .gallery-container .mobile-title {
@@ -231,14 +230,10 @@
                 margin-bottom: 12px;
             }
 
-            .gallery-container {
-                align-self: auto;
-            }
-
             .product-detail-info {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between; /* Ilalapat ang button sa pinaka-ibaba */
+                justify-content: space-between;
                 padding-top: 2px;
             }
 
@@ -276,7 +271,7 @@
                 <!-- TITLE FOR MOBILE (CENTERED ABOVE IMAGE) -->
                 <h1 class="product-title mobile-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
 
-                <img id="mainImage" src="maybelline-fit-me/maybelline-1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
+                <img id="mainImage" src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
                 
                 <div class="thumbnails-row">
                     <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
@@ -312,7 +307,7 @@
                     </div>
                 </div>
 
-                <!-- AFFILIATE BUTTON (Nakalapat eksakto sa ilalim ng thumbnails) -->
+                <!-- AFFILIATE BUTTON -->
                 <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
 
             </div>
@@ -326,7 +321,12 @@
 
     <!-- JAVASCRIPT FOR AUTO-SLIDING IMAGES -->
     <script>
-        const images = ["maybeline1.jpg", "maybeline2.jpg", "maybeline3.jpg", "maybeline4.jpg"];
+        const images = [
+            "maybelline-fit-me-matte/maybelline-1.jpg",
+            "maybelline-fit-me-matte/maybelline-2.jpg",
+            "maybelline-fit-me-matte/maybelline-3.jpg",
+            "maybelline-fit-me-matte/maybelline-4.jpg"
+        ];
         let currentIndex = 0;
         let slideTimer = null;
 
