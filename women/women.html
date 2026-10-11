@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Beauty & Style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color-start: #EBF3FA;
@@ -46,50 +46,71 @@
             align-items: center;
         }
 
-        /* Top Navigation Bar - Pinanatili naming horizontal kahit sa mobile */
+        /* Top Navigation Bar */
         .top-nav {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px; /* Binawasan ang gap para magkasya */
+            gap: 4px;
             margin-bottom: 24px;
-            flex-wrap: nowrap; /* Bawal mag-break sa susunod na line */
-            overflow-x: auto;  /* Scrollable nang konti kung sakaling sobrang liit ng screen */
+            flex-wrap: nowrap;
+            overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 4px;
         }
 
         .top-nav::-webkit-scrollbar {
-            display: none; /* Tinanggal ang scrollbar para malinis tingnan */
+            display: none;
         }
 
-        .top-nav a {
+        /* Back Arrow Style - Walang box, bold arrow lang */
+        .back-arrow-nav {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 0 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-arrow-nav:hover {
+            transform: scale(1.2);
+            color: var(--accent-yellow);
+        }
+
+        .top-nav a.nav-pill {
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 5px 9px; /* Mas pinakinis para magkasya sa mobile */
+            padding: 5px 9px;
             border-radius: 16px;
             background-color: var(--nav-pill-bg);
-            font-size: 11px;   /* Medyo pinaliit para saktong-sakto sa mobile screen */
+            font-size: 11px;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
         @media (min-width: 480px) {
-            .top-nav a {
+            .top-nav a.nav-pill {
                 font-size: 13px;
                 padding: 6px 12px;
             }
             .top-nav {
                 gap: 8px;
             }
+            .back-arrow-nav {
+                font-size: 20px;
+            }
         }
 
-        .top-nav a:hover {
+        .top-nav a.nav-pill:hover {
             background-color: #B9CDE2;
         }
 
-        .top-nav a.active {
+        .top-nav a.nav-pill.active {
             color: var(--button-text);
             font-weight: 700;
             text-decoration: none;
@@ -217,17 +238,19 @@
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION BAR WITH BULLET DOTS -->
+        <!-- TOP NAVIGATION BAR WITH BACK ARROW AND BULLET DOTS -->
         <div class="top-nav">
-            <a href="../index.html">Home</a>
+            <a href="../index.html" class="back-arrow-nav" title="Back">←</a>
             <span class="nav-separator">•</span>
-            <a href="women.html" class="active">Women</a>
+            <a href="../index.html" class="nav-pill">Home</a>
             <span class="nav-separator">•</span>
-            <a href="../men/men.html">Men</a>
+            <a href="women.html" class="nav-pill active">Women</a>
             <span class="nav-separator">•</span>
-            <a href="../fragrance/fragrance.html">Fragrance</a>
+            <a href="../men/men.html" class="nav-pill">Men</a>
             <span class="nav-separator">•</span>
-            <a href="../home/home.html">Home & Living</a>
+            <a href="../fragrance/fragrance.html" class="nav-pill">Fragrance</a>
+            <span class="nav-separator">•</span>
+            <a href="../home/home.html" class="nav-pill">Home & Living</a>
         </div>
 
         <!-- HEADER -->
