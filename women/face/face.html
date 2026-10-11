@@ -54,7 +54,7 @@
             justify-content: center;
             gap: 6px;
             margin-bottom: 20px;
-            flex-wrap: wrap; /* Siguradong hindi mag-o-overflow */
+            flex-wrap: wrap;
         }
 
         .back-arrow-nav {
@@ -168,7 +168,7 @@
             box-shadow: 0 4px 14px rgba(251, 191, 36, 0.25);
         }
 
-        /* PRODUCTS GRID: MOBILE 2 PER ROW, DESKTOP 5 PER ROW */
+        /* PRODUCTS GRID */
         .products-grid {
             width: 100%;
             display: grid;
@@ -183,7 +183,7 @@
             }
         }
 
-        /* PRODUCT CARD WITH HOVER ZOOM EFFECT */
+        /* PRODUCT CARD */
         .product-card {
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
@@ -212,6 +212,24 @@
             overflow: hidden;
             margin-bottom: 10px;
             background-color: #F1F5F9;
+            position: relative; /* KAILANGAN PARA LUMUTANG ANG BADGE */
+        }
+
+        /* BEST SELLER BADGE STYLING */
+        .bestseller-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background-color: #EF4444;
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3px 7px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .product-img {
@@ -296,7 +314,7 @@
 <body>
 
     <div class="container">
-        <!-- BREADCRUMB TOP NAV (MALINIS AT KASYANG-KASYA SA MOBILE) -->
+        <!-- BREADCRUMB TOP NAV -->
         <div class="top-nav">
             <a href="../../women/women.html" class="back-arrow-nav" title="Back">←</a>
             <a href="../../index.html" class="nav-pill">Home</a>
@@ -320,7 +338,7 @@
         <!-- PRODUCTS GRID -->
         <div class="products-grid" id="productsList">
 
-            <!-- PRODUCT BOX 1 -->
+            <!-- PRODUCT BOX 1: MAYBELLINE -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
@@ -332,9 +350,10 @@
                 <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 2 -->
+            <!-- PRODUCT BOX 2: MEDICUBE (MAY BEST SELLER BADGE) -->
             <div class="product-card">
                 <div class="img-wrapper">
+                    <span class="bestseller-badge">🔥 Best Seller</span>
                     <img src="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0" class="product-img">
                 </div>
                 <div class="product-info">
@@ -344,7 +363,7 @@
                 <a href="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 3 -->
+            <!-- PRODUCT BOX 3: E.L.F. PRIMER -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="elf-power-grip-primer/elf-power-grip-primer-1.jpg" alt="e.l.f. Power Grip Primer" class="product-img">
@@ -356,7 +375,7 @@
                 <a href="elf-power-grip-primer/elf-power-grip-primer.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 4 -->
+            <!-- PRODUCT BOX 4: MILANI -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation-1.jpg" alt="Milani Conceal Perfect 2 in 1 Foundation" class="product-img">
@@ -368,7 +387,7 @@
                 <a href="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 5 -->
+            <!-- PRODUCT BOX 5: BARRIER MOISTURIZER -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&auto=format&fit=crop&q=80" alt="Barrier Moisturizer" class="product-img">
