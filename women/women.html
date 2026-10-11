@@ -26,6 +26,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -46,13 +48,13 @@
             align-items: center; /* Centered container elements */
         }
 
-        /* Top Navigation Bar - Updated to Pills style */
+        /* Top Navigation Bar with subtle Bullet Dots */
         .top-nav {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center; /* Centered navigation */
-            gap: 6px;
+            gap: 10px;
             margin-bottom: 24px;
             flex-wrap: wrap;
             font-size: 13px;
@@ -79,10 +81,13 @@
             background-color: var(--button-bg); /* Active pill background */
         }
 
+        /* Subtle Bullet Dots Separator */
         .nav-separator {
-            color: #94A3B8;
+            color: #64748B;
             font-size: 12px;
-            display: none; /* Removed separators for pills style */
+            display: inline-block;
+            user-select: none;
+            opacity: 0.6;
         }
 
         /* Header Style - Updated with a background panel */
@@ -169,10 +174,16 @@
         }
 
         .card-arrow {
-            font-size: 18px;
-            color: var(--text-primary);
+            font-size: 14px;
+            color: #1E3A8A;
             margin-left: 14px;
             font-weight: 700;
+            white-space: nowrap;
+            transition: transform 0.2s ease;
+        }
+
+        .category-card:hover .card-arrow {
+            transform: translateX(4px);
         }
 
         /* Footer */
@@ -188,16 +199,16 @@
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP NAVIGATION BAR WITH BULLET DOTS -->
         <div class="top-nav">
             <a href="../index.html">Home</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="women.html" class="active">Women</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../men/men.html">Men</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../fragrance/fragrance.html">Fragrance</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../home/home.html">Home & Living</a>
         </div>
 
@@ -217,7 +228,7 @@
                     <div class="card-title">Face & Skincare</div>
                     <div class="card-desc">Sunscreens, glow filters, base makeup & daily essentials.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
             <!-- EYES & BROWS -->
@@ -227,7 +238,7 @@
                     <div class="card-title">Eyes & Brows</div>
                     <div class="card-desc">Volumizing mascaras, eyeliners & defining brow tools.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
             <!-- LIPS & TINT -->
@@ -237,7 +248,7 @@
                     <div class="card-title">Lips & Tint</div>
                     <div class="card-desc">Hydrating lip oils, glossy balms & long-lasting tints.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
         </div>
