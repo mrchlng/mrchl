@@ -114,13 +114,18 @@
             text-align: center;
         }
 
+        /* Title Style: Centered on Mobile */
         .product-title {
             font-size: 18px;
             font-weight: 800;
             color: var(--text-primary);
             line-height: 1.3;
-            text-align: left;
-            margin-bottom: 6px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .desktop-title {
+            display: none;
         }
 
         .main-img {
@@ -203,7 +208,7 @@
             box-shadow: 0 3px 10px rgba(251, 191, 36, 0.35);
             transition: background-color 0.15s ease, transform 0.15s ease;
             border: none;
-            margin-top: auto;
+            margin-top: 4px;
         }
 
         .buy-btn:hover {
@@ -211,27 +216,31 @@
             transform: translateY(-1px);
         }
 
-        /* PERFECT PC / DESKTOP ALIGNMENT FIT */
+        /* DESKTOP / PC VIEW SWITCHING */
         @media (min-width: 600px) {
             .product-detail-card {
                 flex-direction: row;
-                align-items: stretch;
+                align-items: flex-start;
+            }
+
+            .gallery-container .mobile-title {
+                display: none;
+            }
+
+            .desktop-title {
+                display: block;
+                text-align: left;
+                margin-bottom: 10px;
             }
 
             .gallery-container {
-                align-self: stretch;
-                justify-content: space-between;
+                align-self: flex-start;
             }
 
             .product-detail-info {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                padding-top: 2px;
-            }
-
-            .product-title {
-                margin-top: -2px;
+                justify-content: flex-start;
             }
         }
 
@@ -255,6 +264,9 @@
                     <div class="rating-badge">⭐ 4.6 / 5.0 Rating • Base Makeup</div>
                 </div>
 
+                <!-- TITLE FOR MOBILE (CENTERED ABOVE IMAGE) -->
+                <h1 class="product-title mobile-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
+
                 <img id="mainImage" src="maybeline1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
                 
                 <div class="thumbnails-row">
@@ -268,7 +280,8 @@
             <!-- DETAILS SECTION -->
             <div class="product-detail-info">
                 
-                <h1 class="product-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
+                <!-- TITLE FOR DESKTOP -->
+                <h1 class="product-title desktop-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
                 
                 <!-- DESCRIPTION BOX -->
                 <div class="section-box">
@@ -288,7 +301,7 @@
                     <p class="section-text">Normal to oily skin types looking for an everyday natural matte look and refined pore texture.</p>
                 </div>
 
-                <!-- AFFILIATE BUTTON (PANTAY SA 4TH PICTURE AT TITLE) -->
+                <!-- AFFILIATE BUTTON -->
                 <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
 
             </div>
