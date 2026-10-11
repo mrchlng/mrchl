@@ -46,25 +46,32 @@
             align-items: center;
         }
 
-        /* Top Navigation Bar */
-        .top-nav {
+        /* Top Navigation Bar - Naayos para mag-scroll nang maayos sa mobile */
+        .top-nav-wrapper {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
             margin-bottom: 20px;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
             flex-wrap: nowrap;
             overflow-x: auto;
             white-space: nowrap;
-            padding-bottom: 4px;
+            padding: 4px 8px;
+            max-width: 100%;
+            scrollbar-width: none; /* Firefox */
         }
 
         .top-nav::-webkit-scrollbar {
-            display: none;
+            display: none; /* Chrome, Safari, Opera */
         }
 
-        /* Back Arrow Style - Walang box, bold arrow sa dulo ng left */
+        /* Back Arrow Style */
         .back-arrow-nav {
             color: var(--text-primary);
             text-decoration: none;
@@ -75,7 +82,8 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.2s ease, color 0.2s ease;
-            margin-right: 4px; /* Nagdagdag ng konting puwang sa kanan ng arrow */
+            margin-right: 2px;
+            flex-shrink: 0;
         }
 
         .back-arrow-nav:hover {
@@ -86,12 +94,13 @@
         .top-nav a.nav-pill {
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 5px 8px;
             border-radius: 16px;
             background-color: var(--nav-pill-bg);
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 600;
             transition: all 0.2s ease;
+            flex-shrink: 0;
         }
 
         @media (min-width: 480px) {
@@ -104,7 +113,7 @@
             }
             .back-arrow-nav {
                 font-size: 20px;
-                margin-right: 8px; /* Mas malaking puwang sa desktop */
+                margin-right: 6px;
             }
         }
 
@@ -124,6 +133,7 @@
             display: inline-block;
             user-select: none;
             opacity: 0.6;
+            flex-shrink: 0;
         }
 
         @media (min-width: 480px) {
@@ -311,17 +321,19 @@
 
     <div class="container">
         <!-- TOP NAVIGATION BAR WITH BACK ARROW -->
-        <div class="top-nav">
-            <a href="../../women/women.html" class="back-arrow-nav" title="Back">←</a>
-            <a href="../../index.html" class="nav-pill">Home</a>
-            <span class="nav-separator">•</span>
-            <a href="../../women/women.html" class="nav-pill active">Women</a>
-            <span class="nav-separator">•</span>
-            <a href="../../men/men.html" class="nav-pill">Men</a>
-            <span class="nav-separator">•</span>
-            <a href="../../fragrance/fragrance.html" class="nav-pill">Fragrance</a>
-            <span class="nav-separator">•</span>
-            <a href="../../home/home.html" class="nav-pill">Home & Living</a>
+        <div class="top-nav-wrapper">
+            <div class="top-nav">
+                <a href="../../women/women.html" class="back-arrow-nav" title="Back">←</a>
+                <a href="../../index.html" class="nav-pill">Home</a>
+                <span class="nav-separator">•</span>
+                <a href="../../women/women.html" class="nav-pill active">Women</a>
+                <span class="nav-separator">•</span>
+                <a href="../../men/men.html" class="nav-pill">Men</a>
+                <span class="nav-separator">•</span>
+                <a href="../../fragrance/fragrance.html" class="nav-pill">Fragrance</a>
+                <span class="nav-separator">•</span>
+                <a href="../../home/home.html" class="nav-pill">Home & Living</a>
+            </div>
         </div>
 
         <!-- HEADER PANEL -->
@@ -380,7 +392,7 @@
                     <img src="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation-1.jpg" alt="Milani Conceal Perfect 2 in 1 Foundation" class="product-img">
                 </div>
                 <div class="product-info">
-                    <div class="product-title">Milani Conceal Perfect 2 in 1 Foundation</div>
+                    <div class="product-title">Milani Conceal Foundation</div>
                     <div class="product-desc">Full-coverage 2-in-1 shade.</div>
                 </div>
                 <a href="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation.html" class="buy-btn">View Details →</a>
