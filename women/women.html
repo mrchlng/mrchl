@@ -45,29 +45,31 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 8px;
             margin-bottom: 24px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            color: var(--text-primary);
-            padding: 8px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
+            flex-wrap: wrap;
             font-size: 13px;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 600;
         }
 
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-            border-color: var(--button-bg);
+        .top-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .top-nav a:hover, .top-nav a.active {
+            color: var(--text-primary);
+        }
+
+        .top-nav a.active {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .nav-separator {
+            color: #94A3B8;
+            font-size: 12px;
         }
 
         /* Header Style */
@@ -100,7 +102,7 @@
             gap: 14px;
         }
 
-        /* Card Style */
+        /* Card Style (Borderless) */
         .category-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
@@ -108,16 +110,15 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            border: none; /* Tinanggal ang border */
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             width: 100%;
         }
 
         .category-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
-            border-color: var(--button-bg);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
         }
 
         .card-icon {
@@ -168,9 +169,17 @@
 <body>
 
     <div class="container">
-        <!-- HOME BUTTON -->
+        <!-- TOP NAVIGATION BAR -->
         <div class="top-nav">
-            <a href="../index.html" class="back-btn">← Home</a>
+            <a href="../index.html">Home</a>
+            <span class="nav-separator">-</span>
+            <a href="women.html" class="active">Women</a>
+            <span class="nav-separator">-</span>
+            <a href="../men/men.html">Men</a>
+            <span class="nav-separator">-</span>
+            <a href="../fragrance/fragrance.html">Fragrance</a>
+            <span class="nav-separator">-</span>
+            <a href="../home/home.html">Home & Living</a>
         </div>
 
         <!-- HEADER -->
