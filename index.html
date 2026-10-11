@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated Lifestyle & Beauty Finds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Bold Blue, White, and Yellow Color Theme (Non-Pastel) */
-            --bg-color: #0F172A;        /* Deep Royal Navy Blue */
-            --card-bg: #FFFFFF;        /* Pure Crisp White */
+            /* Blue, White, Yellow Color Theme */
+            --bg-color: #EBF3FA;        /* Soft Pastel Blue Background */
+            --card-bg: #FFFFFF;        /* Pure White Card Background */
             --text-primary: #0F172A;   /* Deep Navy Blue Text */
             --text-secondary: #475569; /* Slate Gray Text */
-            --text-light: #F8FAFC;     /* Bright White Text for Dark BG */
-            --accent-blue: #1E40AF;    /* Vibrant Royal Blue */
-            --button-bg: #F59E0B;      /* Bold Gold Yellow */
-            --button-hover: #D97706;   /* Dark Amber Yellow */
-            --button-text: #0F172A;    /* Dark Navy Text on Yellow */
+            --accent-yellow: #F59E0B;  /* Warm Amber Yellow */
+            --button-bg: #FBBF24;      /* Bright Golden Yellow */
+            --button-text: #0F172A;    /* Dark Text on Yellow Button */
             --border-radius: 16px;
         }
 
@@ -55,24 +53,23 @@
             height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--button-bg);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--button-bg);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
             margin-bottom: 12px;
         }
 
         .profile-name {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--text-light);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 6px;
-            letter-spacing: -0.02em;
         }
 
         .profile-bio {
             font-size: 14px;
-            color: #94A3B8;
+            color: var(--text-secondary);
             line-height: 1.4;
-            max-width: 380px;
+            max-width: 360px;
             margin: 0 auto;
         }
 
@@ -94,28 +91,25 @@
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            border: 2px solid transparent;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            border: 1px solid #DCE6F1;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             height: 100%;
         }
 
         .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
             border-color: var(--button-bg);
         }
 
         .category-tag {
             font-size: 11px;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--accent-blue);
-            background-color: #EFF6FF;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 10px;
+            color: #1E3A8A;
+            margin-bottom: 8px;
         }
 
         .product-img {
@@ -151,7 +145,7 @@
             font-size: 11px;
             color: var(--text-secondary);
             line-height: 1.35;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             min-height: 32px;
             display: flex;
             align-items: center;
@@ -161,22 +155,21 @@
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 10px 0;
+            padding: 9px 0;
             background-color: var(--button-bg);
             color: var(--button-text);
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 800;
-            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
-            transition: background-color 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+            transition: background-color 0.15s ease;
             margin-top: auto;
         }
 
         .buy-btn:hover {
-            background-color: var(--button-hover);
-            transform: scale(1.02);
+            background-color: var(--accent-yellow);
         }
 
         /* DESKTOP VIEW: Exactly 1 horizontal row with all 4 choices */
@@ -194,7 +187,7 @@
         .footer {
             margin-top: 40px;
             font-size: 12px;
-            color: #94A3B8;
+            color: #64748B;
             text-align: center;
         }
     </style>
@@ -221,7 +214,7 @@
                     <div class="product-title">Women's Beauty & Style</div>
                     <div class="product-desc">Must-have skincare, viral makeup & everyday beauty picks.</div>
                 </div>
-                <a href="women/women.html" class="buy-btn">Explore</a>
+                <a href="women/women.html" class="buy-btn">Explore →</a>
             </div>
 
             <!-- CHOICE 2: MEN -->
@@ -232,7 +225,7 @@
                     <div class="product-title">Men's Grooming & Essentials</div>
                     <div class="product-desc">Clean skincare, daily grooming & functional lifestyle gear.</div>
                 </div>
-                <a href="men/men.html" class="buy-btn">Explore</a>
+                <a href="men/men.html" class="buy-btn">Explore →</a>
             </div>
 
             <!-- CHOICE 3: FRAGRANCE -->
@@ -243,7 +236,7 @@
                     <div class="product-title">Perfumes & Body Mists</div>
                     <div class="product-desc">Long-lasting scents, vanilla favorites & luxury perfumes.</div>
                 </div>
-                <a href="fragrance/fragrance.html" class="buy-btn">Explore</a>
+                <a href="fragrance/fragrance.html" class="buy-btn">Explore →</a>
             </div>
 
             <!-- CHOICE 4: HOME & LIVING -->
@@ -254,7 +247,7 @@
                     <div class="product-title">Cozy Home Decor</div>
                     <div class="product-desc">Aesthetic room accents, essential oil diffusers & candles.</div>
                 </div>
-                <a href="home/home.html" class="buy-btn">Explore</a>
+                <a href="home/home.html" class="buy-btn">Explore →</a>
             </div>
 
         </div>
