@@ -75,15 +75,22 @@
             align-self: center;
         }
 
-        /* Top Bar Header sa loob ng Gallery (Back Arrow + Rating) */
+        /* Top Bar Header (Back Arrow sa kaliwa, centered ang Rating) */
         .gallery-top-bar {
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            width: 100%;
             margin-bottom: 4px;
+            min-height: 28px;
         }
 
         .back-arrow-btn {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -98,11 +105,11 @@
         }
 
         .back-arrow-btn:hover {
-            transform: scale(1.15);
+            transform: translateY(-50%) scale(1.15);
             color: var(--accent-yellow);
         }
 
-        /* Rating Tag */
+        /* Rating Tag (Perfectly Centered) */
         .rating-badge {
             display: inline-block;
             font-size: 11px;
@@ -111,8 +118,8 @@
             background-color: #E2E8F0;
             padding: 5px 12px;
             border-radius: 20px;
-            margin: 0 auto;
             border: none;
+            text-align: center;
         }
 
         .product-title {
