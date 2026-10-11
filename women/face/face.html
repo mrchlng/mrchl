@@ -7,13 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #EBF3FA;
-            --card-bg: #FFFFFF;
+            --bg-color-start: #EBF3FA;
+            --bg-color-end: #D4E2F0;
+            --card-bg-start: #FFFFFF;
+            --card-bg-end: #F8FAFC;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --accent-yellow: #F59E0B;
             --button-bg: #FBBF24;
             --button-text: #0F172A;
+            --nav-pill-bg: #D1E1EF;
             --border-radius: 16px;
         }
 
@@ -22,14 +25,16 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
             color: var(--text-primary);
             display: flex;
             justify-content: center;
-            padding: 32px 16px 48px;
+            padding: 24px 16px 40px;
             min-height: 100vh;
         }
 
@@ -38,32 +43,72 @@
             max-width: 1100px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-        }
-
-        /* Back Button Style */
-        .nav-wrapper {
-            margin-bottom: 24px;
-        }
-
-        .back-btn {
-            display: inline-flex;
             align-items: center;
-            background-color: var(--card-bg);
-            color: var(--text-primary);
-            padding: 8px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        /* Top Navigation Bar - Responsive horizontal scroll/fit para sa mobile */
+        .top-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 24px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+        }
+
+        .top-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .top-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 5px 9px;
+            border-radius: 16px;
+            background-color: var(--nav-pill-bg);
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 480px) {
+            .top-nav a {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+            .top-nav {
+                gap: 8px;
+            }
+        }
+
+        .top-nav a:hover {
+            background-color: #B9CDE2;
+        }
+
+        .top-nav a.active {
+            color: var(--button-text);
+            font-weight: 700;
+            text-decoration: none;
+            background-color: var(--button-bg);
+        }
+
+        /* Subtle Bullet Dots Separator */
+        .nav-separator {
+            color: #64748B;
+            font-size: 10px;
+            display: inline-block;
+            user-select: none;
+            opacity: 0.6;
+        }
+
+        @media (min-width: 480px) {
+            .nav-separator {
+                font-size: 12px;
+            }
         }
 
         /* Header Style */
@@ -71,6 +116,10 @@
             text-align: center;
             margin-bottom: 24px;
             width: 100%;
+            padding: 32px 24px;
+            background-color: #FFFFFF;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
         }
 
         .header h1 {
@@ -129,14 +178,14 @@
 
         /* PRODUCT BOX CARD */
         .product-card {
-            background: var(--card-bg);
+            background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
             padding: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border: 1px solid #DCE6F1;
+            border: none;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             height: 100%;
@@ -144,8 +193,7 @@
 
         .product-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-            border-color: var(--button-bg);
+            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
         }
 
         .product-img {
@@ -221,9 +269,17 @@
 <body>
 
     <div class="container">
-        <!-- BACK BUTTON -->
-        <div class="nav-wrapper">
-            <a href="../women.html" class="back-btn">← Back</a>
+        <!-- TOP NAVIGATION BAR WITH SUBTLE BULLET DOTS -->
+        <div class="top-nav">
+            <a href="../../index.html">Home</a>
+            <span class="nav-separator">•</span>
+            <a href="../../women/women.html">Women</a>
+            <span class="nav-separator">•</span>
+            <a href="../../men/men.html">Men</a>
+            <span class="nav-separator">•</span>
+            <a href="../../fragrance/fragrance.html">Fragrance</a>
+            <span class="nav-separator">•</span>
+            <a href="../../home/home.html">Home & Living</a>
         </div>
 
         <!-- HEADER -->
@@ -240,14 +296,14 @@
         <!-- PRODUCTS BOX GRID -->
         <div class="products-grid" id="productsList">
 
-            <!-- PRODUCT BOX 1 (WALANG target="_blank" PARA SAME TAB MAG-OPEN) -->
+            <!-- PRODUCT BOX 1 -->
             <div class="product-card">
                 <img src="maybellinefitmematte/maybeline1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
                 <div class="product-info">
                     <div class="product-title">Maybelline Fit Me Matte</div>
                     <div class="product-desc">Oil-free matte foundation, minimizes pores, 40 shades</div>
                 </div>
-                <a href="maybellinefitmematte/maybellinefitmematte.html" class="buy-btn">Shop Now →</a>
+                <a href="maybellinefitmematte/maybellinefitmematte.html" class="buy-btn">View Details →</a>
             </div>
 
             <!-- PRODUCT BOX 2 -->
@@ -257,7 +313,7 @@
                     <div class="product-title">Hydrating Skin Tint</div>
                     <div class="product-desc">Natural glow base with sheer finish.</div>
                 </div>
-                <a href="#" class="buy-btn">Shop Now →</a>
+                <a href="#" class="buy-btn">View Details →</a>
             </div>
 
             <!-- PRODUCT BOX 3 -->
@@ -267,7 +323,7 @@
                     <div class="product-title">Soothing Cleanser</div>
                     <div class="product-desc">Gentle daily face wash for sensitive skin.</div>
                 </div>
-                <a href="#" class="buy-btn">Shop Now →</a>
+                <a href="#" class="buy-btn">View Details →</a>
             </div>
 
             <!-- PRODUCT BOX 4 -->
@@ -277,7 +333,7 @@
                     <div class="product-title">Glow Serum</div>
                     <div class="product-desc">Brightening serum with Vitamin C.</div>
                 </div>
-                <a href="#" class="buy-btn">Shop Now →</a>
+                <a href="#" class="buy-btn">View Details →</a>
             </div>
 
             <!-- PRODUCT BOX 5 -->
@@ -287,7 +343,7 @@
                     <div class="product-title">Barrier Moisturizer</div>
                     <div class="product-desc">Deep hydration for soft skin.</div>
                 </div>
-                <a href="#" class="buy-btn">Shop Now →</a>
+                <a href="#" class="buy-btn">View Details →</a>
             </div>
 
         </div>
@@ -300,22 +356,18 @@
 
     <!-- JAVASCRIPT FOR SHUFFLE AND SEARCH -->
     <script>
-        // FUNCTION PARA MAG-SHUFFLE NG MGA PRODUCTS SA PAGE LOAD/REFRESH
         function shuffleProducts() {
             const grid = document.getElementById('productsList');
             const cards = Array.from(grid.getElementsByClassName('product-card'));
             
-            // Fisher-Yates Shuffle Algorithm
             for (let i = cards.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 grid.appendChild(cards[j]);
             }
         }
 
-        // KUSANG PIPINDOTIN KAPAG BINUKSAN O INI-REFRESH ANG PAGE
         window.addEventListener('DOMContentLoaded', shuffleProducts);
 
-        // SEARCH FILTER FUNCTION
         function filterProducts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
