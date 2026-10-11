@@ -69,10 +69,8 @@
         .gallery-top-bar {
             position: relative;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 6px;
             width: 100%;
             min-height: 28px;
         }
@@ -100,19 +98,6 @@
             color: var(--accent-yellow);
         }
 
-        .bestseller-badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 800;
-            color: #FFFFFF;
-            background-color: #EF4444;
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
-        }
-
         .rating-badge {
             display: inline-block;
             font-size: 11px;
@@ -123,6 +108,28 @@
             border-radius: 20px;
             border: none;
             text-align: center;
+        }
+
+        /* IMAGE WRAPPER WITH BEST SELLER OVERLAY */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .bestseller-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            font-size: 10px;
+            font-weight: 800;
+            color: #FFFFFF;
+            background-color: #EF4444;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
         .product-title {
@@ -271,14 +278,15 @@
             <div class="gallery-container">
                 <div class="gallery-top-bar">
                     <a href="../face.html" class="back-arrow-btn" title="Back">←</a>
-                    <span class="bestseller-badge">🔥 Best Seller</span>
                     <div class="rating-badge">⭐ 4.6 / 5.0 Rating • Base Makeup</div>
                 </div>
 
                 <h1 class="product-title mobile-title">Medicube Zero Pore Pad 2.0</h1>
 
-                <!-- DIRECT FILENAME PATH -->
-                <img id="mainImage" src="medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0 Main View" class="main-img">
+                <div class="image-wrapper">
+                    <span class="bestseller-badge">🔥 Best Seller</span>
+                    <img id="mainImage" src="medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0 Main View" class="main-img">
+                </div>
                 
                 <div class="thumbnails-row">
                     <img src="medicube-zero-pore-pad-2.0-1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
