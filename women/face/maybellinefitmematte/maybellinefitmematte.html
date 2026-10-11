@@ -75,6 +75,36 @@
             align-self: center;
         }
 
+        /* Top Bar Header sa loob ng Gallery (Back + Rating) */
+        .gallery-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .back-arrow-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .back-arrow-btn:hover {
+            transform: scale(1.08);
+            background-color: var(--button-bg);
+        }
+
         /* Rating Tag */
         .rating-badge {
             display: inline-block;
@@ -82,10 +112,9 @@
             font-weight: 700;
             color: #1E3A8A;
             background-color: #E2E8F0;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            width: fit-content;
-            margin: 0 auto 6px;
+            margin: 0 auto;
         }
 
         .product-title {
@@ -206,7 +235,11 @@
             
             <!-- GALLERY SECTION -->
             <div class="gallery-container">
-                <div class="rating-badge">⭐ 4.6 / 5.0 Rating • Base Makeup</div>
+                <div class="gallery-top-bar">
+                    <a href="../face.html" class="back-arrow-btn" title="Back">←</a>
+                    <div class="rating-badge">⭐ 4.6 / 5.0 Rating • Base Makeup</div>
+                </div>
+                
                 <h1 class="product-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
 
                 <img id="mainImage" src="maybeline1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
@@ -242,7 +275,7 @@
 
                 <!-- AFFILIATE BUTTON -->
                 <div class="button-group">
-                    <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
+                    <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon / Shopee →</a>
                 </div>
 
             </div>
