@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face & Skincare Finds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color-start: #EBF3FA;
@@ -46,14 +46,14 @@
             align-items: center;
         }
 
-        /* Top Navigation Bar - Responsive horizontal scroll/fit para sa mobile */
+        /* Top Navigation Bar with subtle Dots */
         .top-nav {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 4px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             flex-wrap: nowrap;
             overflow-x: auto;
             white-space: nowrap;
@@ -67,7 +67,7 @@
         .top-nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 5px 9px;
+            padding: 5px 10px;
             border-radius: 16px;
             background-color: var(--nav-pill-bg);
             font-size: 11px;
@@ -92,11 +92,9 @@
         .top-nav a.active {
             color: var(--button-text);
             font-weight: 700;
-            text-decoration: none;
             background-color: var(--button-bg);
         }
 
-        /* Subtle Bullet Dots Separator */
         .nav-separator {
             color: #64748B;
             font-size: 10px;
@@ -111,21 +109,21 @@
             }
         }
 
-        /* Header Style */
+        /* Header Card Panel */
         .header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             width: 100%;
-            padding: 32px 24px;
+            padding: 28px 20px;
             background-color: #FFFFFF;
             border-radius: var(--border-radius);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.03);
         }
 
         .header h1 {
             font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-weight: 800;
+            margin-bottom: 6px;
             color: var(--text-primary);
         }
 
@@ -137,7 +135,7 @@
             line-height: 1.4;
         }
 
-        /* Search Bar Style */
+        /* Search Bar & Quick Tags Container */
         .search-container {
             width: 100%;
             margin-bottom: 24px;
@@ -148,7 +146,7 @@
             padding: 12px 18px;
             border-radius: 50px;
             border: 1px solid #DCE6F1;
-            background-color: var(--card-bg);
+            background-color: #FFFFFF;
             font-size: 14px;
             color: var(--text-primary);
             outline: none;
@@ -158,7 +156,7 @@
 
         .search-input:focus {
             border-color: var(--button-bg);
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25);
         }
 
         /* PRODUCTS GRID: MOBILE 2 PER ROW, DESKTOP 5 PER ROW */
@@ -176,8 +174,9 @@
             }
         }
 
-        /* PRODUCT BOX CARD */
+        /* PRODUCT CARD WITH BADGE SUPPORT */
         .product-card {
+            position: relative;
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
             padding: 12px;
@@ -185,24 +184,54 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border: none;
+            border: 1px solid #E2E8F0;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             height: 100%;
+            overflow: hidden;
         }
 
         .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.15);
+            border-color: var(--button-bg);
+        }
+
+        /* Product Image Wrapper for Hover Zoom */
+        .img-wrapper {
+            width: 100%;
+            height: 130px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            position: relative;
+            background-color: #F1F5F9;
         }
 
         .product-img {
             width: 100%;
-            height: 130px;
-            border-radius: 12px;
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 10px;
-            background-color: #F1F5F9;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        /* Badge Tag */
+        .badge-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(15, 23, 42, 0.85);
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
         }
 
         .product-info {
@@ -255,7 +284,6 @@
             background-color: var(--accent-yellow);
         }
 
-        /* No Results Message */
         .no-results {
             display: none;
             width: 100%;
@@ -264,16 +292,24 @@
             font-size: 14px;
             padding: 20px 0;
         }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #64748B;
+            text-align: center;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION BAR WITH SUBTLE BULLET DOTS -->
+        <!-- TOP NAVIGATION BAR WITH SUBTLE DOTS -->
         <div class="top-nav">
             <a href="../../index.html">Home</a>
             <span class="nav-separator">•</span>
-            <a href="../../women/women.html">Women</a>
+            <a href="../../women/women.html" class="active">Women</a>
             <span class="nav-separator">•</span>
             <a href="../../men/men.html">Men</a>
             <span class="nav-separator">•</span>
@@ -298,7 +334,10 @@
 
             <!-- PRODUCT BOX 1 -->
             <div class="product-card">
-                <img src="maybellinefitmematte/maybeline1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
+                <div class="img-wrapper">
+                    <span class="badge-tag">Viral Pick ✨</span>
+                    <img src="maybellinefitmematte/maybeline1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Maybelline Fit Me Matte</div>
                     <div class="product-desc">Oil-free matte foundation, minimizes pores, 40 shades</div>
@@ -308,7 +347,10 @@
 
             <!-- PRODUCT BOX 2 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1608248597260-657d6540d993?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="img-wrapper">
+                    <span class="badge-tag">Top Glow 🌟</span>
+                    <img src="https://images.unsplash.com/photo-1608248597260-657d6540d993?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Hydrating Skin Tint</div>
                     <div class="product-desc">Natural glow base with sheer finish.</div>
@@ -318,7 +360,10 @@
 
             <!-- PRODUCT BOX 3 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="img-wrapper">
+                    <span class="badge-tag">Gentle Daily 🌿</span>
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Soothing Cleanser</div>
                     <div class="product-desc">Gentle daily face wash for sensitive skin.</div>
@@ -328,7 +373,10 @@
 
             <!-- PRODUCT BOX 4 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="img-wrapper">
+                    <span class="badge-tag">Best Seller 🔥</span>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Glow Serum</div>
                     <div class="product-desc">Brightening serum with Vitamin C.</div>
@@ -338,7 +386,10 @@
 
             <!-- PRODUCT BOX 5 -->
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                <div class="img-wrapper">
+                    <span class="badge-tag">Hydration Pick 💧</span>
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&auto=format&fit=crop&q=80" alt="Product Image" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Barrier Moisturizer</div>
                     <div class="product-desc">Deep hydration for soft skin.</div>
@@ -351,6 +402,10 @@
         <!-- NO RESULTS MESSAGE -->
         <div id="noResults" class="no-results">
             No products found.
+        </div>
+
+        <div class="footer">
+            <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
         </div>
     </div>
 
