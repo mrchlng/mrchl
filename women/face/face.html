@@ -46,7 +46,7 @@
             align-items: center;
         }
 
-        /* MALINIS NA BREADCRUMB NAVIGATION (KASYANG-KASYA SA MOBILE) */
+        /* MALINIS NA BREADCRUMB NAVIGATION */
         .top-nav {
             width: 100%;
             display: flex;
@@ -212,24 +212,24 @@
             overflow: hidden;
             margin-bottom: 10px;
             background-color: #F1F5F9;
-            position: relative; /* KAILANGAN PARA LUMUTANG ANG BADGE */
+            position: relative;
         }
 
-        /* BEST SELLER BADGE STYLING */
+        /* DESIGNED BEST SELLER BADGE (BAGAY SA SITE DESIGN) */
         .bestseller-badge {
             position: absolute;
-            top: 6px;
-            left: 6px;
-            background-color: #EF4444;
-            color: #FFFFFF;
+            top: 8px;
+            left: 8px;
+            background-color: var(--button-bg); /* Ginamit ang kulay ng accent/button mo para swak na swak */
+            color: var(--button-text);
             font-size: 9px;
             font-weight: 800;
-            padding: 3px 7px;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
             z-index: 10;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         .product-img {
@@ -350,10 +350,10 @@
                 <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 2: MEDICUBE (MAY BEST SELLER BADGE) -->
+            <!-- PRODUCT BOX 2: MEDICUBE (MAY BEST SELLER BADGE NA WALANG EMOJI) -->
             <div class="product-card">
                 <div class="img-wrapper">
-                    <span class="bestseller-badge">🔥 Best Seller</span>
+                    <span class="bestseller-badge">Best Seller</span>
                     <img src="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0" class="product-img">
                 </div>
                 <div class="product-info">
