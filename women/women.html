@@ -4,21 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Beauty & Style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Updated color palette for vibrancy */
-            --bg-color-start: #EBF3FA; /* Lighter blue start */
-            --bg-color-end: #D4E2F0; /* Slightly darker blue end for gradient */
-            --card-bg-start: #FFFFFF; /* White card start */
-            --card-bg-end: #F8FAFC; /* Off-white card end for texture */
+            --bg-color: #F1F5F9;
+            --card-bg: #FFFFFF;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --accent-yellow: #F59E0B;
             --button-bg: #FBBF24;
-            --button-text: #0F172A;
-            --nav-pill-bg: #D1E1EF; /* Pill background for unselected */
-            --border-radius: 16px;
+            --border-color: #E2E8F0;
+            --border-radius: 14px;
         }
 
         * {
@@ -26,11 +22,12 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            /* Applied gradient to background */
-            background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
+            background-color: var(--bg-color);
             color: var(--text-primary);
             display: flex;
             justify-content: center;
@@ -40,19 +37,19 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 680px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centered container elements */
+            align-items: center;
         }
 
-        /* Top Navigation Bar - Updated to Pills style */
+        /* Top Navigation Bar with SUBTLE Dots */
         .top-nav {
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centered navigation */
-            gap: 6px;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 24px;
             flex-wrap: wrap;
             font-size: 13px;
@@ -62,53 +59,56 @@
         .top-nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            background-color: var(--nav-pill-bg); /* Unselected pill background */
-            transition: all 0.2s ease;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
         }
 
         .top-nav a:hover {
-            background-color: #B9CDE2; /* Hover background color */
+            color: var(--text-primary);
+            background-color: #E2E8F0;
         }
 
         .top-nav a.active {
-            color: var(--button-text);
-            font-weight: 700;
-            text-decoration: none;
-            background-color: var(--button-bg); /* Active pill background */
+            color: var(--text-primary);
+            font-weight: 800;
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-color);
         }
 
+        /* Subtlety adjusted dots (Mapusyaw na gray/slate para hindi takaw-pansin) */
         .nav-separator {
             color: #94A3B8;
-            font-size: 12px;
-            display: none; /* Removed separators for pills style */
+            font-size: 11px;
+            user-select: none;
+            opacity: 0.7;
         }
 
-        /* Header Style - Updated with a background panel */
+        /* Header Card Panel */
         .header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
             width: 100%;
-            padding: 32px 24px;
-            background-color: #FFFFFF; /* White header panel */
+            padding: 24px 20px;
+            background-color: #FFFFFF;
             border-radius: var(--border-radius);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03); /* Subtle shadow for panel */
+            border: 1px solid var(--border-color);
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
 
         .header p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 480px;
             margin: 0 auto;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* Vertical List Container */
@@ -116,33 +116,31 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
 
-        /* Card Style - Updated with internal gradient and hover glow */
+        /* Sharp Card Style */
         .category-card {
-            /* Applied gradient to card background */
-            background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
+            background-color: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: 20px 24px;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
             text-decoration: none;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.15s ease, transform 0.15s ease;
             width: 100%;
         }
 
         .category-card:hover {
-            transform: translateY(-4px);
-            /* Updated shadow for a slight color glow */
-            box-shadow: 0 12px 24px rgba(251, 191, 36, 0.08);
+            transform: translateY(-2px);
+            border-color: var(--accent-yellow);
+            background-color: #FFFFFF;
         }
 
         .card-icon {
             font-size: 26px;
-            margin-right: 18px;
+            margin-right: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -156,28 +154,33 @@
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .card-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .card-arrow {
-            font-size: 18px;
-            color: var(--text-primary);
-            margin-left: 14px;
-            font-weight: 700;
+            font-size: 14px;
+            color: #1E3A8A;
+            margin-left: 12px;
+            font-weight: 800;
+            transition: transform 0.15s ease;
+        }
+
+        .category-card:hover .card-arrow {
+            transform: translateX(4px);
         }
 
         /* Footer */
         .footer {
-            margin-top: 48px;
+            margin-top: 36px;
             font-size: 12px;
             color: #64748B;
             text-align: center;
@@ -188,16 +191,16 @@
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP NAVIGATION BAR WITH SUBTLE DOTS -->
         <div class="top-nav">
             <a href="../index.html">Home</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="women.html" class="active">Women</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../men/men.html">Men</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../fragrance/fragrance.html">Fragrance</a>
-            <span class="nav-separator">-</span>
+            <span class="nav-separator">•</span>
             <a href="../home/home.html">Home & Living</a>
         </div>
 
@@ -217,7 +220,7 @@
                     <div class="card-title">Face & Skincare</div>
                     <div class="card-desc">Sunscreens, glow filters, base makeup & daily essentials.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
             <!-- EYES & BROWS -->
@@ -227,7 +230,7 @@
                     <div class="card-title">Eyes & Brows</div>
                     <div class="card-desc">Volumizing mascaras, eyeliners & defining brow tools.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
             <!-- LIPS & TINT -->
@@ -237,7 +240,7 @@
                     <div class="card-title">Lips & Tint</div>
                     <div class="card-desc">Hydrating lip oils, glossy balms & long-lasting tints.</div>
                 </div>
-                <div class="card-arrow">→</div>
+                <div class="card-arrow">Explore →</div>
             </a>
 
         </div>
