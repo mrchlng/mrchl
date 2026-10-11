@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated Lifestyle & Beauty Finds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Blue, White, Yellow Color Theme */
-            --bg-color: #EBF3FA;        /* Soft Pastel Blue Background */
-            --card-bg: #FFFFFF;        /* Pure White Card Background */
+            /* Bold Blue, White, and Yellow Color Theme (Non-Pastel) */
+            --bg-color: #0F172A;        /* Deep Royal Navy Blue */
+            --card-bg: #FFFFFF;        /* Pure Crisp White */
             --text-primary: #0F172A;   /* Deep Navy Blue Text */
             --text-secondary: #475569; /* Slate Gray Text */
-            --accent-yellow: #F59E0B;  /* Warm Amber Yellow */
-            --button-bg: #FBBF24;      /* Bright Golden Yellow */
-            --button-text: #0F172A;    /* Dark Text on Yellow Button */
+            --text-light: #F8FAFC;     /* Bright White Text for Dark BG */
+            --accent-blue: #1E40AF;    /* Vibrant Royal Blue */
+            --button-bg: #F59E0B;      /* Bold Gold Yellow */
+            --button-hover: #D97706;   /* Dark Amber Yellow */
+            --button-text: #0F172A;    /* Dark Navy Text on Yellow */
             --border-radius: 16px;
         }
 
@@ -53,23 +55,24 @@
             height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--button-bg);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+            border: 4px solid var(--button-bg);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             margin-bottom: 12px;
         }
 
         .profile-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-light);
             margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
         .profile-bio {
             font-size: 14px;
-            color: var(--text-secondary);
+            color: #94A3B8;
             line-height: 1.4;
-            max-width: 360px;
+            max-width: 380px;
             margin: 0 auto;
         }
 
@@ -91,25 +94,28 @@
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             height: 100%;
         }
 
         .category-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
             border-color: var(--button-bg);
         }
 
         .category-tag {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: #1E3A8A;
-            margin-bottom: 8px;
+            color: var(--accent-blue);
+            background-color: #EFF6FF;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
         }
 
         .product-img {
@@ -145,7 +151,7 @@
             font-size: 11px;
             color: var(--text-secondary);
             line-height: 1.35;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             min-height: 32px;
             display: flex;
             align-items: center;
@@ -155,21 +161,22 @@
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 9px 0;
+            padding: 10px 0;
             background-color: var(--button-bg);
             color: var(--button-text);
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-            transition: background-color 0.15s ease;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+            transition: background-color 0.15s ease, transform 0.1s ease;
             margin-top: auto;
         }
 
         .buy-btn:hover {
-            background-color: var(--accent-yellow);
+            background-color: var(--button-hover);
+            transform: scale(1.02);
         }
 
         /* DESKTOP VIEW: Exactly 1 horizontal row with all 4 choices */
@@ -187,7 +194,7 @@
         .footer {
             margin-top: 40px;
             font-size: 12px;
-            color: #64748B;
+            color: #94A3B8;
             text-align: center;
         }
     </style>
