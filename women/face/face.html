@@ -46,7 +46,7 @@
             align-items: center;
         }
 
-        /* MALINIS NA BREADCRUMB NAVIGATION (KASYANG-KASYA SA MOBILE) */
+        /* BREADCRUMB NAVIGATION */
         .top-nav {
             width: 100%;
             display: flex;
@@ -212,32 +212,32 @@
             overflow: hidden;
             margin-bottom: 10px;
             background-color: #F1F5F9;
-            position: relative; /* KAILANGAN PARA LUMUTANG ANG BADGE */
+            position: relative;
         }
 
-        /* BEST SELLER BADGE STYLING */
+        /* BEST SELLER BADGE STYLING (MATCHED SA THEME) */
         .bestseller-badge {
             position: absolute;
-            top: 6px;
-            left: 6px;
-            background-color: #EF4444;
-            color: #FFFFFF;
+            top: 8px;
+            left: 8px;
+            background-color: var(--button-bg);
+            color: var(--button-text);
             font-size: 9px;
             font-weight: 800;
-            padding: 3px 7px;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
             z-index: 10;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
-        /* TOP 1 BADGE STYLING */
+        /* TOP 1 BADGE STYLING (PREMIUM DARK NAVY) */
         .top1-badge {
             position: absolute;
             top: 8px;
             left: 8px;
-            background-color: var(--text-primary); /* Dark Navy / Blackish style para mukhang premium */
+            background-color: var(--text-primary);
             color: #FFFFFF;
             font-size: 9px;
             font-weight: 800;
@@ -367,10 +367,10 @@
                 <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 2: MEDICUBE (MAY BEST SELLER BADGE) -->
+            <!-- PRODUCT BOX 2: MEDICUBE (BEST SELLER) -->
             <div class="product-card">
                 <div class="img-wrapper">
-                    <span class="bestseller-badge">🔥 Best Seller</span>
+                    <span class="bestseller-badge">Best Seller</span>
                     <img src="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0" class="product-img">
                 </div>
                 <div class="product-info">
@@ -380,11 +380,10 @@
                 <a href="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 3: E.L.F. PRIMER -->
+            <!-- PRODUCT BOX 3: E.L.F. PRIMER (TOP 1) -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <span class="top1-badge">Top 1</span>
-                    
                     <img src="elf-power-grip-primer/elf-power-grip-primer-1.jpg" alt="e.l.f. Power Grip Primer" class="product-img">
                 </div>
                 <div class="product-info">
@@ -409,11 +408,11 @@
             <!-- PRODUCT BOX 5: LAURA GELLER BAKED POWDER FOUNDATION -->
             <div class="product-card">
                 <div class="img-wrapper">
-                    <img src="laura-geller-baked-powder-foundation/laura-geller-baked-powder-foundation-1.jpg" alt="laura geller baked powder foundation" class="product-img">
+                    <img src="laura-geller-baked-powder-foundation/laura-geller-baked-powder-foundation-1.jpg" alt="Laura Geller Baked Powder Foundation" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Laura Geller Baked Powder Foundation</div>
-                    <div class="product-desc">Weightless smooth finish</div>
+                    <div class="product-desc">Weightless smooth finish.</div>
                 </div>
                 <a href="laura-geller-baked-powder-foundation/laura-geller-baked-powder-foundation.html" class="buy-btn">View Details →</a>
             </div>
@@ -425,7 +424,7 @@
                 </div>
                 <div class="product-info">
                     <div class="product-title">L'Oreal True Match Lumi Glotion</div>
-                    <div class="product-desc">Hydrating radiant glow./div>
+                    <div class="product-desc">Hydrating radiant glow.</div>
                 </div>
                 <a href="l-oreal-true-match-lumi-glotion/l-oreal-true-match-lumi-glotion.html" class="buy-btn">View Details →</a>
             </div>
