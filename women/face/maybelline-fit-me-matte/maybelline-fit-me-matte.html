@@ -45,7 +45,6 @@
             align-items: center;
         }
 
-        /* Product Detail Card Layout */
         .product-detail-card {
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
@@ -58,7 +57,6 @@
             gap: 20px;
         }
 
-        /* Gallery Layout */
         .gallery-container {
             display: flex;
             flex-direction: column;
@@ -68,7 +66,6 @@
             align-self: center;
         }
 
-        /* Top Bar Header (Back Arrow + Rating) */
         .gallery-top-bar {
             position: relative;
             display: flex;
@@ -101,7 +98,6 @@
             color: var(--accent-yellow);
         }
 
-        /* Rating Tag */
         .rating-badge {
             display: inline-block;
             font-size: 11px;
@@ -114,7 +110,6 @@
             text-align: center;
         }
 
-        /* Title Style */
         .product-title {
             font-size: 18px;
             font-weight: 800;
@@ -161,7 +156,6 @@
             transform: scale(1.04);
         }
 
-        /* Info & Feature Boxes */
         .product-detail-info {
             display: flex;
             flex-direction: column;
@@ -191,7 +185,6 @@
             line-height: 1.4;
         }
 
-        /* CTA Button */
         .buy-btn {
             display: block;
             width: 100%;
@@ -213,7 +206,6 @@
             transform: translateY(-1px);
         }
 
-        /* PERFECT PC / DESKTOP ALIGNMENT FIX */
         @media (min-width: 600px) {
             .product-detail-card {
                 flex-direction: row;
@@ -261,53 +253,46 @@
     <div class="container">
         <div class="product-detail-card">
             
-            <!-- GALLERY SECTION -->
             <div class="gallery-container">
                 <div class="gallery-top-bar">
                     <a href="../face.html" class="back-arrow-btn" title="Back">←</a>
                     <div class="rating-badge">⭐ 4.6 / 5.0 Rating • Base Makeup</div>
                 </div>
 
-                <!-- TITLE FOR MOBILE (CENTERED ABOVE IMAGE) -->
                 <h1 class="product-title mobile-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
 
-                <img id="mainImage" src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
+                <!-- UPDATED PATH WITH ../../ -->
+                <img id="mainImage" src="../../maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte Main View" class="main-img">
                 
                 <div class="thumbnails-row">
-                    <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
-                    <img src="maybelline-fit-me-matte/maybelline-2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="manualSelectImage(1)">
-                    <img src="maybelline-fit-me-matte/maybelline-3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="manualSelectImage(2)">
-                    <img src="maybelline-fit-me-matte/maybelline-4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="manualSelectImage(3)">
+                    <img src="../../maybelline-fit-me-matte/maybelline-1.jpg" alt="Thumbnail 1" class="thumb-img active" onclick="manualSelectImage(0)">
+                    <img src="../../maybelline-fit-me-matte/maybelline-2.jpg" alt="Thumbnail 2" class="thumb-img" onclick="manualSelectImage(1)">
+                    <img src="../../maybelline-fit-me-matte/maybelline-3.jpg" alt="Thumbnail 3" class="thumb-img" onclick="manualSelectImage(2)">
+                    <img src="../../maybelline-fit-me-matte/maybelline-4.jpg" alt="Thumbnail 4" class="thumb-img" onclick="manualSelectImage(3)">
                 </div>
             </div>
             
-            <!-- DETAILS SECTION -->
             <div class="product-detail-info">
                 
                 <div class="info-content-group">
-                    <!-- TITLE FOR DESKTOP -->
                     <h1 class="product-title desktop-title">Maybelline Fit Me Matte + Poreless Foundation</h1>
                     
-                    <!-- DESCRIPTION BOX -->
                     <div class="section-box">
                         <div class="section-title">📝 Description</div>
                         <p class="section-text">Lightweight, oil-free liquid foundation with medium coverage and a natural matte finish that blurs the look of pores.</p>
                     </div>
 
-                    <!-- WHY WE LIKE IT -->
                     <div class="section-box">
                         <div class="section-title">💖 Why We Like It</div>
                         <p class="section-text">Helps control shine and smooth the look of skin without a heavy makeup feel.</p>
                     </div>
 
-                    <!-- BEST FOR -->
                     <div class="section-box">
                         <div class="section-title">✨ Best For</div>
                         <p class="section-text">Normal to oily skin, everyday wear, and those who prefer a shine-controlled matte finish.</p>
                     </div>
                 </div>
 
-                <!-- AFFILIATE BUTTON -->
                 <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
 
             </div>
@@ -319,13 +304,12 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR AUTO-SLIDING IMAGES -->
     <script>
         const images = [
-            "maybelline-fit-me-matte/maybelline-1.jpg",
-            "maybelline-fit-me-matte/maybelline-2.jpg",
-            "maybelline-fit-me-matte/maybelline-3.jpg",
-            "maybelline-fit-me-matte/maybelline-4.jpg"
+            "../../maybelline-fit-me-matte/maybelline-1.jpg",
+            "../../maybelline-fit-me-matte/maybelline-2.jpg",
+            "../../maybelline-fit-me-matte/maybelline-3.jpg",
+            "../../maybelline-fit-me-matte/maybelline-4.jpg"
         ];
         let currentIndex = 0;
         let slideTimer = null;
