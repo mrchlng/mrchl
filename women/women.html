@@ -8,9 +8,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Face & Skincare Finds</title>
+    <title>Women's Beauty & Style</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -82,7 +82,7 @@
 
             width: 100%;
 
-            max-width: 1100px;
+            max-width: 700px;
 
             display: flex;
 
@@ -94,7 +94,7 @@
 
 
 
-        /* Top Navigation Bar */
+        /* Top Navigation Bar - Pinanatili naming horizontal kahit sa mobile */
 
         .top-nav {
 
@@ -106,13 +106,13 @@
 
             justify-content: center;
 
-            gap: 4px;
+            gap: 4px; /* Binawasan ang gap para magkasya */
 
-            margin-bottom: 20px;
+            margin-bottom: 24px;
 
-            flex-wrap: nowrap;
+            flex-wrap: nowrap; /* Bawal mag-break sa susunod na line */
 
-            overflow-x: auto;
+            overflow-x: auto;  /* Scrollable nang konti kung sakaling sobrang liit ng screen */
 
             white-space: nowrap;
 
@@ -124,7 +124,7 @@
 
         .top-nav::-webkit-scrollbar {
 
-            display: none;
+            display: none; /* Tinanggal ang scrollbar para malinis tingnan */
 
         }
 
@@ -136,13 +136,13 @@
 
             text-decoration: none;
 
-            padding: 5px 10px;
+            padding: 5px 9px; /* Mas pinakinis para magkasya sa mobile */
 
             border-radius: 16px;
 
             background-color: var(--nav-pill-bg);
 
-            font-size: 11px;
+            font-size: 11px;   /* Medyo pinaliit para saktong-sakto sa mobile screen */
 
             font-weight: 600;
 
@@ -186,11 +186,15 @@
 
             font-weight: 700;
 
+            text-decoration: none;
+
             background-color: var(--button-bg);
 
         }
 
 
+
+        /* Subtle Bullet Dots Separator */
 
         .nav-separator {
 
@@ -220,23 +224,23 @@
 
 
 
-        /* Header Card Panel */
+        /* Header Style */
 
         .header {
 
             text-align: center;
 
-            margin-bottom: 20px;
+            margin-bottom: 32px;
 
             width: 100%;
 
-            padding: 28px 20px;
+            padding: 32px 24px;
 
             background-color: #FFFFFF;
 
             border-radius: var(--border-radius);
 
-            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
 
         }
 
@@ -244,11 +248,11 @@
 
         .header h1 {
 
-            font-size: 22px;
+            font-size: 24px;
 
             font-weight: 800;
 
-            margin-bottom: 6px;
+            margin-bottom: 8px;
 
             color: var(--text-primary);
 
@@ -258,199 +262,107 @@
 
         .header p {
 
-            font-size: 13px;
+            font-size: 14px;
 
             color: var(--text-secondary);
 
-            max-width: 480px;
+            max-width: 520px;
 
             margin: 0 auto;
 
-            line-height: 1.4;
+            line-height: 1.5;
 
         }
 
 
 
-        /* Search Bar Area */
+        /* Vertical List Container */
 
-        .search-container {
+        .categories-list {
 
             width: 100%;
 
-            margin-bottom: 24px;
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 16px;
 
         }
 
 
 
-        .search-input {
+        /* Card Style */
 
-            width: 100%;
-
-            padding: 12px 18px;
-
-            border-radius: 50px;
-
-            border: 1px solid #DCE6F1;
-
-            background-color: #FFFFFF;
-
-            font-size: 14px;
-
-            color: var(--text-primary);
-
-            outline: none;
-
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-        }
-
-
-
-        .search-input:focus {
-
-            border-color: var(--button-bg);
-
-            box-shadow: 0 4px 14px rgba(251, 191, 36, 0.25);
-
-        }
-
-
-
-        /* PRODUCTS GRID: MOBILE 2 PER ROW, DESKTOP 5 PER ROW */
-
-        .products-grid {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 12px;
-
-        }
-
-
-
-        @media (min-width: 992px) {
-
-            .products-grid {
-
-                grid-template-columns: repeat(5, 1fr);
-
-                gap: 16px;
-
-            }
-
-        }
-
-
-
-        /* PRODUCT CARD WITH HOVER ZOOM EFFECT */
-
-        .product-card {
+        .category-card {
 
             background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
 
             border-radius: var(--border-radius);
 
-            padding: 12px;
+            padding: 20px 24px;
 
             display: flex;
-
-            flex-direction: column;
 
             align-items: center;
 
-            text-align: center;
+            text-decoration: none;
 
-            border: 1px solid transparent;
+            border: none;
 
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
 
-            height: 100%;
-
-            overflow: hidden;
+            width: 100%;
 
         }
 
 
 
-        .product-card:hover {
+        .category-card:hover {
 
             transform: translateY(-4px);
 
-            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.15);
-
-            border-color: var(--button-bg);
+            box-shadow: 0 12px 24px rgba(251, 191, 36, 0.08);
 
         }
 
 
 
-        .img-wrapper {
+        .card-icon {
 
-            width: 100%;
+            font-size: 26px;
 
-            height: 130px;
+            margin-right: 18px;
 
-            border-radius: 12px;
+            display: flex;
 
-            overflow: hidden;
+            align-items: center;
 
-            margin-bottom: 10px;
+            justify-content: center;
 
-            background-color: #F1F5F9;
-
-        }
-
-
-
-        .product-img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: contain; /* Pinalitan mula cover patungong contain para hindi naka-zoom o putol */
-
-            transition: transform 0.3s ease;
+            min-width: 36px;
 
         }
 
 
 
-        .product-card:hover .product-img {
+        .card-info {
 
-            transform: scale(1.05);
-
-        }
-
-
-
-        .product-info {
-
-            width: 100%;
+            flex-grow: 1;
 
             display: flex;
 
             flex-direction: column;
 
-            flex-grow: 1;
-
         }
 
 
 
-        .product-title {
+        .card-title {
 
-            font-size: 13px;
+            font-size: 16px;
 
             font-weight: 700;
 
@@ -458,103 +370,51 @@
 
             margin-bottom: 4px;
 
-            line-height: 1.3;
-
-            min-height: 34px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
         }
 
 
 
-        .product-desc {
+        .card-desc {
 
-            font-size: 11px;
+            font-size: 13px;
 
             color: var(--text-secondary);
 
-            line-height: 1.35;
-
-            margin-bottom: 12px;
-
-            min-height: 30px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
+            line-height: 1.4;
 
         }
 
 
 
-        .buy-btn {
+        .card-arrow {
 
-            display: block;
+            font-size: 18px;
 
-            width: 100%;
+            color: var(--text-primary);
 
-            padding: 8px 0;
-
-            background-color: var(--button-bg);
-
-            color: var(--button-text);
-
-            text-decoration: none;
-
-            font-size: 12px;
+            margin-left: 14px;
 
             font-weight: 700;
 
-            border-radius: 8px;
-
-            text-align: center;
-
-            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-
-            margin-top: auto;
-
-            transition: background-color 0.15s ease;
+            transition: transform 0.2s ease;
 
         }
 
 
 
-        .buy-btn:hover {
+        .category-card:hover .card-arrow {
 
-            background-color: var(--accent-yellow);
-
-        }
-
-
-
-        .no-results {
-
-            display: none;
-
-            width: 100%;
-
-            text-align: center;
-
-            color: var(--text-secondary);
-
-            font-size: 14px;
-
-            padding: 20px 0;
+            transform: translateX(4px);
 
         }
 
 
+
+        /* Footer */
 
         .footer {
 
-            margin-top: 40px;
+            margin-top: 48px;
 
             font-size: 12px;
 
@@ -576,177 +436,107 @@
 
     <div class="container">
 
-        <!-- TOP NAVIGATION BAR -->
+        <!-- TOP NAVIGATION BAR WITH BULLET DOTS -->
 
         <div class="top-nav">
 
-            <a href="../../index.html">Home</a>
+            <a href="../index.html">Home</a>
 
             <span class="nav-separator">•</span>
 
-            <a href="../../women/women.html" class="active">Women</a>
+            <a href="women.html" class="active">Women</a>
 
             <span class="nav-separator">•</span>
 
-            <a href="../../men/men.html">Men</a>
+            <a href="../men/men.html">Men</a>
 
             <span class="nav-separator">•</span>
 
-            <a href="../../fragrance/fragrance.html">Fragrance</a>
+            <a href="../fragrance/fragrance.html">Fragrance</a>
 
             <span class="nav-separator">•</span>
 
-            <a href="../../home/home.html">Home & Living</a>
+            <a href="../home/home.html">Home & Living</a>
 
         </div>
 
 
 
-        <!-- HEADER PANEL -->
+        <!-- HEADER -->
 
         <div class="header">
 
-            <h1>✨ Face & Skincare</h1>
+            <h1>💄 Women's Beauty & Style</h1>
 
-            <p>Curated skincare essentials, sunscreens, and base makeup picks.</p>
-
-        </div>
-
-
-
-        <!-- SEARCH BAR -->
-
-        <div class="search-container">
-
-            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search face products..." onkeyup="filterProducts()">
+            <p>Choose a category below to explore curated skincare, makeup, and lip favorites.</p>
 
         </div>
 
 
 
-        <!-- PRODUCTS GRID -->
+        <!-- CATEGORIES LIST -->
 
-        <div class="products-grid" id="productsList">
+        <div class="categories-list">
 
 
 
-            <!-- PRODUCT BOX 1 -->
+            <!-- FACE & SKINCARE -->
 
-            <div class="product-card">
+            <a href="face/face.html" class="category-card">
 
-                <div class="img-wrapper">
+                <div class="card-icon">✨</div>
 
-                    <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
+                <div class="card-info">
 
-                </div>
+                    <div class="card-title">Face & Skincare</div>
 
-                <div class="product-info">
-
-                    <div class="product-title">Maybelline Fit Me Matte</div>
-
-                    <div class="product-desc">Oil-free matte foundation, minimizes pores, 40 shades</div>
+                    <div class="card-desc">Sunscreens, glow filters, base makeup & daily essentials.</div>
 
                 </div>
 
-                <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
+                <div class="card-arrow">→</div>
 
-            </div>
+            </a>
 
 
 
-            <!-- PRODUCT BOX 2 -->
+            <!-- EYES & BROWS -->
 
-            <div class="product-card">
+            <a href="eyes/eyes.html" class="category-card">
 
-                <div class="img-wrapper">
+                <div class="card-icon">👁️</div>
 
-                    <img src="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0-1.jpg" alt="Medicube Zero Pore Pad 2.0" class="product-img">
+                <div class="card-info">
 
-                </div>
+                    <div class="card-title">Eyes & Brows</div>
 
-                <div class="product-info">
-
-                    <div class="product-title">Medicube Zero Pore Pad 2.0</div>
-
-                    <div class="product-desc">Dual-textured pads — AHA + BHA exfoliate, shrink pores, control oil.</div>
+                    <div class="card-desc">Volumizing mascaras, eyeliners & defining brow tools.</div>
 
                 </div>
 
-                <a href="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0.html" class="buy-btn">View Details →</a>
+                <div class="card-arrow">→</div>
 
-            </div>
+            </a>
 
 
 
-            <!-- PRODUCT BOX 3 -->
+            <!-- LIPS & TINT -->
 
-            <div class="product-card">
+            <a href="lips/lips.html" class="category-card">
 
-                <div class="img-wrapper">
+                <div class="card-icon">💋</div>
 
-                    <img src="elf-power-grip-primer/elf-power-grip-primer-1.jpg" alt="Soothing Cleanser" class="product-img">
+                <div class="card-info">
 
-                </div>
+                    <div class="card-title">Lips & Tint</div>
 
-                <div class="product-info">
-
-                    <div class="product-title">e.l.f. Power Grip Primer</div>
-
-                    <div class="product-desc">A gel primer that grips makeup all day while keeping skin hydrated.</div>
+                    <div class="card-desc">Hydrating lip oils, glossy balms & long-lasting tints.</div>
 
                 </div>
 
-                <a href="elf-power-grip-primer/elf-power-grip-primer.html" class="buy-btn">View Details →</a>
+                <div class="card-arrow">→</div>
 
-            </div>
-
-
-
-            <!-- PRODUCT BOX 4 -->
-
-            <div class="product-card">
-
-                <div class="img-wrapper">
-
-                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&auto=format&fit=crop&q=80" alt="Glow Serum" class="product-img">
-
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-title">Glow Serum</div>
-
-                    <div class="product-desc">Brightening serum with Vitamin C.</div>
-
-                </div>
-
-                <a href="#" class="buy-btn">View Details →</a>
-
-            </div>
-
-
-
-            <!-- PRODUCT BOX 5 -->
-
-            <div class="product-card">
-
-                <div class="img-wrapper">
-
-                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&auto=format&fit=crop&q=80" alt="Barrier Moisturizer" class="product-img">
-
-                </div>
-
-                <div class="product-info">
-
-                    <div class="product-title">Barrier Moisturizer</div>
-
-                    <div class="product-desc">Deep hydration for soft skin.</div>
-
-                </div>
-
-                <a href="#" class="buy-btn">View Details →</a>
-
-            </div>
+            </a>
 
 
 
@@ -754,13 +544,7 @@
 
 
 
-        <div id="noResults" class="no-results">
-
-            No products found.
-
-        </div>
-
-
+        <!-- FOOTER -->
 
         <div class="footer">
 
@@ -769,84 +553,6 @@
         </div>
 
     </div>
-
-
-
-    <script>
-
-        function shuffleProducts() {
-
-            const grid = document.getElementById('productsList');
-
-            const cards = Array.from(grid.getElementsByClassName('product-card'));
-
-            
-
-            for (let i = cards.length - 1; i > 0; i--) {
-
-                const j = Math.floor(Math.random() * (i + 1));
-
-                grid.appendChild(cards[j]);
-
-            }
-
-        }
-
-
-
-        window.addEventListener('DOMContentLoaded', shuffleProducts);
-
-
-
-        function filterProducts() {
-
-            const input = document.getElementById('searchInput').value.toLowerCase();
-
-            const cards = document.getElementsByClassName('product-card');
-
-            let hasVisibleCard = false;
-
-
-
-            for (let i = 0; i < cards.length; i++) {
-
-                const title = cards[i].querySelector('.product-title').innerText.toLowerCase();
-
-                const desc = cards[i].querySelector('.product-desc').innerText.toLowerCase();
-
-
-
-                if (title.includes(input) || desc.includes(input)) {
-
-                    cards[i].style.display = "flex";
-
-                    hasVisibleCard = true;
-
-                } else {
-
-                    cards[i].style.display = "none";
-
-                }
-
-            }
-
-
-
-            const noResults = document.getElementById('noResults');
-
-            if (hasVisibleCard) {
-
-                noResults.style.display = "none";
-
-            } else {
-
-                noResults.style.display = "block";
-
-            }
-
-        }
-
-    </script>
 
 
 
