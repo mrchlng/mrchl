@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated Lifestyle & Beauty Finds</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Blue, White, Yellow Color Theme */
-            --bg-color: #EBF3FA;        /* Soft Pastel Blue Background */
-            --card-bg: #FFFFFF;        /* Pure White Card Background */
-            --text-primary: #0F172A;   /* Deep Navy Blue Text */
-            --text-secondary: #475569; /* Slate Gray Text */
-            --accent-yellow: #F59E0B;  /* Warm Amber Yellow */
-            --button-bg: #FBBF24;      /* Bright Golden Yellow */
-            --button-text: #0F172A;    /* Dark Text on Yellow Button */
-            --border-radius: 16px;
+            --bg-color-start: #EBF3FA;
+            --bg-color-end: #D4E2F0;
+            --card-bg-start: #FFFFFF;
+            --card-bg-end: #F8FAFC;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --accent-yellow: #F59E0B;
+            --button-bg: #FBBF24;
+            --button-text: #0F172A;
+            --border-radius: 18px;
         }
 
         * {
@@ -23,14 +24,16 @@
             margin: 0;
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
             color: var(--text-primary);
             display: flex;
             justify-content: center;
-            padding: 24px 16px 40px;
+            padding: 32px 16px 48px;
             min-height: 100vh;
         }
 
@@ -45,7 +48,13 @@
         /* Profile Header */
         .profile-section {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
         .profile-img {
@@ -54,22 +63,23 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--button-bg);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-            margin-bottom: 12px;
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.35);
+            display: block;
         }
 
         .profile-name {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
         .profile-bio {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.4;
-            max-width: 360px;
+            line-height: 1.45;
+            max-width: 380px;
             margin: 0 auto;
         }
 
@@ -77,13 +87,13 @@
         .categories-grid {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Mobile: 2 choices per row */
+            grid-template-columns: repeat(2, 1fr);
             gap: 14px;
         }
 
         /* Category Card Box */
         .category-card {
-            background: var(--card-bg);
+            background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
             border-radius: var(--border-radius);
             padding: 16px 14px;
             display: flex;
@@ -91,34 +101,50 @@
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            border: 1px solid #DCE6F1;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             height: 100%;
+            overflow: hidden;
         }
 
         .category-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(251, 191, 36, 0.2);
             border-color: var(--button-bg);
         }
 
+        /* Subtle Pill Badge for Tag */
         .category-tag {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             color: #1E3A8A;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            background-color: #E2E8F0;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            background-color: #F1F5F9;
         }
 
         .product-img {
             width: 100%;
-            height: 120px;
-            border-radius: 12px;
+            height: 100%;
             object-fit: cover;
-            background-color: #F1F5F9;
-            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .product-img {
+            transform: scale(1.06);
         }
 
         .product-info {
@@ -160,26 +186,27 @@
             color: var(--button-text);
             text-decoration: none;
             font-size: 12px;
-            font-weight: 700;
-            border-radius: 8px;
+            font-weight: 800;
+            border-radius: 50px; /* Modern Pill Style Button */
             text-align: center;
-            box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
-            transition: background-color 0.15s ease;
+            box-shadow: 0 3px 8px rgba(251, 191, 36, 0.35);
+            transition: background-color 0.15s ease, transform 0.15s ease;
             margin-top: auto;
         }
 
         .buy-btn:hover {
             background-color: var(--accent-yellow);
+            transform: translateY(-1px);
         }
 
-        /* DESKTOP VIEW: Exactly 1 horizontal row with all 4 choices */
+        /* DESKTOP VIEW */
         @media (min-width: 768px) {
             .categories-grid {
-                grid-template-columns: repeat(4, 1fr); /* PC: 4 boxes in 1 horizontal row */
+                grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
 
-            .product-img {
+            .img-wrapper {
                 height: 140px;
             }
         }
@@ -197,19 +224,22 @@
     <div class="container">
         <!-- HEADER PROFILE -->
         <div class="profile-section">
-            <!-- Profile Image -->
-            <img src="DP.png" alt="Profile Picture" class="profile-img">
+            <div class="profile-img-wrapper">
+                <img src="DP.png" alt="Profile Picture" class="profile-img">
+            </div>
             <h1 class="profile-name">Rachel's Curated Finds ✨</h1>
             <p class="profile-bio">Your go-to bestie for top picks in women, men, fragrance & home! Shop below 👇</p>
         </div>
 
-        <!-- 4 CATEGORY CHOICES IN HORIZONTAL ROW -->
+        <!-- 4 CATEGORY CHOICES -->
         <div class="categories-grid">
             
             <!-- CHOICE 1: WOMEN -->
             <div class="category-card">
-                <div class="category-tag">💄 Women</div>
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80" alt="Women Category" class="product-img">
+                <span class="category-tag">💄 Women</span>
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80" alt="Women Category" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Women's Beauty & Style</div>
                     <div class="product-desc">Must-have skincare, viral makeup & everyday beauty picks.</div>
@@ -219,8 +249,10 @@
 
             <!-- CHOICE 2: MEN -->
             <div class="category-card">
-                <div class="category-tag">👔 Men</div>
-                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=80" alt="Men Category" class="product-img">
+                <span class="category-tag">👔 Men</span>
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=80" alt="Men Category" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Men's Grooming & Essentials</div>
                     <div class="product-desc">Clean skincare, daily grooming & functional lifestyle gear.</div>
@@ -230,8 +262,10 @@
 
             <!-- CHOICE 3: FRAGRANCE -->
             <div class="category-card">
-                <div class="category-tag">✨ Fragrance</div>
-                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&auto=format&fit=crop&q=80" alt="Fragrance Category" class="product-img">
+                <span class="category-tag">✨ Fragrance</span>
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&auto=format&fit=crop&q=80" alt="Fragrance Category" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Perfumes & Body Mists</div>
                     <div class="product-desc">Long-lasting scents, vanilla favorites & luxury perfumes.</div>
@@ -241,8 +275,10 @@
 
             <!-- CHOICE 4: HOME & LIVING -->
             <div class="category-card">
-                <div class="category-tag">🏠 Home & Living</div>
-                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=80" alt="Home Category" class="product-img">
+                <span class="category-tag">🏠 Home & Living</span>
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=80" alt="Home Category" class="product-img">
+                </div>
                 <div class="product-info">
                     <div class="product-title">Cozy Home Decor</div>
                     <div class="product-desc">Aesthetic room accents, essential oil diffusers & candles.</div>
