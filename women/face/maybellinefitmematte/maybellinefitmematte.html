@@ -58,13 +58,6 @@
             gap: 24px;
         }
 
-        @media (min-width: 600px) {
-            .product-detail-card {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-        }
-
         /* Gallery Layout */
         .gallery-container {
             display: flex;
@@ -75,7 +68,7 @@
             align-self: center;
         }
 
-        /* Top Bar Header (Back Arrow sa kaliwa, centered ang Rating) */
+        /* Top Bar Header sa loob ng Gallery */
         .gallery-top-bar {
             position: relative;
             display: flex;
@@ -109,7 +102,7 @@
             color: var(--accent-yellow);
         }
 
-        /* Rating Tag (Perfectly Centered) */
+        /* Rating Tag */
         .rating-badge {
             display: inline-block;
             font-size: 11px;
@@ -174,9 +167,9 @@
         .section-box {
             background-color: #FFFFFF;
             border-left: 4px solid var(--button-bg);
-            padding: 14px 16px;
+            padding: 12px 16px;
             border-radius: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
             border-top: none;
             border-right: none;
@@ -187,23 +180,16 @@
             font-size: 13px;
             font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .section-text {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
-        /* CTA Buttons Group */
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
+        /* CTA Button */
         .buy-btn {
             display: block;
             width: 100%;
@@ -218,11 +204,34 @@
             box-shadow: 0 3px 10px rgba(251, 191, 36, 0.35);
             transition: background-color 0.15s ease, transform 0.15s ease;
             border: none;
+            margin-top: auto;
         }
 
         .buy-btn:hover {
             background-color: var(--accent-yellow);
             transform: translateY(-1px);
+        }
+
+        /* PC / DESKTOP VIEW ALIGNMENT FIX */
+        @media (min-width: 600px) {
+            .product-detail-card {
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            .gallery-container {
+                align-self: flex-start;
+            }
+
+            .product-detail-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .section-box {
+                margin-bottom: 8px;
+            }
         }
 
         .footer {
@@ -278,10 +287,8 @@
                     <p class="section-text">Normal to oily skin types looking for an everyday natural matte look and refined pore texture.</p>
                 </div>
 
-                <!-- AFFILIATE BUTTON -->
-                <div class="button-group">
-                    <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon / Shopee →</a>
-                </div>
+                <!-- AFFILIATE BUTTON (PANTAY SA PC VIEW) -->
+                <a href="https://link.amazon/B04WnVmnZ" target="_blank" class="buy-btn">View On Amazon →</a>
 
             </div>
 
