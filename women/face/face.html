@@ -41,67 +41,29 @@
             align-items: flex-start;
         }
 
-        /* Top Navigation Bar */
-        .top-nav {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+        /* Back Button Style */
+        .nav-wrapper {
             margin-bottom: 24px;
-            flex-wrap: wrap;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .nav-item {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            background-color: var(--card-bg);
-            border: 1px solid #DCE6F1;
-            transition: all 0.2s ease;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            color: var(--text-primary);
-            border-color: var(--button-bg);
-            background-color: #FFFDF5;
-        }
-
-        .nav-separator {
-            color: #CBD5E1;
-            font-size: 12px;
-        }
-
-        .home-btn {
+        .back-btn {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
             background-color: var(--card-bg);
             color: var(--text-primary);
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 13px;
             border: 1px solid #DCE6F1;
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .home-btn:hover {
+        .back-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-            border-color: var(--button-bg);
         }
 
         /* Header Style */
@@ -259,20 +221,9 @@
 <body>
 
     <div class="container">
-        <!-- TOP NAVIGATION BAR -->
-        <div class="top-nav">
-            <div class="nav-links">
-                <a href="../women.html" class="nav-item active">💄 Women</a>
-                <span class="nav-separator">•</span>
-                <a href="../../men/men.html" class="nav-item">👔 Men</a>
-                <span class="nav-separator">•</span>
-                <a href="../../fragrance/fragrance.html" class="nav-item">✨ Fragrance</a>
-                <span class="nav-separator">•</span>
-                <a href="../../home/home.html" class="nav-item">🏠 Home & Living</a>
-            </div>
-            
-            <!-- HOME ARROW BUTTON -->
-            <a href="../../index.html" class="home-btn">Home →</a>
+        <!-- BACK BUTTON -->
+        <div class="nav-wrapper">
+            <a href="../women.html" class="back-btn">← Back</a>
         </div>
 
         <!-- HEADER -->
@@ -289,7 +240,7 @@
         <!-- PRODUCTS BOX GRID -->
         <div class="products-grid" id="productsList">
 
-            <!-- PRODUCT BOX 1 -->
+            <!-- PRODUCT BOX 1 (WALANG target="_blank" PARA SAME TAB MAG-OPEN) -->
             <div class="product-card">
                 <img src="maybellinefitmematte/maybeline1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
                 <div class="product-info">
