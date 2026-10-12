@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOS - Online Shopping (PC Version)</title>
+    <title>Face & Skincare Finds</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --bg-body: #FDF9F8;
-            --card-bg: #FFFFFF;
             --accent-peach: #FCEBE6;
             --dark-button: #1C1E23;
             --gray-pill: #EAEBED;
             --text-dark: #121212;
             --text-muted: #737373;
-            --light-border: #F0F0F0;
         }
 
         * {
@@ -31,96 +29,40 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
+            padding: 20px 10px;
         }
 
-        /* Container - Malapad para sa PC */
+        /* Responsive Container */
         .app-container {
             width: 100%;
-            max-width: 1200px; /* Pang Desktop width */
+            max-width: 1000px;
             background: #FFFFFF;
-            padding: 30px 40px;
+            border-radius: 24px;
+            padding: 25px 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            min-height: 100vh;
         }
 
-        /* Header Layout sa PC */
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .logo {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             letter-spacing: -1.5px;
             color: var(--text-dark);
-        }
-
-        /* Search Bar sa PC */
-        .search-box {
-            flex: 1;
-            max-width: 500px;
-            display: flex;
-            align-items: center;
-            background: #F7F7F8;
-            padding: 12px 20px;
-            border-radius: 16px;
-            gap: 12px;
-        }
-
-        .search-box i {
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-
-        .search-box input {
-            border: none;
-            background: transparent;
-            width: 100%;
-            outline: none;
-            font-size: 14px;
-            color: var(--text-dark);
-        }
-
-        .filter-btn {
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .icon-btn {
-            width: 44px;
-            height: 44px;
-            background: #F7F7F8;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dark);
             text-decoration: none;
-            font-size: 18px;
-            transition: 0.2s;
         }
 
-        .icon-btn:hover {
-            background: var(--gray-pill);
-        }
-
-        /* Gender Tabs */
+        /* Gender / Category Tabs */
         .gender-tabs-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .gender-tabs {
@@ -128,12 +70,13 @@
             background: var(--gray-pill);
             padding: 4px;
             border-radius: 16px;
-            width: 300px;
+            width: 100%;
+            max-width: 320px;
         }
 
         .tab {
             flex: 1;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             font-size: 14px;
             font-weight: 600;
@@ -148,72 +91,67 @@
             color: #FFFFFF;
         }
 
-        /* Hero Banner sa PC */
+        /* Hero Banner */
         .hero-banner {
             background-color: var(--accent-peach);
-            border-radius: 24px;
-            padding: 40px 50px;
+            border-radius: 20px;
+            padding: 25px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            margin-bottom: 40px;
-            height: 280px;
+            margin-bottom: 30px;
+            min-height: 160px;
         }
 
         .hero-content {
-            max-width: 50%;
+            max-width: 60%;
             z-index: 2;
         }
 
         .hero-tag {
             display: inline-block;
             background: rgba(255, 255, 255, 0.7);
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 12px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: var(--text-dark);
         }
 
         .hero-title {
-            font-size: 32px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             line-height: 1.2;
         }
 
         .hero-desc {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero-btn {
             display: inline-block;
             background: var(--dark-button);
             color: #FFFFFF;
-            padding: 12px 28px;
-            border-radius: 14px;
-            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 12px;
             font-weight: 600;
             text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .hero-btn:hover {
-            opacity: 0.9;
         }
 
         .hero-img {
             position: absolute;
-            right: 40px;
+            right: -10px;
             bottom: 0;
             height: 100%;
-            width: 350px;
+            width: 40%;
             object-fit: cover;
             object-position: top;
         }
@@ -223,28 +161,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-dark);
         }
 
         .see-all {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 500;
         }
 
-        /* Categories Grid sa PC (5 columns na mas malalaki) */
+        /* Categories Grid */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 30px;
         }
 
         .category-item {
@@ -256,78 +193,75 @@
 
         .category-icon {
             width: 100%;
-            height: 90px;
+            height: 65px;
             background: #F7F7F8;
-            border-radius: 20px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
-            font-size: 24px;
+            margin-bottom: 6px;
+            font-size: 20px;
             color: var(--text-dark);
-            transition: 0.2s;
-        }
-
-        .category-item:hover .category-icon {
-            background: var(--gray-pill);
         }
 
         .category-label {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-dark);
+            text-align: center;
         }
 
-        /* Trending Cards Grid sa PC (4 columns) */
+        /* Products Grid (Trending Finds) */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .product-card {
             background: #F7F7F8;
-            border-radius: 20px;
+            border-radius: 18px;
             position: relative;
             overflow: hidden;
-            height: 280px;
+            height: 200px;
+            text-decoration: none;
+            display: block;
         }
 
         .product-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .product-card:hover img {
-            transform: scale(1.03);
-        }
-
-        .wishlist-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dark);
-            font-size: 14px;
-            text-decoration: none;
-            z-index: 2;
-        }
-
-        /* Responsive Breakpoint (Para sa katamtamang screen gaya ng Laptop) */
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
+        /* Layout adjustment sa Desktop / PC Screen */
+        @media (min-width: 768px) {
+            .app-container {
+                padding: 35px 40px;
             }
-            .hero-img {
-                width: 250px;
+            .hero-banner {
+                padding: 40px;
+                min-height: 220px;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero-desc {
+                font-size: 14px;
+            }
+            .category-icon {
+                height: 85px;
+                font-size: 24px;
+            }
+            .category-label {
+                font-size: 13px;
+            }
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .product-card {
+                height: 260px;
             }
         }
     </style>
@@ -335,30 +269,15 @@
 <body>
 
     <div class="app-container">
-        <!-- Top Header Navigation -->
+        <!-- Logo Header (Walang Cart) -->
         <header class="header">
-            <div class="logo">asos</div>
-            
-            <!-- Search Bar sa Gitna -->
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search for brands, styles...">
-                <button class="filter-btn"><i class="fa-sliders fa-solid"></i></button>
-            </div>
-
-            <!-- Header Action Icons -->
-            <div class="header-icons">
-                <a href="index.html" class="icon-btn" title="Home"><i class="fa-solid fa-house"></i></a>
-                <a href="#" class="icon-btn" title="Wishlist"><i class="fa-regular fa-heart"></i></a>
-                <a href="#" class="icon-btn" title="Cart"><i class="fa-solid fa-bag-shopping"></i></a>
-                <a href="#" class="icon-btn" title="Profile"><i class="fa-regular fa-user"></i></a>
-            </div>
+            <a href="index.html" class="logo">asos</a>
         </header>
 
-        <!-- Gender Switcher -->
+        <!-- Category Tabs -->
         <div class="gender-tabs-wrapper">
             <div class="gender-tabs">
-                <a href="women.html" class="tab active">Women</a>
+                <a href="index.html" class="tab active">Women</a>
                 <a href="#" class="tab">Men</a>
             </div>
         </div>
@@ -369,12 +288,12 @@
                 <span class="hero-tag">New in</span>
                 <h1 class="hero-title">Spring Essentials</h1>
                 <p class="hero-desc">Discover new styles to embrace this exciting season!</p>
-                <a href="#" class="hero-btn">Shop Now</a>
+                <a href="#trending" class="hero-btn">Explore Now</a>
             </div>
             <img class="hero-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Model">
         </div>
 
-        <!-- Categories Section -->
+        <!-- Categories -->
         <div class="section-header">
             <h2 class="section-title">Category</h2>
             <a href="#" class="see-all">See all</a>
@@ -403,29 +322,25 @@
             </a>
         </div>
 
-        <!-- Trending Now Grid -->
-        <div class="section-header">
+        <!-- Trending Section -->
+        <div class="section-header" id="trending">
             <h2 class="section-title">Trending Now</h2>
             <a href="#" class="see-all">See all</a>
         </div>
 
         <div class="products-grid">
-            <div class="product-card">
-                <a href="#" class="wishlist-btn"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" class="product-card">
                 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=400" alt="Product">
-            </div>
-            <div class="product-card">
-                <a href="#" class="wishlist-btn"><i class="fa-regular fa-heart"></i></a>
+            </a>
+            <a href="#" class="product-card">
                 <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=400" alt="Product">
-            </div>
-            <div class="product-card">
-                <a href="#" class="wishlist-btn"><i class="fa-regular fa-heart"></i></a>
+            </a>
+            <a href="#" class="product-card">
                 <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=400" alt="Product">
-            </div>
-            <div class="product-card">
-                <a href="#" class="wishlist-btn"><i class="fa-regular fa-heart"></i></a>
+            </a>
+            <a href="#" class="product-card">
                 <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=400" alt="Product">
-            </div>
+            </a>
         </div>
 
     </div>
