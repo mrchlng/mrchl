@@ -168,12 +168,31 @@
             box-shadow: 0 4px 14px rgba(251, 191, 36, 0.25);
         }
 
+        /* SECTION HEADERS */
+        .section-title {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 24px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #D1E1EF;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
         /* PRODUCTS GRID */
         .products-grid {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
+            margin-bottom: 12px;
         }
 
         @media (min-width: 992px) {
@@ -352,22 +371,10 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search face products..." onkeyup="filterProducts()">
         </div>
 
-        <!-- PRODUCTS GRID -->
-        <div class="products-grid" id="productsList">
-
-            <!-- PRODUCT BOX 1: MAYBELLINE -->
-            <div class="product-card">
-                <div class="img-wrapper">
-                    <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Maybelline Fit Me Matte</div>
-                    <div class="product-desc">Matte base in Rich Tan.</div>
-                </div>
-                <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
-            </div>
-
-            <!-- PRODUCT BOX 2: MEDICUBE (RED BEST SELLER WITH FIRE EMOJI) -->
+        <!-- SECTION 1: PREP & PRIMER -->
+        <h2 class="section-title">🧴 Prep & Skincare</h2>
+        <div class="products-grid">
+            <!-- PRODUCT BOX: MEDICUBE -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <span class="bestseller-badge">🔥 Best Seller</span>
@@ -380,7 +387,7 @@
                 <a href="medicube-zero-pore-pad-2.0/medicube-zero-pore-pad-2.0.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 3: E.L.F. PRIMER (TOP 1) -->
+            <!-- PRODUCT BOX: E.L.F. PRIMER -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <span class="top1-badge">Top 1</span>
@@ -392,8 +399,24 @@
                 </div>
                 <a href="elf-power-grip-primer/elf-power-grip-primer.html" class="buy-btn">View Details →</a>
             </div>
+        </div>
 
-            <!-- PRODUCT BOX 4: MILANI -->
+        <!-- SECTION 2: BASE & COMPLEXION -->
+        <h2 class="section-title">✨ Base & Complexion</h2>
+        <div class="products-grid">
+            <!-- PRODUCT BOX: MAYBELLINE FIT ME -->
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="maybelline-fit-me-matte/maybelline-1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Maybelline Fit Me Matte</div>
+                    <div class="product-desc">Matte base in Rich Tan.</div>
+                </div>
+                <a href="maybelline-fit-me-matte/maybelline-fit-me-matte.html" class="buy-btn">View Details →</a>
+            </div>
+
+            <!-- PRODUCT BOX: MILANI -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation-1.jpg" alt="Milani Conceal Perfect 2 in 1 Foundation" class="product-img">
@@ -405,7 +428,7 @@
                 <a href="milani-conceal-perfect-2-in-1-foundation/milani-conceal-perfect-2-in-1-foundation.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 5: LAURA GELLER BAKED POWDER FOUNDATION -->
+            <!-- PRODUCT BOX: LAURA GELLER -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="laura-geller-baked-powder-foundation/laura-geller-baked-powder-foundation-1.jpg" alt="Laura Geller Baked Powder Foundation" class="product-img">
@@ -417,7 +440,7 @@
                 <a href="laura-geller-baked-powder-foundation/laura-geller-baked-powder-foundation.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 6: L'OREAL TRUE MATCH LUMI GLOTION -->
+            <!-- PRODUCT BOX: L'OREAL LUMI GLOTION -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="l-oreal-true-match-lumi-glotion/l-oreal-true-match-lumi-glotion-1.jpg" alt="L'Oreal True Match Lumi Glotion" class="product-img">
@@ -429,7 +452,7 @@
                 <a href="l-oreal-true-match-lumi-glotion/l-oreal-true-match-lumi-glotion.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 7 MAYBELLINE INSTANT AGE REWIND CONCEALER -->
+            <!-- PRODUCT BOX: MAYBELLINE AGE REWIND -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="maybelline-instant-age-rewind-concealer/maybelline-instant-age-rewind-concealer-1.jpg" alt="Maybelline Instant Age Rewind Concealer" class="product-img">
@@ -440,11 +463,15 @@
                 </div>
                 <a href="maybelline-instant-age-rewind-concealer/maybelline-instant-age-rewind-concealer.html" class="buy-btn">View Details →</a>
             </div>
+        </div>
 
-            <!-- PRODUCT BOX 8 RARE BEAUTY SOFT PINCH CHEEK & LIP TRIO -->
+        <!-- SECTION 3: CHEEKS & CONTOUR -->
+        <h2 class="section-title">💖 Cheeks & Contour</h2>
+        <div class="products-grid">
+            <!-- PRODUCT BOX: RARE BEAUTY -->
             <div class="product-card">
                 <div class="img-wrapper">
-                    <img src="rare-beauty-soft-pinch-cheek-and-lip-trio/rare-beauty-soft-pinch-cheek-and-lip-trio-1.jpg" alt="Maybelline Fit Me Matte" class="product-img">
+                    <img src="rare-beauty-soft-pinch-cheek-and-lip-trio/rare-beauty-soft-pinch-cheek-and-lip-trio-1.jpg" alt="Rare Beauty Soft Pinch Trio" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Rare Beauty Soft Pinch Cheek & Lip Trio</div>
@@ -453,7 +480,7 @@
                 <a href="rare-beauty-soft-pinch-cheek-and-lip-trio/rare-beauty-soft-pinch-cheek-and-lip-trio.html" class="buy-btn">View Details →</a>
             </div>
 
-            <!-- PRODUCT BOX 9 BENEFIT HOOLA MATTE BRONZER MINI -->
+            <!-- PRODUCT BOX: BENEFIT HOOLA -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="benefit-hoola-mini-bronzer/benefit-hoola-mini-bronzer-1.jpg" alt="Benefit Hoola Matte Bronzer Mini" class="product-img">
@@ -464,8 +491,12 @@
                 </div>
                 <a href="benefit-hoola-mini-bronzer/benefit-hoola-mini-bronzer.html" class="buy-btn">View Details →</a>
             </div>
+        </div>
 
-            <!-- PRODUCT BOX 10 NYX MATTE SETTING SPRAY -->
+        <!-- SECTION 4: SETTING & FINISH -->
+        <h2 class="section-title">🔒 Setting & Finish</h2>
+        <div class="products-grid">
+            <!-- PRODUCT BOX: NYX SETTING SPRAY -->
             <div class="product-card">
                 <div class="img-wrapper">
                     <img src="nyx-matte-setting-spray/nyx-matte-setting-spray-1.jpg" alt="NYX Matte Setting Spray" class="product-img">
@@ -476,7 +507,6 @@
                 </div>
                 <a href="nyx-matte-setting-spray/nyx-matte-setting-spray.html" class="buy-btn">View Details →</a>
             </div>
-
         </div>
 
         <div id="noResults" class="no-results">
@@ -489,21 +519,10 @@
     </div>
 
     <script>
-        function shuffleProducts() {
-            const grid = document.getElementById('productsList');
-            const cards = Array.from(grid.getElementsByClassName('product-card'));
-            
-            for (let i = cards.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                grid.appendChild(cards[j]);
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', shuffleProducts);
-
         function filterProducts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
+            const sectionTitles = document.getElementsByClassName('section-title');
             let hasVisibleCard = false;
 
             for (let i = 0; i < cards.length; i++) {
@@ -515,6 +534,15 @@
                     hasVisibleCard = true;
                 } else {
                     cards[i].style.display = "none";
+                }
+            }
+
+            // Itago ang mga section title kapag nag-type sa search bar para hindi nakakalito
+            for (let j = 0; j < sectionTitles.length; j++) {
+                if (input.trim() === "") {
+                    sectionTitles[j].style.display = "flex";
+                } else {
+                    sectionTitles[j].style.display = "none";
                 }
             }
 
