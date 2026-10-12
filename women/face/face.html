@@ -144,6 +144,39 @@
             line-height: 1.4;
         }
 
+        /* CATEGORY FILTER PILLS */
+        .category-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background-color: #FFFFFF;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            border: 1px solid #DCE6F1;
+            transition: all 0.2s ease;
+        }
+
+        .category-pill:hover {
+            background-color: var(--button-bg);
+            border-color: var(--button-bg);
+            transform: translateY(-2px);
+        }
+
         /* Search Bar Area */
         .search-container {
             width: 100%;
@@ -169,20 +202,43 @@
         }
 
         /* SECTION HEADERS */
-        .section-title {
+        .section-title-link {
             width: 100%;
-            font-size: 16px;
-            font-weight: 800;
+            text-decoration: none;
             color: var(--text-primary);
             margin: 24px 0 12px 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
             padding-bottom: 6px;
             border-bottom: 2px solid #D1E1EF;
+            transition: color 0.2s ease;
         }
 
-        .section-title:first-of-type {
+        .section-title-link:hover {
+            color: var(--accent-yellow);
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-all-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .section-title-link:hover .view-all-link {
+            color: var(--accent-yellow);
+        }
+
+        .section-title-link:first-of-type {
             margin-top: 0;
         }
 
@@ -366,13 +422,24 @@
             <p>Curated skincare essentials, sunscreens, and base makeup picks.</p>
         </div>
 
+        <!-- CATEGORY NAVIGATION PILLS -->
+        <div class="category-nav">
+            <a href="categories/prep-skincare.html" class="category-pill">🧴 Prep & Skincare</a>
+            <a href="categories/base-complexion.html" class="category-pill">✨ Base & Complexion</a>
+            <a href="categories/cheeks-contour.html" class="category-pill">💖 Cheeks & Contour</a>
+            <a href="categories/setting-finish.html" class="category-pill">🔒 Setting & Finish</a>
+        </div>
+
         <!-- SEARCH BAR -->
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search face products..." onkeyup="filterProducts()">
         </div>
 
         <!-- SECTION 1: PREP & PRIMER -->
-        <h2 class="section-title">🧴 Prep & Skincare</h2>
+        <a href="categories/prep-skincare.html" class="section-title-link">
+            <h2 class="section-title">🧴 Prep & Skincare</h2>
+            <span class="view-all-link">View All →</span>
+        </a>
         <div class="products-grid">
             <!-- PRODUCT BOX: MEDICUBE -->
             <div class="product-card">
@@ -402,7 +469,10 @@
         </div>
 
         <!-- SECTION 2: BASE & COMPLEXION -->
-        <h2 class="section-title">✨ Base & Complexion</h2>
+        <a href="categories/base-complexion.html" class="section-title-link">
+            <h2 class="section-title">✨ Base & Complexion</h2>
+            <span class="view-all-link">View All →</span>
+        </a>
         <div class="products-grid">
             <!-- PRODUCT BOX: MAYBELLINE FIT ME -->
             <div class="product-card">
@@ -466,7 +536,10 @@
         </div>
 
         <!-- SECTION 3: CHEEKS & CONTOUR -->
-        <h2 class="section-title">💖 Cheeks & Contour</h2>
+        <a href="categories/cheeks-contour.html" class="section-title-link">
+            <h2 class="section-title">💖 Cheeks & Contour</h2>
+            <span class="view-all-link">View All →</span>
+        </a>
         <div class="products-grid">
             <!-- PRODUCT BOX: RARE BEAUTY -->
             <div class="product-card">
@@ -494,7 +567,10 @@
         </div>
 
         <!-- SECTION 4: SETTING & FINISH -->
-        <h2 class="section-title">🔒 Setting & Finish</h2>
+        <a href="categories/setting-finish.html" class="section-title-link">
+            <h2 class="section-title">🔒 Setting & Finish</h2>
+            <span class="view-all-link">View All →</span>
+        </a>
         <div class="products-grid">
             <!-- PRODUCT BOX: NYX SETTING SPRAY -->
             <div class="product-card">
@@ -522,7 +598,7 @@
         function filterProducts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
-            const sectionTitles = document.getElementsByClassName('section-title');
+            const sectionLinks = document.getElementsByClassName('section-title-link');
             let hasVisibleCard = false;
 
             for (let i = 0; i < cards.length; i++) {
@@ -537,12 +613,12 @@
                 }
             }
 
-            // Itago ang mga section title kapag nag-type sa search bar para hindi nakakalito
-            for (let j = 0; j < sectionTitles.length; j++) {
+            // Itago ang mga section title links kapag nag-type sa search bar
+            for (let j = 0; j < sectionLinks.length; j++) {
                 if (input.trim() === "") {
-                    sectionTitles[j].style.display = "flex";
+                    sectionLinks[j].style.display = "flex";
                 } else {
-                    sectionTitles[j].style.display = "none";
+                    sectionLinks[j].style.display = "none";
                 }
             }
 
