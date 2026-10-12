@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated Lifestyle & Beauty Finds</title>
+    <title>Rachel's Curated Finds | Lifestyle & Beauty</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color-start: #EBF3FA;
-            --bg-color-end: #D4E2F0;
-            --card-bg-start: #FFFFFF;
-            --card-bg-end: #F8FAFC;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --accent-yellow: #F59E0B;
-            --button-bg: #FBBF24;
-            --button-text: #0F172A;
-            --border-radius: 18px;
+            /* Consistent Warm Nude & Soft Rose Palette */
+            --bg-color: #FAF6F0;
+            --card-bg: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --accent-color: #E11D48;
+            --icon-bg: #FFE4E6;
+            --border-color: #F3E8E8;
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --border-radius: 20px;
         }
 
         * {
@@ -25,11 +25,10 @@
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-image: linear-gradient(to bottom, var(--bg-color-start), var(--bg-color-end));
+            background-color: var(--bg-color);
             color: var(--text-primary);
             display: flex;
             justify-content: center;
@@ -39,182 +38,195 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 640px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Profile Header */
+        /* Top Navigation Bar */
+        .top-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .top-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 99px;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .top-nav a:hover {
+            background-color: #FFFFFF;
+            color: var(--text-primary);
+        }
+
+        .top-nav a.active {
+            color: #FFFFFF;
+            background-color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Profile Header Box */
         .profile-section {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
+            width: 100%;
+            padding: 32px 20px;
+            background: #FFFFFF;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .profile-img-wrapper {
             position: relative;
-            display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .profile-img {
-            width: 96px;
-            height: 96px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--button-bg);
-            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.35);
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.15);
             display: block;
         }
 
         .profile-name {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
+            letter-spacing: -0.02em;
             color: var(--text-primary);
             margin-bottom: 6px;
-            letter-spacing: -0.02em;
         }
 
         .profile-bio {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.45;
-            max-width: 380px;
+            line-height: 1.5;
+            max-width: 440px;
             margin: 0 auto;
         }
 
-        /* Categories Section Container */
-        .categories-grid {
+        /* Category Card List */
+        .categories-list {
             width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-
-        /* Borderless Category Card Box */
-        .category-card {
-            background-image: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%);
-            border-radius: var(--border-radius);
-            padding: 16px 14px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px 24px;
+            display: flex;
             align-items: center;
-            text-align: center;
-            border: none; /* Borderless */
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 100%;
-            overflow: hidden;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
         }
 
         .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(251, 191, 36, 0.2);
+            transform: translateY(-3px);
+            border-color: #FDA4AF;
+            box-shadow: 0 14px 28px rgba(225, 29, 72, 0.08);
         }
 
-        /* Clean Tag Without Border/Background */
-        .category-tag {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #1E3A8A;
-            margin-bottom: 10px;
-            background: none;
-            padding: 0;
-            border-radius: 0;
-            border: none;
-        }
-
-        .img-wrapper {
-            width: 100%;
-            height: 120px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 10px;
-            background-color: #F1F5F9;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .category-card:hover .product-img {
-            transform: scale(1.06);
-        }
-
-        .product-info {
-            width: 100%;
+        /* SVG Icon Box Container */
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background-color: var(--icon-bg);
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            flex-shrink: 0;
+            color: var(--accent-color);
+            transition: all 0.2s ease;
+        }
+
+        .category-card:hover .card-icon {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+        }
+
+        .card-info {
             flex-grow: 1;
         }
 
-        .product-title {
-            font-size: 14px;
+        .card-title {
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 4px;
-            line-height: 1.3;
-            min-height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .product-desc {
-            font-size: 11px;
+        .card-desc {
+            font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.35;
-            margin-bottom: 12px;
-            min-height: 32px;
+            line-height: 1.4;
+        }
+
+        /* Clean Circular Arrow Button */
+        .card-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #F9FAFB;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--text-primary);
+            margin-left: 12px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
         }
 
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 9px 0;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 800;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 0 3px 8px rgba(251, 191, 36, 0.35);
-            transition: background-color 0.15s ease, transform 0.15s ease;
-            margin-top: auto;
+        .card-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2.5;
         }
 
-        .buy-btn:hover {
-            background-color: var(--accent-yellow);
-            transform: translateY(-1px);
+        .category-card:hover .card-arrow {
+            background-color: var(--text-primary);
+            color: #FFFFFF;
+            transform: translateX(3px);
         }
 
-        /* DESKTOP VIEW */
-        @media (min-width: 768px) {
-            .categories-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-
-            .img-wrapper {
-                height: 140px;
-            }
-        }
-
+        /* Footer */
         .footer {
             margin-top: 40px;
             font-size: 12px;
-            color: #64748B;
+            color: #9CA3AF;
             text-align: center;
         }
     </style>
@@ -222,75 +234,105 @@
 <body>
 
     <div class="container">
-        <!-- HEADER PROFILE -->
-        <div class="profile-section">
+        <!-- TOP NAVIGATION BAR -->
+        <nav class="top-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="women/women.html">Women</a>
+            <a href="men/men.html">Men</a>
+            <a href="fragrance/fragrance.html">Scent</a>
+            <a href="home/home.html">Living</a>
+        </nav>
+
+        <!-- PROFILE HEADER -->
+        <header class="profile-section">
             <div class="profile-img-wrapper">
                 <img src="DP.png" alt="Profile Picture" class="profile-img">
             </div>
-            <h1 class="profile-name">Rachel's Curated Finds ✨</h1>
-            <p class="profile-bio">Your go-to bestie for top picks in women, men, fragrance & home! Shop below 👇</p>
+            <h1 class="profile-name">Rachel's Curated Finds</h1>
+            <p class="profile-bio">Your go-to bestie for top picks in women, men, fragrance & home lifestyle items.</p>
+        </header>
+
+        <!-- 4 CATEGORY LIST -->
+        <div class="categories-list">
+
+            <!-- WOMEN -->
+            <a href="women/women.html" class="category-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Women's Beauty & Style</div>
+                    <div class="card-desc">Must-have skincare essentials, viral makeup & lip care picks.</div>
+                </div>
+                <div class="card-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- MEN -->
+            <a href="men/men.html" class="category-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Men's Grooming & Essentials</div>
+                    <div class="card-desc">Clean skincare, hair styling pomades & daily grooming tools.</div>
+                </div>
+                <div class="card-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- FRAGRANCE -->
+            <a href="fragrance/fragrance.html" class="category-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM12 9v6m-3-3h6" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Perfumes & Body Mists</div>
+                    <div class="card-desc">Long-lasting scents, fresh colognes & signature perfumes.</div>
+                </div>
+                <div class="card-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- HOME & LIVING -->
+            <a href="home/home.html" class="category-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21.00v-6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 012.25 2.25v6" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Cozy Home Decor</div>
+                    <div class="card-desc">Aesthetic room accents, essential oil diffusers & organizers.</div>
+                </div>
+                <div class="card-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </a>
+
         </div>
 
-        <!-- 4 CATEGORY CHOICES -->
-        <div class="categories-grid">
-            
-            <!-- CHOICE 1: WOMEN -->
-            <div class="category-card">
-                <span class="category-tag">💄 Women</span>
-                <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=80" alt="Women Category" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Women's Beauty & Style</div>
-                    <div class="product-desc">Must-have skincare, viral makeup & everyday beauty picks.</div>
-                </div>
-                <a href="women/women.html" class="buy-btn">Explore →</a>
-            </div>
-
-            <!-- CHOICE 2: MEN -->
-            <div class="category-card">
-                <span class="category-tag">👔 Men</span>
-                <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop&q=80" alt="Men Category" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Men's Grooming & Essentials</div>
-                    <div class="product-desc">Clean skincare, daily grooming & functional lifestyle gear.</div>
-                </div>
-                <a href="men/men.html" class="buy-btn">Explore →</a>
-            </div>
-
-            <!-- CHOICE 3: FRAGRANCE -->
-            <div class="category-card">
-                <span class="category-tag">✨ Fragrance</span>
-                <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&auto=format&fit=crop&q=80" alt="Fragrance Category" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Perfumes & Body Mists</div>
-                    <div class="product-desc">Long-lasting scents, vanilla favorites & luxury perfumes.</div>
-                </div>
-                <a href="fragrance/fragrance.html" class="buy-btn">Explore →</a>
-            </div>
-
-            <!-- CHOICE 4: HOME & LIVING -->
-            <div class="category-card">
-                <span class="category-tag">🏠 Home & Living</span>
-                <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=80" alt="Home Category" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Cozy Home Decor</div>
-                    <div class="product-desc">Aesthetic room accents, essential oil diffusers & candles.</div>
-                </div>
-                <a href="home/home.html" class="buy-btn">Explore →</a>
-            </div>
-
-        </div>
-
-        <div class="footer">
+        <!-- FOOTER -->
+        <footer class="footer">
             <p>© 2026 • As an affiliate, I earn from qualifying purchases.</p>
-        </div>
+        </footer>
     </div>
 
 </body>
