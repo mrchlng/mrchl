@@ -33,7 +33,7 @@
             color: var(--text-primary);
             display: flex;
             justify-content: center;
-            padding: 16px 16px 40px;
+            padding: 16px 12px 40px;
             min-height: 100vh;
         }
 
@@ -45,7 +45,7 @@
             align-items: center;
         }
 
-        /* COMPACT TOP BAR (BACK ARROW + TRANSPARENT SEARCH) */
+        /* COMPACT TOP BAR */
         .top-bar {
             width: 100%;
             display: flex;
@@ -65,6 +65,8 @@
             justify-content: center;
             transition: transform 0.2s ease, color 0.2s ease;
             padding: 0 4px;
+            background: none !important;
+            border: none !important;
         }
 
         .back-arrow-nav:hover {
@@ -102,7 +104,7 @@
             box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
         }
 
-        /* CATEGORY CHOICES / PILLS (CENTERED & WRAPPED ON MOBILE) */
+        /* CATEGORY CHOICES / PILLS */
         .category-nav {
             width: 100%;
             display: flex;
@@ -110,7 +112,7 @@
             justify-content: center;
             gap: 8px;
             margin-bottom: 16px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Siguradong naka-wrap at hindi kailangan i-swipe */
         }
 
         .category-pill {
@@ -134,6 +136,17 @@
             background-color: var(--button-bg);
             border-color: var(--button-bg);
             transform: translateY(-1px);
+        }
+
+        /* CUSTOM MOBILE STYLES FOR CATEGORIES (FIT WITHOUT SWIPING) */
+        @media (max-width: 600px) {
+            .category-nav {
+                gap: 6px;
+            }
+            .category-pill {
+                font-size: 10.5px;
+                padding: 5px 10px;
+            }
         }
 
         /* SECTION HEADERS */
@@ -186,8 +199,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
             color: var(--text-primary);
             font-size: 26px;
             font-weight: 900;
@@ -197,6 +210,7 @@
             opacity: 0.6;
             transition: all 0.2s ease;
             user-select: none;
+            box-shadow: none !important;
         }
 
         .carousel-arrow:hover {
@@ -206,11 +220,11 @@
         }
 
         .carousel-arrow.left {
-            left: -16px;
+            left: -14px;
         }
 
         .carousel-arrow.right {
-            right: -16px;
+            right: -14px;
         }
 
         /* SINGLE ROW HORIZONTAL SCROLLING CONTAINER */
@@ -398,7 +412,7 @@
             </div>
         </div>
 
-        <!-- CATEGORY CHOICES / FILTER PILLS (CENTERED & WRAPPED) -->
+        <!-- CATEGORY CHOICES / FILTER PILLS (AUTO-FIT NO SWIPING) -->
         <div class="category-nav">
             <a href="categories/prep-skincare.html" class="category-pill">🧴 Prep & Skincare</a>
             <a href="categories/base-complexion.html" class="category-pill">✨ Base & Complexion</a>
