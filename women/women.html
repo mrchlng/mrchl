@@ -68,10 +68,13 @@
             transition: all 0.2s ease;
         }
 
-        .back-btn:hover {
+        .back-btn:hover,
+        .back-btn:focus-visible {
             background-color: var(--text-primary);
             color: #FFFFFF;
             transform: translateX(-3px);
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
         }
 
         .back-btn svg {
@@ -129,10 +132,16 @@
             width: 100%;
         }
 
-        .category-card:hover {
+        .category-card:hover,
+        .category-card:focus-visible {
             transform: translateY(-3px);
             border-color: #FDA4AF;
             box-shadow: 0 14px 28px rgba(225, 29, 72, 0.08);
+            outline: none;
+        }
+
+        .category-card:active {
+            transform: translateY(-1px);
         }
 
         /* Professional Icon Box */
@@ -150,7 +159,8 @@
             transition: all 0.2s ease;
         }
 
-        .category-card:hover .card-icon {
+        .category-card:hover .card-icon,
+        .category-card:focus-visible .card-icon {
             background-color: var(--accent-color);
             color: #FFFFFF;
         }
@@ -199,7 +209,8 @@
             stroke-width: 2.5;
         }
 
-        .category-card:hover .card-arrow {
+        .category-card:hover .card-arrow,
+        .category-card:focus-visible .card-arrow {
             background-color: var(--text-primary);
             color: #FFFFFF;
             transform: translateX(3px);
@@ -219,7 +230,7 @@
     <div class="container">
         <!-- BACK NAVIGATION BAR -->
         <nav class="top-nav">
-            <a href="../index.html" class="back-btn" title="Back to Home">
+            <a href="../index.html" class="back-btn" title="Back to Home" aria-label="Back to Home">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                 </svg>
@@ -233,12 +244,11 @@
         </header>
 
         <!-- CATEGORIES LIST -->
-        <div class="categories-list">
+        <main class="categories-list">
 
             <!-- FACE & SKINCARE -->
             <a href="face/face.html" class="category-card">
                 <div class="card-icon">
-                    <!-- Sparkle/Glow Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
                     </svg>
@@ -257,7 +267,6 @@
             <!-- EYES & BROWS -->
             <a href="eyes/eyes.html" class="category-card">
                 <div class="card-icon">
-                    <!-- Eye Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -277,7 +286,6 @@
             <!-- LIPS & TINT -->
             <a href="lips/lips.html" class="category-card">
                 <div class="card-icon">
-                    <!-- Heart/Lip Care Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                     </svg>
@@ -293,7 +301,7 @@
                 </div>
             </a>
 
-        </div>
+        </main>
 
         <!-- FOOTER -->
         <footer class="footer">
