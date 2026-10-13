@@ -68,7 +68,7 @@
       margin-bottom: 1.8rem;
     }
 
-    /* Category Choice Buttons (Placing below All Beauty Essentials) */
+    /* Category Choice Buttons (Below All Beauty Essentials) */
     .category-choices {
       display: flex;
       justify-content: center;
@@ -105,13 +105,42 @@
       padding: 2rem 1.25rem 5rem;
     }
 
-    .section-title {
+    /* Sub-section Headers with Clickable Links */
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.6rem;
+    }
+
+    .section-title-link {
       font-family: 'Playfair Display', serif;
       font-size: 1.75rem;
       color: var(--accent-color);
-      margin-bottom: 1.5rem;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .section-title-link:hover {
+      color: var(--primary-color);
+    }
+
+    .view-all-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .view-all-link:hover {
+      opacity: 0.7;
     }
 
     /* Responsive Grid for PC and Mobile */
@@ -231,6 +260,7 @@
       .hero h1 { font-size: 1.8rem; }
       .product-grid { grid-template-columns: 1fr; }
       .choice-btn { padding: 8px 18px; font-size: 0.825rem; }
+      .section-title-link { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -254,54 +284,118 @@
     </div>
   </section>
 
-  <!-- Main Product Display -->
+  <!-- Main Product Display Organized by Category Sections -->
   <main class="container">
-    <h2 class="section-title">Featured Picks</h2>
-    <div class="product-grid">
-      
-      <!-- Sample Item 1 -->
-      <div class="product-card">
-        <span class="badge">Bestseller</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <span class="brand">Maybelline</span>
-          <h3 class="product-title">Fit Me Matte + Poreless Foundation</h3>
-          <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
-          <a href="#" class="cta-button" target="_blank">View Product</a>
-        </div>
+
+    <!-- 1. FACE SECTION -->
+    <section class="section-block">
+      <div class="section-header-link">
+        <!-- CLICKING TITLE OR LINK DIRECTS TO face.html -->
+        <a href="face.html" class="section-title-link">✨ Face Collection</a>
+        <a href="face.html" class="view-all-link">See All Face →</a>
       </div>
 
-      <!-- Sample Item 2 -->
-      <div class="product-card">
-        <span class="badge">Viral</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Bestseller</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Maybelline</span>
+            <h3 class="product-title">Fit Me Matte + Poreless Foundation</h3>
+            <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
-        <div class="product-details">
-          <span class="brand">L'Oréal Paris</span>
-          <h3 class="product-title">Lash Paradise Mascara</h3>
-          <p class="product-desc">Voluptuous volume and intense length with an ultra-soft brush.</p>
-          <a href="#" class="cta-button" target="_blank">View Product</a>
+
+        <div class="product-card">
+          <span class="badge">Must Have</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">e.l.f. Cosmetics</span>
+            <h3 class="product-title">Power Grip Primer</h3>
+            <p class="product-desc">Gel-based primer that grips makeup for all-day wear with a smooth finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Sample Item 3 -->
-      <div class="product-card">
-        <span class="badge">Top Pick</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <span class="brand">Fenty Beauty</span>
-          <h3 class="product-title">Gloss Bomb Universal Lip Luminizer</h3>
-          <p class="product-desc">Explosive shine with a conditioning formula that nourishes lips.</p>
-          <a href="#" class="cta-button" target="_blank">View Product</a>
-        </div>
+    <!-- 2. EYES SECTION -->
+    <section class="section-block">
+      <div class="section-header-link">
+        <!-- CLICKING TITLE OR LINK DIRECTS TO eyes.html -->
+        <a href="eyes.html" class="section-title-link">👁️ Eyes Collection</a>
+        <a href="eyes.html" class="view-all-link">See All Eyes →</a>
       </div>
 
-    </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Viral</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Eye Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">L'Oréal Paris</span>
+            <h3 class="product-title">Lash Paradise Mascara</h3>
+            <p class="product-desc">Voluptuous volume and intense length with an ultra-soft brush.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Eye Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">NYX Professional</span>
+            <h3 class="product-title">Epic Ink Liquid Eyeliner</h3>
+            <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip for sharp wings.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LIPS SECTION -->
+    <section class="section-block">
+      <div class="section-header-link">
+        <!-- CLICKING TITLE OR LINK DIRECTS TO lips.html -->
+        <a href="lips.html" class="section-title-link">💄 Lips Collection</a>
+        <a href="lips.html" class="view-all-link">See All Lips →</a>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Top Pick</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Lip Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Fenty Beauty</span>
+            <h3 class="product-title">Gloss Bomb Universal Lip Luminizer</h3>
+            <p class="product-desc">Explosive shine with a conditioning formula that nourishes lips.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Lip Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Rom&nd</span>
+            <h3 class="product-title">Juicy Lasting Lip Tint</h3>
+            <p class="product-desc">Shine of a gloss with the durability of a tint for a natural finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
