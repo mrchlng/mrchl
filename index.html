@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEAUTY VAULT | Home</title>
+  <title>BEAUTY VAULT | Face Collection</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,11 +88,10 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
-    .choice-btn:hover {
+    .choice-btn:hover, .choice-btn.active {
       background: var(--accent-color);
       color: white;
       border-color: var(--accent-color);
-      transform: translateY(-2px);
     }
 
     /* Main Container */
@@ -102,66 +101,24 @@
       padding: 1.5rem 1.25rem 5rem;
     }
 
-    .section-block {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
       border-bottom: 2px solid var(--border-color);
       padding-bottom: 0.5rem;
     }
 
-    .section-title-link {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .section-title-link:hover {
-      color: var(--primary-color);
-    }
-
-    .view-all-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    /* 📱 SWIPEABLE HORIZONTAL CAROUSEL (DESKTOP & PC) */
-    .product-grid {
-      display: flex;
+    /* Grid Layout for Full Page Category */
+    .product-grid-full {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      padding: 0.5rem 0.25rem 1rem;
-      cursor: grab; /* Indicating draggable on PC */
-
-      /* Hide ugly scrollbars */
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-    }
-
-    .product-grid:active {
-      cursor: grabbing;
-    }
-
-    .product-grid::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
     }
 
     /* Product Card Styling */
     .product-card {
-      flex: 0 0 calc(25% - 1rem); /* 4 items visible in 1 view on PC */
-      min-width: 240px;
-      scroll-snap-align: start;
       background: var(--card-bg);
       border-radius: var(--radius);
       border: 1px solid var(--border-color);
@@ -171,7 +128,6 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      user-select: none;
     }
 
     .product-card:hover {
@@ -205,7 +161,6 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-      pointer-events: none; /* Prevents dragging image natively */
     }
 
     .product-card:hover .img-container img {
@@ -283,16 +238,11 @@
       .hero h1 { font-size: 1.75rem; }
       .hero p { font-size: 0.875rem; }
       .choice-btn { padding: 7px 16px; font-size: 0.8rem; }
-      .section-title-link { font-size: 1.3rem; }
-      .view-all-link { font-size: 0.75rem; }
+      .section-title { font-size: 1.3rem; }
 
-      /* Exactly 2 Cards Per Row visible in 1 View on Mobile */
-      .product-card {
-        flex: 0 0 calc(50% - 0.4rem);
-        min-width: unset;
-      }
-
-      .product-grid {
+      /* Exactly 2 Cards Per Row on Mobile */
+      .product-grid-full {
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
       }
 
@@ -318,16 +268,19 @@
 
   <!-- Minimal Header -->
   <header>
-    <a href="index.html" class="logo">BEAUTY VAULT</a>
+    <!-- ⚠️ Note: ../index.html para bumalik sa homepage mula sa loob ng folder -->
+    <a href="../index.html" class="logo">BEAUTY VAULT</a>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>All Beauty Essentials</h1>
-    <p>Discover handpicked makeup and skincare favorites for every style.</p>
+    <h1>Face Essentials</h1>
+    <p>Explore foundations, primers, blushes, and powders for a flawless complexion.</p>
     
     <div class="category-choices">
-      <a href="face.html" class="choice-btn">✨ Face</a>
+      <!-- ⚠️ Note: ../index.html para sa Home link -->
+      <a href="../index.html" class="choice-btn">🏠 Home</a>
+      <a href="face.html" class="choice-btn active">✨ Face</a>
       <a href="eyes.html" class="choice-btn">👁️ Eyes</a>
       <a href="lips.html" class="choice-btn">💄 Lips</a>
     </div>
@@ -335,167 +288,99 @@
 
   <!-- Main Product Display -->
   <main class="container">
+    <h2 class="section-title">✨ All Face Products</h2>
 
-    <!-- 1. FACE SECTION -->
-    <section class="section-block">
-      <div class="section-header-link">
-        <a href="face.html" class="section-title-link">✨ Face Collection</a>
-        <a href="face.html" class="view-all-link">See All →</a>
-      </div>
+    <div class="product-grid-full">
 
-      <div class="product-grid">
-        <div class="product-card">
-          <span class="badge">Bestseller</span>
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="Maybelline Fit Me Matte Foundation">
-          </div>
-          <div class="product-details">
-            <span class="brand">Maybelline</span>
-            <h3 class="product-title">Fit Me Matte Foundation</h3>
-            <p class="product-desc">Lightweight liquid foundation that refines pores.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+      <!-- Product 1 -->
+      <div class="product-card">
+        <span class="badge">Bestseller</span>
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="Maybelline Fit Me Matte Foundation">
         </div>
-
-        <div class="product-card">
-          <span class="badge">Must Have</span>
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="e.l.f. Cosmetics Power Grip Primer">
-          </div>
-          <div class="product-details">
-            <span class="brand">e.l.f. Cosmetics</span>
-            <h3 class="product-title">Power Grip Primer</h3>
-            <p class="product-desc">Gel-based primer that grips makeup for all-day wear.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="Rare Beauty Soft Pinch Liquid Blush">
-          </div>
-          <div class="product-details">
-            <span class="brand">Rare Beauty</span>
-            <h3 class="product-title">Soft Pinch Liquid Blush</h3>
-            <p class="product-desc">Weightless, long-lasting formula for a natural blush.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+        <div class="product-details">
+          <span class="brand">Maybelline</span>
+          <h3 class="product-title">Fit Me Matte Foundation</h3>
+          <p class="product-desc">Lightweight liquid foundation that refines pores for a natural finish.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
         </div>
       </div>
-    </section>
 
-    <!-- 2. EYES SECTION -->
-    <section class="section-block">
-      <div class="section-header-link">
-        <a href="eyes.html" class="section-title-link">👁️ Eyes Collection</a>
-        <a href="eyes.html" class="view-all-link">See All →</a>
-      </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <span class="badge">Viral</span>
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="L'Oréal Paris Lash Paradise Mascara">
-          </div>
-          <div class="product-details">
-            <span class="brand">L'Oréal Paris</span>
-            <h3 class="product-title">Lash Paradise Mascara</h3>
-            <p class="product-desc">Voluptuous volume and intense length brush.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <span class="badge">Must Have</span>
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="e.l.f. Cosmetics Power Grip Primer">
         </div>
-
-        <div class="product-card">
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="NYX Professional Epic Ink Eyeliner">
-          </div>
-          <div class="product-details">
-            <span class="brand">NYX Professional</span>
-            <h3 class="product-title">Epic Ink Eyeliner</h3>
-            <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+        <div class="product-details">
+          <span class="brand">e.l.f. Cosmetics</span>
+          <h3 class="product-title">Power Grip Primer</h3>
+          <p class="product-desc">Gel-based face primer that grips makeup for all-day wear.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
         </div>
       </div>
-    </section>
 
-    <!-- 3. LIPS SECTION -->
-    <section class="section-block">
-      <div class="section-header-link">
-        <a href="lips.html" class="section-title-link">💄 Lips Collection</a>
-        <a href="lips.html" class="view-all-link">See All →</a>
-      </div>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <span class="badge">Top Pick</span>
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="Fenty Beauty Gloss Bomb Lip Gloss">
-          </div>
-          <div class="product-details">
-            <span class="brand">Fenty Beauty</span>
-            <h3 class="product-title">Gloss Bomb Lip Gloss</h3>
-            <p class="product-desc">Explosive shine with a conditioning formula.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="Rare Beauty Soft Pinch Liquid Blush">
         </div>
-
-        <div class="product-card">
-          <div class="img-container">
-            <img src="https://via.placeholder.com/300x300" alt="Rom&nd Juicy Lasting Lip Tint">
-          </div>
-          <div class="product-details">
-            <span class="brand">Rom&nd</span>
-            <h3 class="product-title">Juicy Lasting Lip Tint</h3>
-            <p class="product-desc">Shine of a gloss with the durability of a tint.</p>
-            <a href="#" class="cta-button" target="_blank">View Product</a>
-          </div>
+        <div class="product-details">
+          <span class="brand">Rare Beauty</span>
+          <h3 class="product-title">Soft Pinch Liquid Blush</h3>
+          <p class="product-desc">Weightless, long-lasting formula for a soft, natural blush.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
         </div>
       </div>
-    </section>
 
+      <!-- Product 4 -->
+      <div class="product-card">
+        <span class="badge">Top Rated</span>
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="Milani Conceal + Perfect Foundation">
+        </div>
+        <div class="product-details">
+          <span class="brand">Milani</span>
+          <h3 class="product-title">Conceal + Perfect 2-in-1</h3>
+          <p class="product-desc">Full coverage foundation and concealer in one seamless application.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="Laura Geller Baked Powder Foundation">
+        </div>
+        <div class="product-details">
+          <span class="brand">Laura Geller</span>
+          <h3 class="product-title">Baked Powder Foundation</h3>
+          <p class="product-desc">Lightweight powder foundation providing smooth, color-correcting coverage.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <span class="badge">Daily Defense</span>
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="CeraVe Mineral Sunscreen SPF 50">
+        </div>
+        <div class="product-details">
+          <span class="brand">CeraVe</span>
+          <h3 class="product-title">Invisible Mineral SPF 50</h3>
+          <p class="product-desc">100% mineral sunscreen with essential ceramides for daily protection.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2026 Beauty Vault. All rights reserved.</p>
     <p class="footer-disclaimer">This page contains affiliate links. We may earn a commission on qualifying purchases at no extra cost to you.</p>
   </footer>
-
-  <!-- Script for Smooth Mouse Click & Drag Swiping on PC -->
-  <script>
-    const sliders = document.querySelectorAll('.product-grid');
-
-    sliders.forEach(slider => {
-      let isDown = false;
-      let startX;
-      let scrollLeft;
-
-      slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        slider.style.cursor = 'grabbing';
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      });
-
-      slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        slider.style.cursor = 'grab';
-      });
-
-      slider.addEventListener('mouseup', () => {
-        isDown = false;
-        slider.style.cursor = 'grab';
-      });
-
-      slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll speed multiplier
-        slider.scrollLeft = scrollLeft - walk;
-      });
-    });
-  </script>
 
 </body>
 </html>
