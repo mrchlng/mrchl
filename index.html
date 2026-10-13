@@ -134,46 +134,7 @@
       text-decoration: none;
     }
 
-    /* 🎠 CAROUSEL CONTAINER WITH AESTHETIC ARROWS */
-    .carousel-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    /* Aesthetic Floating Nav Buttons */
-    .arrow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      color: var(--accent-color);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 20;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      user-select: none;
-    }
-
-    .arrow-btn:hover {
-      background: var(--accent-color);
-      color: #FFFFFF;
-      border-color: var(--accent-color);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .arrow-btn.left { left: -18px; }
-    .arrow-btn.right { right: -18px; }
-
-    /* Horizontal Scroll Grid */
+    /* 📱 SWIPEABLE HORIZONTAL CAROUSEL (DESKTOP & PC) */
     .product-grid {
       display: flex;
       gap: 1.25rem;
@@ -181,9 +142,15 @@
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
       padding: 0.5rem 0.25rem 1rem;
-      /* Itago ang default scrollbar para mas aesthetic */
+      cursor: grab; /* Indicating draggable on PC */
+
+      /* Hide ugly scrollbars */
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .product-grid:active {
+      cursor: grabbing;
     }
 
     .product-grid::-webkit-scrollbar {
@@ -192,7 +159,7 @@
 
     /* Product Card Styling */
     .product-card {
-      flex: 0 0 calc(25% - 1rem); /* 4 items per row sa desktop view */
+      flex: 0 0 calc(25% - 1rem); /* 4 items visible in 1 view on PC */
       min-width: 240px;
       scroll-snap-align: start;
       background: var(--card-bg);
@@ -200,10 +167,11 @@
       border: 1px solid var(--border-color);
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       position: relative;
+      user-select: none;
     }
 
     .product-card:hover {
@@ -237,6 +205,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
+      pointer-events: none; /* Prevents dragging image natively */
     }
 
     .product-card:hover .img-container img {
@@ -301,7 +270,7 @@
       background: #FFFFFF;
     }
 
-    /* 📱 MOBILE OPTIMIZATION */
+    /* 📱 MOBILE OPTIMIZATION (600px & below) */
     @media (max-width: 600px) {
       .hero { padding: 2rem 1rem 1.25rem; }
       .hero h1 { font-size: 1.75rem; }
@@ -310,10 +279,7 @@
       .section-title-link { font-size: 1.3rem; }
       .view-all-link { font-size: 0.75rem; }
 
-      /* Itatago ang floating arrows sa mobile para swipe na lang */
-      .arrow-btn { display: none; }
-
-      /* Dalawang cards eksakto per row sa mobile screen */
+      /* Exactly 2 Cards Per Row visible in 1 View on Mobile */
       .product-card {
         flex: 0 0 calc(50% - 0.4rem);
         min-width: unset;
@@ -370,50 +336,44 @@
         <a href="face.html" class="view-all-link">See All →</a>
       </div>
 
-      <div class="carousel-wrapper">
-        <button class="arrow-btn left" onclick="scrollCarousel('face-grid', -300)" aria-label="Scroll Left">❮</button>
-
-        <div id="face-grid" class="product-grid">
-          <div class="product-card">
-            <span class="badge">Bestseller</span>
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Face Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">Maybelline</span>
-              <h3 class="product-title">Fit Me Matte Foundation</h3>
-              <p class="product-desc">Lightweight liquid foundation that refines pores.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Bestseller</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
           </div>
-
-          <div class="product-card">
-            <span class="badge">Must Have</span>
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Face Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">e.l.f. Cosmetics</span>
-              <h3 class="product-title">Power Grip Primer</h3>
-              <p class="product-desc">Gel-based primer that grips makeup for all-day wear.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Face Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">Rare Beauty</span>
-              <h3 class="product-title">Soft Pinch Liquid Blush</h3>
-              <p class="product-desc">Weightless, long-lasting formula for a natural blush.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+          <div class="product-details">
+            <span class="brand">Maybelline</span>
+            <h3 class="product-title">Fit Me Matte Foundation</h3>
+            <p class="product-desc">Lightweight liquid foundation that refines pores.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
         </div>
 
-        <button class="arrow-btn right" onclick="scrollCarousel('face-grid', 300)" aria-label="Scroll Right">❯</button>
+        <div class="product-card">
+          <span class="badge">Must Have</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">e.l.f. Cosmetics</span>
+            <h3 class="product-title">Power Grip Primer</h3>
+            <p class="product-desc">Gel-based primer that grips makeup for all-day wear.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Rare Beauty</span>
+            <h3 class="product-title">Soft Pinch Liquid Blush</h3>
+            <p class="product-desc">Weightless, long-lasting formula for a natural blush.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -424,37 +384,31 @@
         <a href="eyes.html" class="view-all-link">See All →</a>
       </div>
 
-      <div class="carousel-wrapper">
-        <button class="arrow-btn left" onclick="scrollCarousel('eyes-grid', -300)" aria-label="Scroll Left">❮</button>
-
-        <div id="eyes-grid" class="product-grid">
-          <div class="product-card">
-            <span class="badge">Viral</span>
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Eye Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">L'Oréal Paris</span>
-              <h3 class="product-title">Lash Paradise Mascara</h3>
-              <p class="product-desc">Voluptuous volume and intense length brush.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Viral</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Eye Product">
           </div>
-
-          <div class="product-card">
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Eye Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">NYX Professional</span>
-              <h3 class="product-title">Epic Ink Eyeliner</h3>
-              <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+          <div class="product-details">
+            <span class="brand">L'Oréal Paris</span>
+            <h3 class="product-title">Lash Paradise Mascara</h3>
+            <p class="product-desc">Voluptuous volume and intense length brush.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
         </div>
 
-        <button class="arrow-btn right" onclick="scrollCarousel('eyes-grid', 300)" aria-label="Scroll Right">❯</button>
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Eye Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">NYX Professional</span>
+            <h3 class="product-title">Epic Ink Eyeliner</h3>
+            <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -465,37 +419,31 @@
         <a href="lips.html" class="view-all-link">See All →</a>
       </div>
 
-      <div class="carousel-wrapper">
-        <button class="arrow-btn left" onclick="scrollCarousel('lips-grid', -300)" aria-label="Scroll Left">❮</button>
-
-        <div id="lips-grid" class="product-grid">
-          <div class="product-card">
-            <span class="badge">Top Pick</span>
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Lip Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">Fenty Beauty</span>
-              <h3 class="product-title">Gloss Bomb Lip Gloss</h3>
-              <p class="product-desc">Explosive shine with a conditioning formula.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="badge">Top Pick</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Lip Product">
           </div>
-
-          <div class="product-card">
-            <div class="img-container">
-              <img src="https://via.placeholder.com/300x300" alt="Lip Product">
-            </div>
-            <div class="product-details">
-              <span class="brand">Rom&nd</span>
-              <h3 class="product-title">Juicy Lasting Lip Tint</h3>
-              <p class="product-desc">Shine of a gloss with the durability of a tint.</p>
-              <a href="#" class="cta-button" target="_blank">View Product</a>
-            </div>
+          <div class="product-details">
+            <span class="brand">Fenty Beauty</span>
+            <h3 class="product-title">Gloss Bomb Lip Gloss</h3>
+            <p class="product-desc">Explosive shine with a conditioning formula.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
         </div>
 
-        <button class="arrow-btn right" onclick="scrollCarousel('lips-grid', 300)" aria-label="Scroll Right">❯</button>
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Lip Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Rom&nd</span>
+            <h3 class="product-title">Juicy Lasting Lip Tint</h3>
+            <p class="product-desc">Shine of a gloss with the durability of a tint.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -505,15 +453,40 @@
     <p>&copy; 2026 Beauty Vault. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript for Smooth Arrow Scrolling -->
+  <!-- Script for Smooth Mouse Click & Drag Swiping on PC -->
   <script>
-    function scrollCarousel(gridId, distance) {
-      const grid = document.getElementById(gridId);
-      grid.scrollBy({
-        left: distance,
-        behavior: 'smooth'
+    const sliders = document.querySelectorAll('.product-grid');
+
+    sliders.forEach(slider => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
       });
-    }
+
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+      });
+
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+      });
+
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        slider.scrollLeft = scrollLeft - walk;
+      });
+    });
   </script>
 
 </body>
