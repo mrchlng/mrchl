@@ -111,7 +111,7 @@
       padding-bottom: 0.5rem;
     }
 
-    /* Grid Layout for Category Page */
+    /* Grid Layout for Full Page Category */
     .product-grid-full {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -275,12 +275,13 @@
   <!-- Hero Section -->
   <section class="hero">
     <h1>Face Essentials</h1>
-    <p>Discover handpicked makeup and skincare favorites for every style.</p>
+    <p>Explore foundations, primers, blushes, and powders for a flawless complexion.</p>
     
     <div class="category-choices">
       <a href="face.html" class="choice-btn active">Face</a>
-      <a href="eyes.html" class="choice-btn">Eyes</a>
-      <a href="lips.html" class="choice-btn">Lips</a>
+      <!-- Kung nasa hiwalay silang folder, siguraduhin ang tama nilang path halimbawa: ../eyes/eyes.html -->
+      <a href="../eyes/eyes.html" class="choice-btn">Eyes</a>
+      <a href="../lips/lips.html" class="choice-btn">Lips</a>
     </div>
   </section>
 
@@ -341,6 +342,33 @@
           <span class="brand">Milani</span>
           <h3 class="product-title">Conceal + Perfect 2-in-1</h3>
           <p class="product-desc">Full coverage foundation and concealer in one seamless application.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="Laura Geller Baked Powder Foundation">
+        </div>
+        <div class="product-details">
+          <span class="brand">Laura Geller</span>
+          <h3 class="product-title">Baked Powder Foundation</h3>
+          <p class="product-desc">Lightweight powder foundation providing smooth, color-correcting coverage.</p>
+          <a href="#" class="cta-button" target="_blank">View Product</a>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <span class="badge">Daily Defense</span>
+        <div class="img-container">
+          <img src="https://via.placeholder.com/300x300" alt="CeraVe Mineral Sunscreen SPF 50">
+        </div>
+        <div class="product-details">
+          <span class="brand">CeraVe</span>
+          <h3 class="product-title">Invisible Mineral SPF 50</h3>
+          <p class="product-desc">100% mineral sunscreen with essential ceramides for daily protection.</p>
           <a href="#" class="cta-button" target="_blank">View Product</a>
         </div>
       </div>
