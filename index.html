@@ -37,7 +37,7 @@
       line-height: 1.6;
     }
 
-    /* Minimalist Header (Wala nang face, eyes, lips) */
+    /* Minimalist Header */
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
@@ -56,6 +56,7 @@
       color: var(--accent-color);
       letter-spacing: 1px;
       text-decoration: none;
+      cursor: pointer;
     }
 
     /* Hero Section */
@@ -79,7 +80,7 @@
       margin-bottom: 2rem;
     }
 
-    /* Interactive Category Switcher (Buttons) */
+    /* Interactive Category Switcher (Kasama na ang Home) */
     .category-tabs {
       display: flex;
       justify-content: center;
@@ -90,7 +91,7 @@
     }
 
     .tab-btn {
-      padding: 10px 24px;
+      padding: 10px 22px;
       border-radius: 30px;
       background: #FFFFFF;
       color: var(--text-dark);
@@ -117,14 +118,15 @@
       padding: 0 1.25rem 5rem;
     }
 
-    /* Category Sections (Hidden by default, shown via JavaScript when clicked) */
+    /* Category Sections */
     .category-section {
-      display: none; /* Naka-hide muna para malinis */
+      display: none; /* Naka-hide by default */
+      margin-bottom: 3.5rem;
       animation: fadeIn 0.4s ease-in-out;
     }
 
     .category-section.active-section {
-      display: block; /* Ito lang ang lalabas kapag pinili */
+      display: block; /* Lumalabas lang kapag pinili */
     }
 
     @keyframes fadeIn {
@@ -144,7 +146,7 @@
       color: var(--accent-color);
     }
 
-    /* Product Grid (Responsive PC & Mobile) */
+    /* Product Grid */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -261,20 +263,20 @@
       background: #FFFFFF;
     }
 
-    /* Mobile Responsive Adjustments */
+    /* Mobile Responsive */
     @media (max-width: 600px) {
       .hero { padding: 2.5rem 1rem 1.5rem; }
       .hero h1 { font-size: 1.8rem; }
       .product-grid { grid-template-columns: 1fr; }
-      .tab-btn { padding: 8px 16px; font-size: 0.825rem; }
+      .tab-btn { padding: 8px 14px; font-size: 0.825rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Minimalist Header (Wala nang cluttered navigation) -->
+  <!-- Minimalist Header (Clicking logo goes back to Home) -->
   <header>
-    <a href="#" class="logo">BEAUTY VAULT</a>
+    <a onclick="switchCategory('home', document.querySelector('.tab-btn'))" class="logo">BEAUTY VAULT</a>
   </header>
 
   <!-- Hero Section -->
@@ -282,9 +284,10 @@
     <h1>Curated Makeup & Beauty</h1>
     <p>Explore handpicked essentials organized cleanly by category.</p>
     
-    <!-- Interactive Switcher Buttons -->
+    <!-- Navigation Tabs (Home + Categories) -->
     <div class="category-tabs">
-      <button class="tab-btn active" onclick="switchCategory('face', this)">✨ Face</button>
+      <button class="tab-btn active" onclick="switchCategory('home', this)">🏠 Home / All</button>
+      <button class="tab-btn" onclick="switchCategory('face', this)">✨ Face</button>
       <button class="tab-btn" onclick="switchCategory('eyes', this)">👁️ Eyes</button>
       <button class="tab-btn" onclick="switchCategory('lips', this)">💄 Lips</button>
     </div>
@@ -293,8 +296,72 @@
   <!-- Main Content Area -->
   <main class="container">
 
+    <!-- HOME / ALL SECTION (Lahat ay lalabas dito kapag pinindot ang Home) -->
+    <div id="home" class="category-section active-section">
+      <div class="section-header">
+        <h2 class="section-title">Featured All Recommendations</h2>
+      </div>
+      <div class="product-grid">
+        <!-- Face Item 1 -->
+        <div class="product-card">
+          <span class="badge">Bestseller</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Maybelline</span>
+            <h3 class="product-title">Fit Me Matte + Poreless Foundation</h3>
+            <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Face Item 2 -->
+        <div class="product-card">
+          <span class="badge">Must Have</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Face Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">e.l.f. Cosmetics</span>
+            <h3 class="product-title">Power Grip Primer</h3>
+            <p class="product-desc">Gel-based primer that grips makeup for all-day wear with a smooth finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Eye Item 1 -->
+        <div class="product-card">
+          <span class="badge">Viral</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Eye Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">L'Oréal Paris</span>
+            <h3 class="product-title">Lash Paradise Mascara</h3>
+            <p class="product-desc">Voluptuous volume and intense length with an ultra-soft brush.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Lip Item 1 -->
+        <div class="product-card">
+          <span class="badge">Top Pick</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Lip Product">
+          </div>
+          <div class="product-details">
+            <span class="brand">Fenty Beauty</span>
+            <h3 class="product-title">Gloss Bomb Universal Lip Luminizer</h3>
+            <p class="product-desc">Explosive shine with a conditioning formula that nourishes lips.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- FACE SECTION -->
-    <div id="face" class="category-section active-section">
+    <div id="face" class="category-section">
       <div class="section-header">
         <h2 class="section-title">Face Essentials</h2>
       </div>
@@ -400,7 +467,7 @@
     <p>&copy; 2026 Beauty Vault. All links redirect to official product pages.</p>
   </footer>
 
-  <!-- JavaScript para sa pag-switch ng Sections nang hindi nagre-reload ang page -->
+  <!-- JavaScript para sa pag-switch ng Home / Sections -->
   <script>
     function switchCategory(categoryId, buttonElement) {
       // Itago lahat ng sections
@@ -411,7 +478,7 @@
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // Ipakita ang piniling section at lagyan ng active class ang pinindot na button
+      // Ipakita ang piniling section at lagyan ng active class ang pinindot
       document.getElementById(categoryId).classList.add('active-section');
       buttonElement.classList.add('active');
     }
