@@ -18,13 +18,13 @@
       --text-dark: #2B2B2B;          /* Dark Charcoal Text */
       --text-muted: #666666;         /* Secondary Text */
       --border-color: #EFE6E2;       /* Delicate Border */
-      --radius: 14px;
+      --radius: 12px;
       --shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
       --shadow-hover: 0 10px 25px rgba(212, 140, 149, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-dark); line-height: 1.5; }
 
     /* Minimalist Header (Logo Only) */
     header {
@@ -50,7 +50,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 3.5rem 1.25rem 2rem;
+      padding: 3rem 1.25rem 2rem;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -65,25 +65,24 @@
     .hero p {
       color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
 
     /* Category Choice Buttons (Below All Beauty Essentials) */
     .category-choices {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 1rem;
     }
 
     .choice-btn {
-      padding: 10px 24px;
+      padding: 9px 22px;
       border-radius: 30px;
       background: #FFFFFF;
       color: var(--text-dark);
       border: 1px solid var(--border-color);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
@@ -95,28 +94,27 @@
       color: white;
       border-color: var(--accent-color);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
     }
 
     /* Main Product Grid Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1.25rem 5rem;
+      padding: 1.5rem 1.25rem 5rem;
     }
 
     /* Sub-section Headers with Clickable Links */
     .section-block {
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
 
     .section-header-link {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
     }
 
     .section-title-link {
@@ -136,18 +134,13 @@
       font-weight: 600;
       color: var(--accent-color);
       text-decoration: none;
-      transition: opacity 0.3s ease;
     }
 
-    .view-all-link:hover {
-      opacity: 0.7;
-    }
-
-    /* Responsive Grid for PC and Mobile */
+    /* PC / Desktop Grid Layout */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
     }
 
     .product-card {
@@ -169,21 +162,21 @@
 
     .badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       background: var(--primary-color);
       color: white;
-      font-size: 0.65rem;
+      font-size: 0.625rem;
       font-weight: 600;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 50px;
       z-index: 10;
     }
 
     .img-container {
       width: 100%;
-      height: 230px;
+      height: 220px;
       background-color: #FAF5F5;
       overflow: hidden;
     }
@@ -200,32 +193,33 @@
     }
 
     .product-details {
-      padding: 1.2rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
     .brand {
-      font-size: 0.725rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       color: var(--primary-color);
       font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
     }
 
     .product-title {
-      font-size: 0.98rem;
+      font-size: 0.925rem;
       font-weight: 600;
       color: var(--text-dark);
       margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .product-desc {
-      font-size: 0.825rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       flex-grow: 1;
     }
 
@@ -233,11 +227,11 @@
       display: block;
       width: 100%;
       text-align: center;
-      padding: 11px 0;
+      padding: 9px 0;
       background: var(--accent-color);
       color: white;
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       text-decoration: none;
       border-radius: 8px;
       transition: background 0.3s ease;
@@ -256,11 +250,80 @@
       background: #FFFFFF;
     }
 
+    /* 📱 MOBILE OPTIMIZATION (600px & below) */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .product-grid { grid-template-columns: 1fr; }
-      .choice-btn { padding: 8px 18px; font-size: 0.825rem; }
-      .section-title-link { font-size: 1.4rem; }
+      .hero {
+        padding: 2rem 1rem 1.25rem;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p {
+        font-size: 0.875rem;
+      }
+
+      .choice-btn {
+        padding: 7px 16px;
+        font-size: 0.8rem;
+      }
+
+      .section-title-link {
+        font-size: 1.3rem;
+      }
+
+      .view-all-link {
+        font-size: 0.75rem;
+      }
+
+      /* 🌟 ETO ANG DALAWA (2) SA ISANG ROW SA MOBILE 🌟 */
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem; /* Mas maliit na gap para kasya */
+      }
+
+      .container {
+        padding: 1rem 0.75rem 4rem; /* Mas maliit na margin/padding sa gilid */
+      }
+
+      .img-container {
+        height: 160px; /* Inadjust ang height ng image para maganda ang proportion sa 2 cards */
+      }
+
+      .product-details {
+        padding: 0.75rem;
+      }
+
+      .brand {
+        font-size: 0.65rem;
+      }
+
+      .product-title {
+        font-size: 0.825rem;
+        margin-bottom: 4px;
+      }
+
+      .product-desc {
+        font-size: 0.725rem;
+        margin-bottom: 0.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 2 lines lang ang lalabas para di masyadong mahaba ang card */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .cta-button {
+        padding: 7px 0;
+        font-size: 0.775rem;
+      }
+
+      .badge {
+        font-size: 0.55rem;
+        padding: 2px 6px;
+        top: 6px;
+        left: 6px;
+      }
     }
   </style>
 </head>
@@ -290,9 +353,8 @@
     <!-- 1. FACE SECTION -->
     <section class="section-block">
       <div class="section-header-link">
-        <!-- CLICKING TITLE OR LINK DIRECTS TO face.html -->
         <a href="face.html" class="section-title-link">✨ Face Collection</a>
-        <a href="face.html" class="view-all-link">See All Face →</a>
+        <a href="face.html" class="view-all-link">See All →</a>
       </div>
 
       <div class="product-grid">
@@ -303,7 +365,7 @@
           </div>
           <div class="product-details">
             <span class="brand">Maybelline</span>
-            <h3 class="product-title">Fit Me Matte + Poreless Foundation</h3>
+            <h3 class="product-title">Fit Me Matte Foundation</h3>
             <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
             <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
@@ -327,9 +389,8 @@
     <!-- 2. EYES SECTION -->
     <section class="section-block">
       <div class="section-header-link">
-        <!-- CLICKING TITLE OR LINK DIRECTS TO eyes.html -->
         <a href="eyes.html" class="section-title-link">👁️ Eyes Collection</a>
-        <a href="eyes.html" class="view-all-link">See All Eyes →</a>
+        <a href="eyes.html" class="view-all-link">See All →</a>
       </div>
 
       <div class="product-grid">
@@ -352,7 +413,7 @@
           </div>
           <div class="product-details">
             <span class="brand">NYX Professional</span>
-            <h3 class="product-title">Epic Ink Liquid Eyeliner</h3>
+            <h3 class="product-title">Epic Ink Eyeliner</h3>
             <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip for sharp wings.</p>
             <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
@@ -363,9 +424,8 @@
     <!-- 3. LIPS SECTION -->
     <section class="section-block">
       <div class="section-header-link">
-        <!-- CLICKING TITLE OR LINK DIRECTS TO lips.html -->
         <a href="lips.html" class="section-title-link">💄 Lips Collection</a>
-        <a href="lips.html" class="view-all-link">See All Lips →</a>
+        <a href="lips.html" class="view-all-link">See All →</a>
       </div>
 
       <div class="product-grid">
@@ -376,7 +436,7 @@
           </div>
           <div class="product-details">
             <span class="brand">Fenty Beauty</span>
-            <h3 class="product-title">Gloss Bomb Universal Lip Luminizer</h3>
+            <h3 class="product-title">Gloss Bomb Lip Gloss</h3>
             <p class="product-desc">Explosive shine with a conditioning formula that nourishes lips.</p>
             <a href="#" class="cta-button" target="_blank">View Product</a>
           </div>
