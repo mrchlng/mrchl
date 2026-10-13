@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glow & Elegance | Curated Beauty Favorites</title>
+  <title>Curated Beauty Recommendations</title>
   
-  <!-- Modern Fonts (Playfair Display for headings, Poppins for text) -->
+  <!-- Modern & Luxury Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Variables for Easy Theme Tweaks */
+    /* Color Palette & Variables */
     :root {
-      --bg-color: #FAF7F5;          /* Soft Off-White/Cream Background */
-      --card-bg: #FFFFFF;           /* Clean White for Product Cards */
-      --primary-color: #D48C95;      /* Soft Rose Gold / Dusty Pink */
-      --accent-color: #8C4A52;       /* Deeper Rose Accent */
-      --text-dark: #2B2B2B;          /* Dark Charcoal Text for Easy Reading */
-      --text-muted: #666666;         /* Secondary Text Color */
-      --border-color: #EFE6E2;       /* Subtle Border */
-      --radius: 12px;                /* Smooth Rounded Corners */
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft Modern Shadow */
+      --bg-color: #FAF7F5;          /* Soft Off-White / Cream */
+      --card-bg: #FFFFFF;           /* Clean White */
+      --primary-color: #D48C95;      /* Soft Dusty Rose */
+      --accent-color: #8C4A52;       /* Elegant Deep Rose */
+      --text-dark: #2B2B2B;          /* Dark Charcoal Text */
+      --text-muted: #666666;         /* Soft Gray Text */
+      --border-color: #EFE6E2;       /* Delicate Border Color */
+      --radius: 14px;                /* Smooth Rounded Corners */
+      --shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
       --shadow-hover: 0 10px 25px rgba(212, 140, 149, 0.2);
     }
 
@@ -31,6 +31,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth; /* Para swabeng mag-scroll sa bawat section */
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--bg-color);
@@ -38,14 +42,15 @@
       line-height: 1.6;
     }
 
-    /* Header Section */
+    /* Sticky Navigation Header */
     header {
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
     .nav-container {
@@ -61,43 +66,45 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: var(--accent-color);
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
-    .category-pills {
+    .nav-links {
       display: flex;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .pill {
-      padding: 6px 16px;
-      border-radius: 20px;
+    .nav-btn {
+      padding: 8px 18px;
+      border-radius: 30px;
       background: var(--bg-color);
       color: var(--text-dark);
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 500;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
     }
 
-    .pill.active, .pill:hover {
+    .nav-btn:hover {
       background: var(--primary-color);
       color: white;
+      border-color: var(--primary-color);
     }
 
-    /* Hero Section */
+    /* Hero Banner */
     .hero {
       text-align: center;
-      padding: 3.5rem 1rem 2.5rem;
+      padding: 4rem 1.5rem 3rem;
       max-width: 800px;
       margin: 0 auto;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       color: var(--accent-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
     }
 
     .hero p {
@@ -105,20 +112,49 @@
       font-size: 1rem;
     }
 
-    /* Organized Grid Layout */
+    /* Main Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem 4rem;
+      padding: 0 1.5rem 5rem;
     }
 
+    /* Category Section Styles */
+    .category-section {
+      margin-bottom: 4rem;
+      padding-top: 1rem; /* Offset for smooth scroll */
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 1.8rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    /* Product Grid Layout */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem;
     }
 
-    /* Product Cards */
+    /* Product Card Design */
     .product-card {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -132,7 +168,7 @@
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
     }
 
@@ -142,7 +178,7 @@
       left: 12px;
       background: var(--primary-color);
       color: white;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       padding: 4px 10px;
@@ -153,12 +189,9 @@
 
     .img-container {
       width: 100%;
-      height: 250px;
-      background-color: #F8F8F8;
+      height: 240px;
+      background-color: #FAF5F5;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .img-container img {
@@ -169,7 +202,7 @@
     }
 
     .product-card:hover .img-container img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .product-details {
@@ -211,7 +244,7 @@
       background: var(--accent-color);
       color: white;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       text-decoration: none;
       border-radius: 8px;
       transition: background 0.3s ease;
@@ -224,106 +257,201 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
       border-top: 1px solid var(--border-color);
       color: var(--text-muted);
       font-size: 0.85rem;
       background: #FFFFFF;
     }
 
-    /* Responsive adjustment for Mobile */
+    /* Responsive Design for Mobile */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .category-pills { display: none; } /* Pinapadali ang layout sa mobile */
+      .hero h1 { font-size: 2rem; }
+      .nav-links { gap: 6px; }
+      .nav-btn { font-size: 0.75rem; padding: 6px 12px; }
+      .section-title { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Section -->
+  <!-- Navigation Header -->
   <header>
     <div class="nav-container">
       <div class="logo">BEAUTY VAULT</div>
-      <div class="category-pills">
-        <a href="#" class="pill active">All</a>
-        <a href="#" class="pill">Face</a>
-        <a href="#" class="pill">Lips</a>
-        <a href="#" class="pill">Skincare</a>
-      </div>
+      <nav class="nav-links">
+        <a href="#face" class="nav-btn">Face</a>
+        <a href="#eyes" class="nav-btn">Eyes</a>
+        <a href="#lips" class="nav-btn">Lips</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Curated Beauty Essentials</h1>
-    <p>Handpicked makeup and skincare recommendations for an effortless everyday glow.</p>
+    <h1>The Ultimate Beauty Edit</h1>
+    <p>Discover handpicked, highly recommended beauty picks organized just for you.</p>
   </section>
 
-  <!-- Product Showcase Grid -->
+  <!-- Content Container -->
   <main class="container">
-    <div class="product-grid">
 
-      <!-- Product Card 1 -->
-      <div class="product-card">
-        <span class="badge">Bestseller</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <span class="brand">Glow Recipe</span>
-          <h2 class="product-title">Dewy Skin Primer & Serum</h2>
-          <p class="product-desc">Creates a smooth, hydrated base while leaving a natural radiant finish.</p>
-          <a href="#" class="cta-button" target="_blank">Shop Now</a>
-        </div>
+    <!-- SECTION 1: FACE -->
+    <section id="face" class="category-section">
+      <div class="section-header">
+        <h2 class="section-title">✨ Face Favorites</h2>
+        <div class="section-line"></div>
       </div>
 
-      <!-- Product Card 2 -->
-      <div class="product-card">
-        <span class="badge">Must Have</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
+      <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <span class="badge">Bestseller</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">Maybelline</span>
+            <h3 class="product-title">Fit Me Matte + Poreless Foundation</h3>
+            <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
-        <div class="product-details">
-          <span class="brand">Rare Beauty</span>
-          <h2 class="product-title">Soft Pinch Liquid Blush</h2>
-          <p class="product-desc">Weightless, long-lasting formula that blends smoothly for a soft flush.</p>
-          <a href="#" class="cta-button" target="_blank">Shop Now</a>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+          <span class="badge">Must Have</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">e.l.f. Cosmetics</span>
+            <h3 class="product-title">Power Grip Primer</h3>
+            <p class="product-desc">Gel-based primer that grips makeup for all-day wear with a soft-focus finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">Rare Beauty</span>
+            <h3 class="product-title">Soft Pinch Liquid Blush</h3>
+            <p class="product-desc">Weightless, long-lasting liquid blush that blends effortlessly.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Product Card 3 -->
-      <div class="product-card">
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
-        </div>
-        <div class="product-details">
-          <span class="brand">Maybelline</span>
-          <h2 class="product-title">Matte + Poreless Foundation</h2>
-          <p class="product-desc">Lightweight liquid foundation that refines pores and leaves a natural finish.</p>
-          <a href="#" class="cta-button" target="_blank">Shop Now</a>
-        </div>
+    <!-- SECTION 2: EYES -->
+    <section id="eyes" class="category-section">
+      <div class="section-header">
+        <h2 class="section-title">👁️ Eyes Must-Haves</h2>
+        <div class="section-line"></div>
       </div>
 
-      <!-- Product Card 4 -->
-      <div class="product-card">
-        <span class="badge">Trending</span>
-        <div class="img-container">
-          <img src="https://via.placeholder.com/300x300" alt="Product Image">
+      <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <span class="badge">Viral</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">L'Oréal Paris</span>
+            <h3 class="product-title">Lash Paradise Mascara</h3>
+            <p class="product-desc">Voluptuous volume and intense length with an ultra-soft feather brush.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
-        <div class="product-details">
-          <span class="brand">Fenty Beauty</span>
-          <h2 class="product-title">Gloss Bomb Universal Lip Luminizer</h2>
-          <p class="product-desc">The ultimate gotta-have-it lip gloss with explosive shine that feels good.</p>
-          <a href="#" class="cta-button" target="_blank">Shop Now</a>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">NYX Professional</span>
+            <h3 class="product-title">Epic Ink Liquid Eyeliner</h3>
+            <p class="product-desc">Waterproof liquid eyeliner with a precise felt tip for seamless wings.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">Urban Decay</span>
+            <h3 class="product-title">Naked Mini Eyeshadow Palette</h3>
+            <p class="product-desc">Richly pigmented neutral shades designed for versatile everyday looks.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
+    <!-- SECTION 3: LIPS -->
+    <section id="lips" class="category-section">
+      <div class="section-header">
+        <h2 class="section-title">💄 Lip Essentials</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <span class="badge">Top Pick</span>
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">Fenty Beauty</span>
+            <h3 class="product-title">Gloss Bomb Lip Luminizer</h3>
+            <p class="product-desc">Explosive shine with a conditioning formula that nourishes lips.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">Rom&nd</span>
+            <h3 class="product-title">Juicy Lasting Lip Tint</h3>
+            <p class="product-desc">Shine of a gloss with the durability of a stain for a plush glow.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="img-container">
+            <img src="https://via.placeholder.com/300x300" alt="Product Image">
+          </div>
+          <div class="product-details">
+            <span class="brand">MAC Cosmetics</span>
+            <h3 class="product-title">Matte Lipstick</h3>
+            <p class="product-desc">Iconic rich formula with high color payoff and a smooth matte finish.</p>
+            <a href="#" class="cta-button" target="_blank">View Product</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Beauty Vault. All product links redirect to official retailers.</p>
+    <p>&copy; 2026 Beauty Vault. All links redirect to official product pages.</p>
   </footer>
 
 </body>
