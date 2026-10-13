@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curated Beauty Edit</title>
+  <title>Glow & Elegance | Beauty Edit</title>
   
-  <!-- Modern & Elegant Google Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Global Color Variables */
     :root {
-      --bg-color: #FAF7F5;          /* Soft Off-White Background */
-      --card-bg: #FFFFFF;           /* Pure White for Product Cards */
-      --primary-color: #D48C95;      /* Soft Rose Gold */
-      --accent-color: #8C4A52;       /* Deep Rose Accent */
-      --text-dark: #2B2B2B;          /* Dark Charcoal Text */
-      --text-muted: #666666;         /* Subtle Muted Text */
-      --border-color: #EFE6E2;       /* Soft Light Border */
-      --radius: 14px;                /* Card Corner Radius */
+      --bg-color: #FAF7F5;
+      --card-bg: #FFFFFF;
+      --primary-color: #D48C95;
+      --accent-color: #8C4A52;
+      --text-dark: #2B2B2B;
+      --text-muted: #666666;
+      --border-color: #EFE6E2;
+      --radius: 14px;
       --shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
       --shadow-hover: 0 10px 25px rgba(212, 140, 149, 0.2);
     }
@@ -31,35 +30,23 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-dark);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* Sticky Navigation Header */
+    /* Minimalist Header (Wala nang face, eyes, lips) */
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
-      padding: 1rem 1.5rem;
+      padding: 1.2rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
     }
 
     .logo {
@@ -67,37 +54,14 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--accent-color);
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .nav-btn {
-      padding: 6px 16px;
-      border-radius: 30px;
-      background: var(--bg-color);
-      color: var(--text-dark);
+      letter-spacing: 1px;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-color);
-      white-space: nowrap;
-    }
-
-    .nav-btn:hover, .nav-btn:active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 3rem 1.25rem 2rem;
+      padding: 3.5rem 1.25rem 2rem;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -107,31 +71,68 @@
       font-size: 2.4rem;
       color: var(--accent-color);
       margin-bottom: 0.6rem;
-      line-height: 1.2;
     }
 
     .hero p {
       color: var(--text-muted);
       font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Interactive Category Switcher (Buttons) */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 30px;
+      background: #FFFFFF;
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
     }
 
     /* Main Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.25rem 4rem;
+      padding: 0 1.25rem 5rem;
     }
 
-    /* Category Section Styles */
+    /* Category Sections (Hidden by default, shown via JavaScript when clicked) */
     .category-section {
-      margin-bottom: 3.5rem;
-      scroll-margin-top: 80px; /* Ino-offset ang sticky header kapag nag-scroll sa button */
+      display: none; /* Naka-hide muna para malinis */
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .category-section.active-section {
+      display: block; /* Ito lang ang lalabas kapag pinili */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
       margin-bottom: 1.5rem;
       border-bottom: 2px solid var(--border-color);
       padding-bottom: 0.6rem;
@@ -141,17 +142,16 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.75rem;
       color: var(--accent-color);
-      white-space: nowrap;
     }
 
-    /* Fully Responsive Grid Layout (PC to Mobile) */
+    /* Product Grid (Responsive PC & Mobile) */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
-    /* Product Card Styling */
+    /* Product Card */
     .product-card {
       background: var(--card-bg);
       border-radius: var(--radius);
@@ -175,7 +175,7 @@
       left: 12px;
       background: var(--primary-color);
       color: white;
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       padding: 4px 10px;
@@ -186,7 +186,7 @@
 
     .img-container {
       width: 100%;
-      height: 230px;
+      height: 240px;
       background-color: #FAF5F5;
       overflow: hidden;
     }
@@ -203,7 +203,7 @@
     }
 
     .product-details {
-      padding: 1.2rem;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -219,7 +219,7 @@
     }
 
     .product-title {
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-dark);
       margin-bottom: 6px;
@@ -254,89 +254,50 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       border-top: 1px solid var(--border-color);
       color: var(--text-muted);
       font-size: 0.825rem;
       background: #FFFFFF;
     }
 
-    /* SPECIFIC MOBILE OPTIMIZATIONS (Screen width 600px below) */
+    /* Mobile Responsive Adjustments */
     @media (max-width: 600px) {
-      header {
-        padding: 0.8rem 1rem;
-      }
-
-      .logo {
-        font-size: 1.25rem;
-      }
-
-      .nav-links {
-        gap: 6px;
-      }
-
-      .nav-btn {
-        font-size: 0.75rem;
-        padding: 5px 12px;
-      }
-
-      .hero {
-        padding: 2rem 1rem 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 1.75rem;
-      }
-
-      .hero p {
-        font-size: 0.875rem;
-      }
-
-      .section-title {
-        font-size: 1.4rem;
-      }
-
-      /* Single column layout sa mobile para malinis at hindi masikip */
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-      }
-
-      .img-container {
-        height: 250px; /* Bahagyang mas mataas ang picture sa phone para malinaw ang detalye */
-      }
+      .hero { padding: 2.5rem 1rem 1.5rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .product-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 8px 16px; font-size: 0.825rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Navigation -->
+  <!-- Minimalist Header (Wala nang cluttered navigation) -->
   <header>
-    <div class="nav-container">
-      <div class="logo">BEAUTY VAULT</div>
-      <nav class="nav-links">
-        <a href="#face" class="nav-btn">Face</a>
-        <a href="#eyes" class="nav-btn">Eyes</a>
-        <a href="#lips" class="nav-btn">Lips</a>
-      </nav>
-    </div>
+    <a href="#" class="logo">BEAUTY VAULT</a>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Curated Beauty Favorites</h1>
-    <p>Explore top-rated makeup recommendations for your everyday routine.</p>
+    <h1>Curated Makeup & Beauty</h1>
+    <p>Explore handpicked essentials organized cleanly by category.</p>
+    
+    <!-- Interactive Switcher Buttons -->
+    <div class="category-tabs">
+      <button class="tab-btn active" onclick="switchCategory('face', this)">✨ Face</button>
+      <button class="tab-btn" onclick="switchCategory('eyes', this)">👁️ Eyes</button>
+      <button class="tab-btn" onclick="switchCategory('lips', this)">💄 Lips</button>
+    </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main Content Area -->
   <main class="container">
 
     <!-- FACE SECTION -->
-    <section id="face" class="category-section">
+    <div id="face" class="category-section active-section">
       <div class="section-header">
-        <h2 class="section-title">✨ Face</h2>
+        <h2 class="section-title">Face Essentials</h2>
       </div>
-
       <div class="product-grid">
         <div class="product-card">
           <span class="badge">Bestseller</span>
@@ -364,14 +325,13 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- EYES SECTION -->
-    <section id="eyes" class="category-section">
+    <div id="eyes" class="category-section">
       <div class="section-header">
-        <h2 class="section-title">👁️ Eyes</h2>
+        <h2 class="section-title">Eyes Must-Haves</h2>
       </div>
-
       <div class="product-grid">
         <div class="product-card">
           <span class="badge">Viral</span>
@@ -398,14 +358,13 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- LIPS SECTION -->
-    <section id="lips" class="category-section">
+    <div id="lips" class="category-section">
       <div class="section-header">
-        <h2 class="section-title">💄 Lips</h2>
+        <h2 class="section-title">Lip Essentials</h2>
       </div>
-
       <div class="product-grid">
         <div class="product-card">
           <span class="badge">Top Pick</span>
@@ -432,7 +391,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
   </main>
 
@@ -440,6 +399,23 @@
   <footer>
     <p>&copy; 2026 Beauty Vault. All links redirect to official product pages.</p>
   </footer>
+
+  <!-- JavaScript para sa pag-switch ng Sections nang hindi nagre-reload ang page -->
+  <script>
+    function switchCategory(categoryId, buttonElement) {
+      // Itago lahat ng sections
+      const sections = document.querySelectorAll('.category-section');
+      sections.forEach(sec => sec.classList.remove('active-section'));
+
+      // Alisin ang active class sa lahat ng buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Ipakita ang piniling section at lagyan ng active class ang pinindot na button
+      document.getElementById(categoryId).classList.add('active-section');
+      buttonElement.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
